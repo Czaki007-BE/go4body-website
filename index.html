@@ -172,50 +172,23 @@
       gap: 16px;
     }
 
-    /* ── FLIP CARDS ── */
-    .flip-card {
-      height: 280px;
-      perspective: 1000px;
+    /* ── FEATURE CARDS ── */
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
       cursor: pointer;
-    }
-    .flip-card-inner {
-      position: relative; width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-
-    .flip-front, .flip-back {
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .flip-front {
-      background: var(--surface);
-      padding: 28px;
+      transition: border-color 0.2s, transform 0.15s;
       display: flex; flex-direction: column;
-      transition: border-color 0.2s;
     }
-    .flip-card:hover .flip-front { border-color: rgba(255,140,59,0.4); }
-    .flip-back {
-      background: var(--surface2);
-      transform: rotateY(180deg);
-      display: flex; align-items: center; justify-content: center;
+    .feature-card:hover {
+      border-color: rgba(255,140,59,0.4);
+      transform: translateY(-2px);
     }
-    .flip-back img.screenshot {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-    }
-    .flip-back .no-screenshot {
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-      color: var(--muted); font-size: 13px; text-align: center; padding: 24px;
-    }
-    .flip-back .no-screenshot svg { opacity: 0.3; }
-    .flip-hint {
-      margin-top: auto; font-size: 11px; color: var(--muted);
-      display: flex; align-items: center; gap: 4px;
+    .feature-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .card-hint {
+      margin-top: auto; padding-top: 16px; font-size: 11px; color: var(--muted);
+      display: flex; align-items: center; gap: 5px;
     }
 
     .feature-icon {
@@ -235,8 +208,82 @@
       width: 100%; height: 100%;
       object-fit: cover; object-position: center 15%;
     }
-    .flip-front h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-    .flip-front p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── PHONE POPUP ── */
+    .phone-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .phone-overlay.active { display: flex; }
+
+    .phone-frame {
+      position: relative;
+      width: 320px;
+      height: 660px;
+      background: #111;
+      border-radius: 48px;
+      border: 8px solid #2a2a2a;
+      box-shadow: 0 0 0 2px #444, 0 40px 80px rgba(0,0,0,0.8),
+                  inset 0 0 0 1px #333;
+      overflow: hidden;
+      animation: phoneIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes phoneIn {
+      from { transform: scale(0.7) translateY(40px); opacity: 0; }
+      to   { transform: scale(1) translateY(0);      opacity: 1; }
+    }
+
+    /* Dynamic island / notch */
+    .phone-notch {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      width: 100px; height: 28px;
+      background: #111; border-radius: 20px;
+      z-index: 10;
+    }
+    /* Side buttons */
+    .phone-frame::before {
+      content: '';
+      position: absolute; left: -12px; top: 100px;
+      width: 4px; height: 60px;
+      background: #2a2a2a; border-radius: 2px 0 0 2px;
+      box-shadow: 0 72px 0 #2a2a2a;
+    }
+    .phone-frame::after {
+      content: '';
+      position: absolute; right: -12px; top: 130px;
+      width: 4px; height: 80px;
+      background: #2a2a2a; border-radius: 0 2px 2px 0;
+    }
+
+    /* Home indicator */
+    .phone-home {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      width: 100px; height: 4px; background: #444; border-radius: 2px; z-index: 10;
+    }
+
+    .phone-screen {
+      width: 100%; height: 100%;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .phone-screen::-webkit-scrollbar { display: none; }
+    .phone-screen img {
+      width: 100%; display: block;
+    }
+
+    .phone-close {
+      position: absolute; top: -14px; right: -14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent); color: #000;
+      border: none; cursor: pointer; font-size: 18px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(255,140,59,0.5);
+      z-index: 20;
+    }
+    .phone-close:hover { background: var(--accent2); }
 
     /* ── HOW IT WORKS ── */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
@@ -353,8 +400,8 @@
         <div class="stat-label">Coach oparty na Claude (Anthropic)</div>
       </div>
       <div>
-        <div class="stat-val">13</div>
-        <div class="stat-label">Tygodni planu treningowego</div>
+        <div class="stat-val">∞</div>
+        <div class="stat-label">Plany treningowe na każdy cel</div>
       </div>
       <div>
         <div class="stat-val">HC</div>
@@ -375,91 +422,54 @@
   <p class="section-desc">Jedna aplikacja zamiast pięciu. Go4Body łączy to co dotychczas rozdzielałeś.</p>
 
   <div class="features-grid">
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-front">
-          <div class="feature-icon"><img src="assets/ic_training.png" alt="Trening" /></div>
-          <h3>Plan treningowy</h3>
-          <p>Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
-          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
-        </div>
-        <div class="flip-back">
-          <img class="screenshot" src="assets/screen_training.jpg" alt="Ekran treningu" />
-        </div>
-      </div>
+    <div class="feature-card" onclick="showPhone('assets/screen_training.jpg')">
+      <div class="feature-icon"><img src="assets/ic_training.png" alt="Trening" /></div>
+      <h3>Plan treningowy</h3>
+      <p>Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
     </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-front">
-          <div class="feature-icon ewa"><img src="assets/ic_ewa.png" alt="AI Coach Ewa" /></div>
-          <h3>AI Coach</h3>
-          <p>Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
-          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
-        </div>
-        <div class="flip-back">
-          <img class="screenshot" src="assets/screen_coach.jpg" alt="Ekran AI Coach" />
-        </div>
-      </div>
+    <div class="feature-card" onclick="showPhone('assets/screen_coach.jpg')">
+      <div class="feature-icon ewa"><img src="assets/ic_ewa.png" alt="AI Coach" /></div>
+      <h3>AI Coach</h3>
+      <p>Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
     </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-front">
-          <div class="feature-icon"><img src="assets/ic_diet.png" alt="Dieta" /></div>
-          <h3>Dieta i żywienie</h3>
-          <p>Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
-          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
-        </div>
-        <div class="flip-back">
-          <img class="screenshot" src="assets/screen_diet.jpg" alt="Ekran diety" />
-        </div>
-      </div>
+    <div class="feature-card" onclick="showPhone('assets/screen_diet.jpg')">
+      <div class="feature-icon"><img src="assets/ic_diet.png" alt="Dieta" /></div>
+      <h3>Dieta i żywienie</h3>
+      <p>Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
     </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-front">
-          <div class="feature-icon"><img src="assets/ic_health.png" alt="Health Connect" /></div>
-          <h3>Health Connect</h3>
-          <p>Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
-          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
-        </div>
-        <div class="flip-back">
-          <img class="screenshot" src="assets/screen_health.jpg" alt="Ekran Health Connect" />
-        </div>
-      </div>
+    <div class="feature-card" onclick="showPhone('assets/screen_health.jpg')">
+      <div class="feature-icon"><img src="assets/ic_health.png" alt="Health Connect" /></div>
+      <h3>Health Connect</h3>
+      <p>Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
     </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-front">
-          <div class="feature-icon"><img src="assets/ic_body.png" alt="Postęp i sylwetka" /></div>
-          <h3>Postęp i sylwetka</h3>
-          <p>Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
-          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
-        </div>
-        <div class="flip-back">
-          <img class="screenshot" src="assets/screen_body.jpg" alt="Ekran sylwetki" />
-        </div>
-      </div>
+    <div class="feature-card" onclick="showPhone('assets/screen_body.jpg')">
+      <div class="feature-icon"><img src="assets/ic_body.png" alt="Postęp i sylwetka" /></div>
+      <h3>Postęp i sylwetka</h3>
+      <p>Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
     </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner">
-        <div class="flip-front">
-          <div class="feature-icon"><img src="assets/ic_supplements.png" alt="Suplementacja" /></div>
-          <h3>Suplementacja</h3>
-          <p>Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
-          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
-        </div>
-        <div class="flip-back">
-          <img class="screenshot" src="assets/screen_supplements.jpg" alt="Ekran suplementów" />
-        </div>
-      </div>
+    <div class="feature-card" onclick="showPhone('assets/screen_supplements.jpg')">
+      <div class="feature-icon"><img src="assets/ic_supplements.png" alt="Suplementacja" /></div>
+      <h3>Suplementacja</h3>
+      <p>Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
     </div>
+  </div>
 
+  <!-- Phone popup -->
+  <div class="phone-overlay" id="phoneOverlay" onclick="hidePhone(event)">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <button class="phone-close" onclick="hidePhone()">×</button>
+      <div class="phone-screen">
+        <img id="phoneImg" src="" alt="Screenshot" />
+      </div>
+      <div class="phone-home"></div>
+    </div>
   </div>
 </section>
 
@@ -478,7 +488,7 @@
     <div class="step">
       <div class="step-num">2</div>
       <h3>Wgraj lub wygeneruj plan</h3>
-      <p>Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body na 13 tygodni.</p>
+      <p>Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
@@ -520,5 +530,23 @@
   <p>© 2026 Go4Body</p>
 </footer>
 
+<script>
+  function showPhone(src) {
+    const overlay = document.getElementById('phoneOverlay');
+    const img = document.getElementById('phoneImg');
+    img.src = src;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function hidePhone(e) {
+    if (e && e.target !== document.getElementById('phoneOverlay') && !e.target.classList.contains('phone-close')) return;
+    const overlay = document.getElementById('phoneOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') hidePhone();
+  });
+</script>
 </body>
 </html>
