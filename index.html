@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go4Body — Twój AI Trener Personalny</title>
+  <meta name="description" content="Trening, dieta i AI coach w jednym. Importuj plan od trenera, skanuj produkty, śledź postępy. Pobierz Go4Body na Android." />
+  <meta property="og:title" content="Go4Body — AI Trener Personalny" />
+  <meta property="og:description" content="Trening, dieta i AI coach w jednym. Twój plan. Twoje tempo. Twój cel." />
+  <meta property="og:image" content="https://go4body.com/assets/og-image.png" />
+  <meta property="og:url" content="https://go4body.com" />
+  <link rel="icon" href="assets/icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0E0E0E;
+      --surface:  #181818;
+      --surface2: #222222;
+      --accent:   #FF8C3B;
+      --accent2:  #E07830;
+      --text:     #F0F0F0;
+      --muted:    #888888;
+      --green:    #22C55E;
+      --border:   #2A2A2A;
+      --radius:   16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 18px; color: var(--text);
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent); color: #000 !important; font-weight: 700;
+      padding: 8px 18px; border-radius: 10px; font-size: 14px;
+    }
+    .nav-cta:hover { background: var(--accent2); text-decoration: none !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,140,59,0.12) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,140,59,0.12); border: 1px solid rgba(255,140,59,0.3);
+      border-radius: 100px; padding: 6px 16px; margin-bottom: 28px;
+      font-size: 13px; font-weight: 600; color: var(--accent);
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 72px);
+      font-weight: 900; line-height: 1.08; letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--muted); max-width: 520px; margin: 0 auto 36px;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #000; font-weight: 800;
+      padding: 14px 28px; border-radius: 14px; font-size: 16px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); text-decoration: none; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--surface2); color: var(--text); font-weight: 700;
+      padding: 14px 28px; border-radius: 14px; font-size: 16px;
+      border: 1px solid var(--border); transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: #2a2a2a; text-decoration: none; }
+    .hero-sub { margin-top: 20px; font-size: 13px; color: var(--muted); }
+
+    /* ── FEATURES ── */
+    section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 900;
+      letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .section-desc { font-size: 17px; color: var(--muted); max-width: 560px; margin-bottom: 48px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(255,140,59,0.4); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(255,140,59,0.12); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 16px;
+    }
+    .feature-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .step {
+      text-align: center; padding: 32px 20px;
+      background: var(--surface); border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--accent); color: #000; font-weight: 900; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--muted); }
+
+    /* ── STATS ── */
+    .stats-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 24px;
+    }
+    .stats-inner { max-width: 900px; margin: 0 auto; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; text-align: center; }
+    .stat-val { font-size: 42px; font-weight: 900; color: var(--accent); letter-spacing: -2px; }
+    .stat-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* ── CTA BOTTOM ── */
+    .cta-section {
+      text-align: center; padding: 100px 24px;
+      background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,140,59,0.1) 0%, transparent 70%);
+    }
+    .cta-section h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; }
+    .cta-section p { color: var(--muted); font-size: 18px; margin-bottom: 36px; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--muted); font-size: 13px;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="assets/icon.png" alt="Go4Body" onerror="this.style.display='none'" />
+    Go4Body
+  </div>
+  <div class="nav-links">
+    <a href="#features">Funkcje</a>
+    <a href="#how">Jak działa</a>
+    <a href="privacy.html">Polityka prywatności</a>
+    <a href="#download" class="nav-cta">Pobierz</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span></span> Dostępne na Android
+  </div>
+  <h1>Twój <em>AI trener</em><br/>personalny</h1>
+  <p>Trening, dieta i coaching AI w jednym miejscu. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.</p>
+  <div class="hero-btns">
+    <a href="https://play.google.com/store/apps/details?id=com.vivacoach.beta" class="btn-primary" id="download">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
+      Pobierz z Google Play
+    </a>
+    <a href="#features" class="btn-secondary">
+      Zobacz funkcje →
+    </a>
+  </div>
+  <p class="hero-sub">Bezpłatnie · Android 8.0+</p>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-inner">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-val">AI</div>
+        <div class="stat-label">Coach oparty na Claude (Anthropic)</div>
+      </div>
+      <div>
+        <div class="stat-val">13</div>
+        <div class="stat-label">Tygodni planu treningowego</div>
+      </div>
+      <div>
+        <div class="stat-val">HC</div>
+        <div class="stat-label">Integracja z Health Connect</div>
+      </div>
+      <div>
+        <div class="stat-val">PDF</div>
+        <div class="stat-label">Import planu od trenera</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-label">Funkcje</div>
+  <h2 class="section-title">Wszystko czego potrzebujesz</h2>
+  <p class="section-desc">Jedna aplikacja zamiast pięciu. Go4Body łączy to co dotychczas rozdzielałeś.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🏋️</div>
+      <h3>Plan treningowy</h3>
+      <p>Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI Coach</h3>
+      <p>Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🍎</div>
+      <h3>Dieta i żywienie</h3>
+      <p>Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💚</div>
+      <h3>Health Connect</h3>
+      <p>Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Postęp i sylwetka</h3>
+      <p>Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💊</div>
+      <h3>Suplementacja</h3>
+      <p>Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-label">Jak to działa</div>
+  <h2 class="section-title">Zacznij w 3 minuty</h2>
+  <p class="section-desc">Bez skomplikowanej konfiguracji. Od razu do działania.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Ustaw swój cel</h3>
+      <p>Powiedz aplikacji czego chcesz — budowa masy, redukcja, siła. Podaj podstawowe dane.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Wgraj lub wygeneruj plan</h3>
+      <p>Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body na 13 tygodni.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Trenuj i śledź</h3>
+      <p>Zaznaczaj posiłki, wykonuj treningi, czytaj wskazówki AI. Aplikacja robi resztę.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Obserwuj wyniki</h3>
+      <p>Skład ciała, siłownia, dieta — wszystko w jednym miejscu. Postęp który widzisz.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Gotowy zacząć?</h2>
+  <p>Pobierz Go4Body za darmo i zacznij dzisiaj.</p>
+  <a href="https://play.google.com/store/apps/details?id=com.vivacoach.beta" class="btn-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
+    Pobierz z Google Play
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">Polityka Prywatności</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:rodo@go4body.com">Kontakt</a>
+  </div>
+  <p>© 2026 Go4Body · APD Charles Nowacki · <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
+</footer>
+
+</body>
+</html>

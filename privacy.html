@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Go4Body</title>
+  <link rel="icon" href="assets/icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0E0E0E; --surface: #181818; --accent: #FF8C3B;
+      --text: #F0F0F0; --muted: #888888; --border: #2A2A2A;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(14,14,14,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 18px; color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-back { color: var(--accent); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav-back:hover { text-decoration: underline; }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+
+    .lang-switch {
+      display: flex; gap: 8px; margin-bottom: 32px;
+    }
+    .lang-btn {
+      padding: 6px 16px; border-radius: 8px; font-size: 13px;
+      font-weight: 700; cursor: pointer; border: 1px solid var(--border);
+      background: var(--surface); color: var(--muted); transition: all 0.2s;
+    }
+    .lang-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+    .policy-block { display: none; }
+    .policy-block.active { display: block; }
+
+    h1 { font-size: 36px; font-weight: 900; letter-spacing: -1px; margin-bottom: 8px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 40px; }
+    .meta span { margin-right: 16px; }
+
+    h2 {
+      font-size: 20px; font-weight: 800; margin-top: 40px; margin-bottom: 12px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+      color: var(--accent);
+    }
+    h3 { font-size: 16px; font-weight: 700; margin-top: 20px; margin-bottom: 8px; }
+    p { font-size: 15px; color: #ccc; margin-bottom: 14px; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    li { font-size: 15px; color: #ccc; margin-bottom: 6px; }
+    strong { color: var(--text); }
+    a { color: var(--accent); }
+
+    .warning-box {
+      background: rgba(255,140,59,0.08); border: 1px solid rgba(255,140,59,0.3);
+      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+    }
+    .warning-box p { margin: 0; }
+
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { text-align: left; padding: 10px 12px; background: var(--surface); font-size: 13px; font-weight: 700; color: var(--muted); border: 1px solid var(--border); }
+    td { padding: 10px 12px; font-size: 14px; color: #ccc; border: 1px solid var(--border); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/icon.png" alt="Go4Body" onerror="this.style.display='none'" />
+    Go4Body
+  </a>
+  <a href="index.html" class="nav-back">← Wróć do strony głównej</a>
+</nav>
+
+<div class="container">
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="switchLang('pl')">🇵🇱 Polski</button>
+    <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
+  </div>
+
+  <!-- POLISH -->
+  <div class="policy-block active" id="lang-pl">
+    <h1>Polityka Prywatności</h1>
+    <div class="meta">
+      <span>Wersja: 1.0</span>
+      <span>Data wejścia w życie: 2026-06-14</span>
+      <span>Ostatnia aktualizacja: 2026-06-14</span>
+    </div>
+
+    <h2>1. Administrator danych</h2>
+    <p>Go4Body jest aplikacją mobilną do zarządzania treningami, żywieniem i zdrowiem, dostępną na urządzeniach z systemem Android.</p>
+    <p>Operatorem Aplikacji i administratorem danych osobowych jest: <strong>APD Charles Nowacki</strong><br/>Kontakt: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
+    <p>Korzystając z Aplikacji, akceptujesz niniejszą Politykę w całości.</p>
+
+    <h2>2. ⚠️ Ważne — Disclaimer AI</h2>
+    <div class="warning-box">
+      <p><strong>Go4Body wykorzystuje sztuczną inteligencję (AI) do generowania planów treningowych, planów żywieniowych i wskazówek coachingowych.</strong></p>
+    </div>
+    <ul>
+      <li><strong>AI może się mylić.</strong> Wskazówki generowane przez AI mają charakter informacyjny i mogą nie być w pełni dokładne.</li>
+      <li><strong>AI nie zastępuje specjalisty.</strong> Porady AI nie stanowią konsultacji medycznej, dietetycznej ani fizjoterapeutycznej.</li>
+      <li>Przed zmianą diety, suplementacji lub planu treningowego — skonsultuj się z lekarzem lub certyfikowanym trenerem.</li>
+      <li>Operator nie ponosi odpowiedzialności za skutki zdrowotne wynikające ze stosowania rekomendacji AI bez weryfikacji przez specjalistę.</li>
+    </ul>
+
+    <h2>3. Zbierane dane</h2>
+    <h3>3.1 Dane podane przez użytkownika</h3>
+    <ul>
+      <li><strong>Dane konta:</strong> adres e-mail, hasło (w formie zaszyfrowanej)</li>
+      <li><strong>Dane osobowe i fizyczne:</strong> imię/pseudonim, płeć, wiek, wzrost, waga, waga docelowa</li>
+      <li><strong>Dane stylu życia:</strong> poziom aktywności, preferencje treningowe, dni treningowe w tygodniu</li>
+      <li><strong>Dane zdrowotne:</strong> aktualna waga, pomiary ciała, % tkanki tłuszczowej, zdjęcia sylwetki</li>
+      <li><strong>Dane żywieniowe:</strong> spożyte posiłki, kalorie, makroskładniki, nawodnienie</li>
+      <li><strong>Dane treningowe:</strong> wykonane ćwiczenia, serie, powtórzenia, czas trwania</li>
+    </ul>
+    <h3>3.2 Dane zbierane automatycznie</h3>
+    <ul>
+      <li>Dane z Health Connect (kroki, sen, tętno, waga, % tłuszczu) — wyłącznie po wyrażeniu zgody</li>
+      <li>Techniczne dane urządzenia: wersja systemu, model urządzenia (do diagnostyki)</li>
+      <li>Logi błędów aplikacji</li>
+    </ul>
+
+    <h2>4. Cel i podstawa prawna przetwarzania</h2>
+    <p><strong>Dane NIE są sprzedawane ani udostępniane osobom trzecim w celach marketingowych.</strong></p>
+    <table>
+      <tr><th>Cel</th><th>Podstawa prawna</th></tr>
+      <tr><td>Świadczenie usług Aplikacji</td><td>Wykonanie umowy (Art. 6(1)(b) RODO)</td></tr>
+      <tr><td>Personalizacja planów przez AI</td><td>Wykonanie umowy + zgoda</td></tr>
+      <tr><td>Generowanie wskazówek coachingowych</td><td>Wykonanie umowy + zgoda</td></tr>
+      <tr><td>Diagnostyka błędów</td><td>Uzasadniony interes</td></tr>
+    </table>
+
+    <h2>5. Przechowywanie i bezpieczeństwo danych</h2>
+    <ul>
+      <li>Dane przechowywane są na serwerach <strong>Supabase</strong> (infrastruktura EU)</li>
+      <li>Hasła przechowywane wyłącznie w formie zaszyfrowanej (bcrypt)</li>
+      <li>Połączenia szyfrowane protokołem HTTPS/TLS</li>
+      <li>Dane zdrowotne przechowywane oddzielnie z rozszerzoną ochroną</li>
+      <li>Dane przechowywane przez czas korzystania z konta i przez <strong>2 lata</strong> po jego usunięciu</li>
+    </ul>
+
+    <h2>6. Prawa użytkownika (RODO)</h2>
+    <ul>
+      <li><strong>Dostęp</strong> — wgląd w dane osobowe</li>
+      <li><strong>Sprostowanie</strong> — korekta nieprawidłowych danych</li>
+      <li><strong>Usunięcie</strong> — żądanie usunięcia konta i wszystkich danych</li>
+      <li><strong>Przenośność danych</strong> — otrzymanie danych w formacie CSV/JSON</li>
+      <li><strong>Sprzeciw</strong> — wobec przetwarzania opartego na uzasadnionym interesie</li>
+    </ul>
+    <p>Kontakt w celu realizacji praw: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
+    <p>Masz również prawo złożyć skargę do UODO (ul. Stawki 2, 00-193 Warszawa).</p>
+
+    <h2>7. Health Connect (Android)</h2>
+    <ul>
+      <li>Integracja z Health Connect jest opcjonalna</li>
+      <li>Dane Health Connect synchronizowane wyłącznie po wyrażeniu zgody</li>
+      <li>Dane zdrowotne NIE są przekazywane do zewnętrznych serwerów AI</li>
+      <li>Zgodę można wycofać w ustawieniach systemu Android</li>
+    </ul>
+
+    <h2>8. Subskrypcja Premium</h2>
+    <ul>
+      <li>Plan Premium rozliczany cyklicznie przez <strong>Google Play</strong></li>
+      <li>Subskrypcję można anulować w dowolnym momencie przez Google Play → Subskrypcje</li>
+      <li>Operator nie przetwarza danych płatniczych bezpośrednio</li>
+    </ul>
+
+    <h2>9. Dzieci</h2>
+    <p>Go4Body przeznaczone jest dla użytkowników w wieku <strong>16 lat i więcej</strong>.</p>
+
+    <h2>10. Zmiany Polityki</h2>
+    <p>O istotnych zmianach Polityki użytkownicy będą informowani przez powiadomienie push lub komunikat przy uruchomieniu Aplikacji.</p>
+
+    <h2>11. Kontakt</h2>
+    <p><strong>Email:</strong> <a href="mailto:rodo@go4body.com">rodo@go4body.com</a><br/>
+    Czas odpowiedzi: do 14 dni roboczych</p>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="policy-block" id="lang-en">
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <span>Version: 1.0</span>
+      <span>Effective date: 2026-06-14</span>
+      <span>Last updated: 2026-06-14</span>
+    </div>
+
+    <h2>1. Data Controller</h2>
+    <p>Go4Body is a mobile application for managing workouts, nutrition, and health, available on Android devices.</p>
+    <p>The operator and data controller is: <strong>APD Charles Nowacki</strong><br/>Contact: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
+
+    <h2>2. ⚠️ Important AI Disclaimer</h2>
+    <div class="warning-box">
+      <p><strong>Go4Body uses artificial intelligence (AI) to generate training plans, nutrition plans, and coaching tips.</strong></p>
+    </div>
+    <ul>
+      <li><strong>AI can make mistakes.</strong> Tips and recommendations are for informational purposes only.</li>
+      <li><strong>AI does not replace a specialist.</strong> AI advice does not constitute medical or dietary consultation.</li>
+      <li>Consult a doctor or certified trainer before changing your diet, supplementation, or training plan.</li>
+      <li>The operator is not liable for health consequences from following AI recommendations without specialist verification.</li>
+    </ul>
+
+    <h2>3. Data We Collect</h2>
+    <h3>3.1 Data Provided by the User</h3>
+    <ul>
+      <li><strong>Account data:</strong> email address, password (encrypted)</li>
+      <li><strong>Personal data:</strong> name/nickname, gender, age, height, weight, target weight</li>
+      <li><strong>Health data:</strong> weight, body measurements, body fat %, progress photos</li>
+      <li><strong>Nutrition data:</strong> meals, calories, macronutrients, hydration</li>
+      <li><strong>Training data:</strong> exercises, sets, reps, duration</li>
+    </ul>
+    <h3>3.2 Data Collected Automatically</h3>
+    <ul>
+      <li>Health Connect data (steps, sleep, heart rate, weight, body fat) — only after user consent</li>
+      <li>Device technical data for diagnostics</li>
+      <li>App error logs</li>
+    </ul>
+
+    <h2>4. Purpose and Legal Basis</h2>
+    <p><strong>Data is NOT sold or shared with third parties for marketing purposes.</strong></p>
+    <table>
+      <tr><th>Purpose</th><th>Legal basis</th></tr>
+      <tr><td>Providing App services</td><td>Performance of contract (Art. 6(1)(b) GDPR)</td></tr>
+      <tr><td>Personalising plans via AI</td><td>Contract + consent</td></tr>
+      <tr><td>Error diagnostics</td><td>Legitimate interest</td></tr>
+    </table>
+
+    <h2>5. Data Storage and Security</h2>
+    <ul>
+      <li>Data stored on <strong>Supabase</strong> servers (EU infrastructure)</li>
+      <li>Passwords stored encrypted (bcrypt only)</li>
+      <li>All connections use HTTPS/TLS encryption</li>
+      <li>Data retained for account duration + <strong>2 years</strong> after deletion</li>
+    </ul>
+
+    <h2>6. User Rights (GDPR)</h2>
+    <ul>
+      <li><strong>Access</strong> — view your personal data</li>
+      <li><strong>Rectification</strong> — correct inaccurate data</li>
+      <li><strong>Erasure</strong> — request account and data deletion</li>
+      <li><strong>Portability</strong> — receive data in CSV/JSON format</li>
+      <li><strong>Objection</strong> — to processing based on legitimate interest</li>
+    </ul>
+    <p>Contact: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
+    <p>You may also lodge a complaint with your national Data Protection Authority.</p>
+
+    <h2>7. Health Connect (Android)</h2>
+    <ul>
+      <li>Health Connect integration is optional</li>
+      <li>Data synced only after explicit user consent</li>
+      <li>Health data is NOT transmitted to external AI servers</li>
+      <li>Consent can be withdrawn in Android system settings</li>
+    </ul>
+
+    <h2>8. Premium Subscription</h2>
+    <ul>
+      <li>Premium billed cyclically through <strong>Google Play</strong></li>
+      <li>Cancel anytime via Google Play → Subscriptions</li>
+      <li>Operator does not process payment data directly</li>
+    </ul>
+
+    <h2>9. Children</h2>
+    <p>Go4Body is intended for users aged <strong>16 and over</strong>.</p>
+
+    <h2>10. Policy Changes</h2>
+    <p>Users will be notified of significant changes via push notification or in-app message.</p>
+
+    <h2>11. Contact</h2>
+    <p><strong>Email:</strong> <a href="mailto:rodo@go4body.com">rodo@go4body.com</a><br/>
+    Response time: within 14 business days</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Go4Body · <a href="mailto:rodo@go4body.com">rodo@go4body.com</a> · <a href="index.html">go4body.com</a></p>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.policy-block').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
