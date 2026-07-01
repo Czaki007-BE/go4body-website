@@ -171,20 +171,64 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 16px;
     }
-    .feature-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
+
+    /* ── FLIP CARDS ── */
+    .flip-card {
+      height: 220px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative; width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+
+    .flip-front, .flip-back {
+      position: absolute; inset: 0;
+      backface-visibility: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .flip-front {
+      background: var(--surface);
+      padding: 28px;
+      display: flex; flex-direction: column;
       transition: border-color 0.2s;
     }
-    .feature-card:hover { border-color: rgba(255,140,59,0.4); }
-    .feature-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(255,140,59,0.12); display: flex;
-      align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 16px;
+    .flip-card:hover .flip-front { border-color: rgba(255,140,59,0.4); }
+    .flip-back {
+      background: var(--surface2);
+      transform: rotateY(180deg);
+      display: flex; align-items: center; justify-content: center;
     }
-    .feature-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .flip-back img.screenshot {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+    }
+    .flip-back .no-screenshot {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      color: var(--muted); font-size: 13px; text-align: center; padding: 24px;
+    }
+    .flip-back .no-screenshot svg { opacity: 0.3; }
+    .flip-hint {
+      margin-top: auto; font-size: 11px; color: var(--muted);
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(255,140,59,0.10);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; overflow: hidden;
+    }
+    .feature-icon img { width: 36px; height: 36px; object-fit: contain; }
+    .feature-icon.ewa { background: transparent; width: 56px; height: 56px; border-radius: 50%; overflow: hidden; }
+    .feature-icon.ewa img { width: 56px; height: 56px; object-fit: cover; object-position: top; }
+    .flip-front h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .flip-front p { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
     /* ── HOW IT WORKS ── */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
@@ -312,36 +356,91 @@
   <p class="section-desc">Jedna aplikacja zamiast pięciu. Go4Body łączy to co dotychczas rozdzielałeś.</p>
 
   <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🏋️</div>
-      <h3>Plan treningowy</h3>
-      <p>Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <div class="feature-icon"><img src="assets/ic_training.png" alt="Trening" /></div>
+          <h3>Plan treningowy</h3>
+          <p>Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
+          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
+        </div>
+        <div class="flip-back">
+          <div class="no-screenshot"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>screenshot wkrótce</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">🤖</div>
-      <h3>AI Coach</h3>
-      <p>Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <div class="feature-icon ewa"><img src="assets/ic_ewa.png" alt="AI Coach Ewa" /></div>
+          <h3>AI Coach</h3>
+          <p>Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
+          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
+        </div>
+        <div class="flip-back">
+          <div class="no-screenshot"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>screenshot wkrótce</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">🍎</div>
-      <h3>Dieta i żywienie</h3>
-      <p>Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <div class="feature-icon"><img src="assets/ic_diet.png" alt="Dieta" /></div>
+          <h3>Dieta i żywienie</h3>
+          <p>Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
+          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
+        </div>
+        <div class="flip-back">
+          <div class="no-screenshot"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>screenshot wkrótce</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">💚</div>
-      <h3>Health Connect</h3>
-      <p>Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <div class="feature-icon"><img src="assets/ic_health.png" alt="Health Connect" /></div>
+          <h3>Health Connect</h3>
+          <p>Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
+          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
+        </div>
+        <div class="flip-back">
+          <div class="no-screenshot"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>screenshot wkrótce</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Postęp i sylwetka</h3>
-      <p>Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <div class="feature-icon"><img src="assets/ic_body.png" alt="Postęp i sylwetka" /></div>
+          <h3>Postęp i sylwetka</h3>
+          <p>Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
+          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
+        </div>
+        <div class="flip-back">
+          <div class="no-screenshot"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>screenshot wkrótce</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">💊</div>
-      <h3>Suplementacja</h3>
-      <p>Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-front">
+          <div class="feature-icon"><img src="assets/ic_supplements.png" alt="Suplementacja" /></div>
+          <h3>Suplementacja</h3>
+          <p>Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
+          <div class="flip-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg> kliknij by zobaczyć ekran</div>
+        </div>
+        <div class="flip-back">
+          <div class="no-screenshot"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>screenshot wkrótce</div>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
