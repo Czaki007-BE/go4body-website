@@ -277,13 +277,24 @@
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 32px 24px;
+      padding: 40px 24px 32px;
       text-align: center;
       color: var(--muted); font-size: 13px;
     }
     footer a { color: var(--muted); }
     footer a:hover { color: var(--text); }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+    .footer-apd {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .footer-apd img {
+      width: 48px; height: 48px;
+      object-fit: contain;
+      mix-blend-mode: lighten;
+      opacity: 0.9;
+    }
+    .footer-apd-text { font-size: 13px; color: var(--muted); line-height: 1.4; text-align: left; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
@@ -499,7 +510,14 @@
     <a href="privacy.html">Privacy Policy</a>
     <a href="mailto:rodo@go4body.com">Kontakt</a>
   </div>
-  <p>© 2026 Go4Body · APD Charles Nowacki · <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
+  <div class="footer-apd">
+    <img src="assets/apd_logo.png" alt="APD" />
+    <div class="footer-apd-text">
+      APD Charles Nowacki<br/>
+      <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>
+    </div>
+  </div>
+  <p>© 2026 Go4Body</p>
 </footer>
 
 </body>
