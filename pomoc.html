@@ -92,7 +92,10 @@
       display: grid; grid-template-columns: 1fr 220px; gap: 40px; align-items: start;
     }
     .guide-section .section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 8px; }
-    .guide-section h2 { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 18px; }
+    .guide-section h2 { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .section-intro { font-size: 15px; line-height: 1.75; color: #d4d4d4; margin-bottom: 22px; }
+    .section-intro + .section-intro { margin-top: -12px; }
+    .section-intro b { color: var(--text); }
     .guide-steps { list-style: none; counter-reset: step; }
     .guide-steps li {
       counter-increment: step;
@@ -249,6 +252,7 @@
   <div>
     <div class="section-label">01 · Zaczynamy</div>
     <h2>Pierwsze kroki</h2>
+    <p class="section-intro">Go4Body nie jest kolejną apką do liczenia kalorii — to <b>osobisty trener, który widzi cały obraz</b>: co jesz, jak trenujesz, jak śpisz i jak zmienia się Twoja sylwetka, a potem na tej podstawie doradza, co robić dalej. Im więcej danych wpiszesz (albo im więcej appka zaciągnie sama z zegarka), tym trafniejsze będą podpowiedzi.</p>
     <ol class="guide-steps">
       <li><b>Załóż konto</b> — mailem lub przez logowanie społecznościowe, zajmuje chwilę.<span class="muted-note">Konto jest aktywne od razu, nie musisz potwierdzać maila, żeby zacząć.</span></li>
       <li><b>Odpowiedz na pytania onboardingu</b> — wiek, waga, wzrost, cel (budowa masy / redukcja / siła), poziom doświadczenia, dni treningowe.</li>
@@ -268,11 +272,16 @@
   <div>
     <div class="section-label">02 · Żywienie</div>
     <h2>Dieta i posiłki</h2>
+    <p class="section-intro">Dziennik żywieniowy działa trzema sposobami — ręcznie, zdjęciem albo skanerem — i możesz je swobodnie łączyć w ciągu dnia. Zjadłeś kanapkę z szynką i serem? Zrób jej zdjęcie, a appka sama rozpozna składniki i wyliczy w przybliżeniu kalorie, białko, węglowodany i tłuszcz — Ty tylko poprawiasz gramaturę, jeśli trzeba. Kupiłeś jogurt w sklepie? Zeskanuj kod kreskowy z opakowania, a wartości uzupełnią się same z bazy produktów.</p>
     <ol class="guide-steps">
       <li><b>Dodaj posiłek ręcznie</b> — zakładka Dieta → dotknij <b>+</b> przy śniadaniu/obiedzie/kolacji/przekąsce → wyszukaj produkt w bazie, dodaj własny albo wpisz wartości.</li>
       <li><b>Zrób zdjęcie posiłku</b><span class="badge-premium">Premium</span> — ikona aparatu w Diecie → appka sama rozpozna co jest na talerzu i policzy kalorie oraz makro. Możesz poprawić gramaturę przed zapisem.</li>
       <li><b>Zeskanuj kod kreskowy</b><span class="badge-premium">Premium</span> — ikona skanera → nakieruj na kod z opakowania. Jeśli produktu nie ma w bazie, dodaj go ręcznie.</li>
-      <li><b>Ustaw cele kalorii i makro</b> — Ustawienia → Żywienie. Białko i węgle liczą się jako 4 kcal/g, tłuszcz jako 9 kcal/g — suma musi mieścić się w Twoim celu kalorii.</li>
+    </ol>
+    <p class="section-intro" style="margin-top:20px;">Cele kalorii i makroskładników <b>nie są sztywnym narzuconym numerem</b> — appka wylicza je na podstawie Twojej wagi, wzrostu, wieku, poziomu aktywności i celu (redukcja / utrzymanie / budowa masy) z onboardingu, a w każdej chwili możesz je ręcznie nadpisać w Ustawieniach. Kalorie z dnia rozbijają się na białko, węglowodany i tłuszcz, więc widzisz nie tylko "ile zjadłem", ale też czy dowozisz białko potrzebne do budowy mięśni.</p>
+    <ol class="guide-steps" style="counter-reset: step 3;">
+      <li><b>Ustaw cele kalorii i makro</b> — Ustawienia → Żywienie. Białko i węgle liczą się jako 4 kcal/g, tłuszcz jako 9 kcal/g — suma musi mieścić się w Twoim celu kalorii (appka pilnuje, żeby się nie rozjechało, jak w popularnych apkach dietetycznych).</li>
+      <li><b>Śledź nawodnienie</b> — jeden dotyk dodaje szklankę wody do dziennego celu, widoczny na dashboardzie.</li>
     </ol>
   </div>
   <div class="guide-thumb" onclick="showPhone('assets/screen_diet.jpg')">
@@ -286,11 +295,17 @@
   <div>
     <div class="section-label">03 · Trening</div>
     <h2>Plan treningowy</h2>
+    <p class="section-intro">Masz trzy drogi do planu treningowego, w zależności od tego, co już masz. <b>Nie masz nic</b> — appka sama ułoży Ci plan na 13 tygodni dopasowany do celu (masa, redukcja, siła, cardio), poziomu doświadczenia i dostępnego sprzętu. <b>Masz gotowy plan od trenera</b> na kartce, w PDF-ie albo na zdjęciu z siłowni — appka go "przeczyta" i przepisze na cyfrowy kalendarz z seriami i powtórzeniami. <b>Wolisz wybrać sam</b> — przeglądaj gotowe plany Go4Body pod różne cele i wybierz ten, który pasuje.</p>
     <ol class="guide-steps">
       <li><b>Wybierz gotowy plan</b> — zakładka Trening → wybierz plan dopasowany do Twojego celu.</li>
       <li><b>Albo wygeneruj własny</b> — Ustawienia → Trening → ustaw dni w tygodniu i długość sesji → "Wygeneruj plan treningowy". Kalendarz wypełni się automatycznie na 13 tygodni.</li>
       <li><b>Zaimportuj plan od trenera</b><span class="badge-premium">Premium</span> — Trening → Import planu → dodaj zdjęcie lub PDF rozpiski. Appka przepisze ćwiczenia, serie i powtórzenia — wszystko możesz poprawić przed zapisem.</li>
-      <li><b>Trenuj</b> — aktywny ekran ćwiczenia ma licznik serii, minutnik odpoczynku i instrukcję wykonania.</li>
+    </ol>
+    <p class="section-intro" style="margin-top:20px;">Podczas samego treningu masz <b>aktywny ekran ćwiczenia</b> — nie musisz nic zapamiętywać ani liczyć w głowie: appka pokazuje instrukcję wykonania, liczy wykonane serie, odmierza minutnik przerwy między seriami i między ćwiczeniami, a każdy ukończony trening trafia do historii razem z szacowanymi spalonymi kaloriami (albo prawdziwymi, jeśli masz podłączony zegarek).</p>
+    <ol class="guide-steps" style="counter-reset: step 3;">
+      <li><b>Trenuj</b> — aktywny ekran ćwiczenia z licznikiem serii, minutnikiem odpoczynku i instrukcją wykonania każdego ruchu.</li>
+      <li><b>Przesuwaj sesje w kalendarzu</b> — jeśli coś Ci wypadnie, przełóż trening na inny dzień bez gubienia reszty planu.</li>
+      <li><b>Historia treningów</b> — w zakładce Trening zobaczysz ukończone sesje z czasem trwania i kaloriami, w tym też aktywności zaimportowane z zegarka (bieganie, rower, basen).</li>
     </ol>
   </div>
   <div class="guide-thumb" onclick="showPhone('assets/screen_training.jpg')">
@@ -304,6 +319,7 @@
   <div>
     <div class="section-label">04 · Priorytet</div>
     <h2>Połączenie zegarka (Health Connect)<span class="badge-premium">Premium</span></h2>
+    <p class="section-intro">Po połączeniu zegarka przestajesz cokolwiek wpisywać ręcznie — Go4Body samo zaciąga <b>kroki, sen, tętno (w tym spoczynkowe), wagę i skład ciała</b>, a jeśli poszedłeś pobiegać, pojeździć na rowerze albo popływać, taka aktywność ląduje jako osobny wpis w historii treningów — z prawdziwym dystansem i spalonymi kaloriami, nie z szacunkiem. Działa to przez Health Connect — wspólny "hub" danych zdrowotnych na Androidzie, do którego mogą pisać różne aplikacje zegarków (Garmin Connect, Zdrowie Huawei i inne) i skąd Go4Body je odczytuje.</p>
     <ol class="guide-steps">
       <li><b>Zainstaluj Health Connect</b> z Google Play, jeśli jeszcze go nie masz (na nowszych Androidach jest wbudowany).</li>
       <li><b>Upewnij się, że aplikacja Twojego zegarka/wagi</b> (Garmin Connect, Zdrowie Huawei, Health Sync itp.) zapisuje dane do Health Connect — to ustawia się w tamtej appce.</li>
@@ -324,10 +340,11 @@
   <div>
     <div class="section-label">05 · Postęp</div>
     <h2>Waga, pomiary i zdjęcia</h2>
+    <p class="section-intro">Waga na wadze to tylko jedna liczba — i często myląca (wahania wody, godzina ważenia, cykl). Dlatego Sylwetka pokazuje pełniejszy obraz: <b>wagę na wykresie w czasie</b> (nie pojedynczy odczyt), <b>pomiary obwodów</b> (np. talia, biceps — świetne przy budowie masy, kiedy waga rośnie, ale to może być mięsień, nie tłuszcz) i <b>zdjęcia postępu na osi czasu</b>, żeby zestawić "przed" i "po" obok siebie — to zwykle przekonuje bardziej niż sama liczba na wadze. Jeśli masz wagę ze zgodnym Health Connect (np. z analizą składu ciała), appka doda też % tkanki tłuszczowej i masę mięśniową automatycznie.</p>
     <ol class="guide-steps">
       <li><b>Zapisz wagę</b> — zakładka Sylwetka → "Dodaj wagę". Jeśli masz połączony zegarek/wagę, może wciągać się sama.</li>
       <li><b>Dodaj pomiary ciała</b> — obwody, % tkanki tłuszczowej itd. w tym samym miejscu.</li>
-      <li><b>Dodaj zdjęcie postępu</b> — appka ułoży je na osi czasu, żeby łatwo porównać zmianę.</li>
+      <li><b>Dodaj zdjęcie postępu</b> — appka ułoży je na osi czasu, żeby łatwo porównać zmianę tydzień do tygodnia albo miesiąc do miesiąca.</li>
     </ol>
   </div>
   <div class="guide-thumb" onclick="showPhone('assets/screen_body.jpg')">
@@ -341,10 +358,11 @@
   <div>
     <div class="section-label">06 · Suplementacja</div>
     <h2>Suplementy</h2>
+    <p class="section-intro">Zakładka Supl. to prosty dziennik przyjmowania — dodajesz suplement raz (np. kreatynę, odżywkę białkową, witaminę D), ustawiasz dawkę i porę, a potem codziennie tylko odhaczasz, co wziąłeś. Jeśli suplement ma kalorie i makro (typowo odżywki białkowe czy gainery), po odhaczeniu <b>automatycznie doliczy się do dziennego bilansu diety</b> — nie musisz go osobno dodawać w Diecie, appka pilnuje, żeby się nie zdublował.</p>
     <ol class="guide-steps">
       <li><b>Dodaj suplement</b> — zakładka Supl. → <b>+</b> → wybierz z listy albo dodaj własny z dawką i porą brania.</li>
       <li><b>Odhaczaj branie</b> każdego dnia w dzienniku.</li>
-      <li><b>Suplementy z kaloriami</b> (np. odżywka białkowa) automatycznie doliczą się do bilansu diety po odhaczeniu.</li>
+      <li><b>Historia i podsumowanie tygodniowe</b> — zobaczysz, czy rzeczywiście bierzesz suplementy regularnie, czy tylko czasem.</li>
     </ol>
   </div>
   <div class="guide-thumb" onclick="showPhone('assets/screen_supplements.jpg')">
@@ -358,11 +376,12 @@
   <div>
     <div class="section-label">07 · Priorytet</div>
     <h2>Raport postępów PDF (np. z ostatniego miesiąca)</h2>
+    <p class="section-intro">To dokument, który zbiera wszystko, co appka o Tobie wie, i układa w czytelny raport z wykresami — <b>gotowy do wysłania trenerowi personalnemu, dietetykowi albo po prostu dla siebie</b>, żeby zobaczyć czarno na białym, czy idziesz w dobrą stronę. Sam wybierasz, co ma się w nim znaleźć: wagę, pomiary ciała, bilans diety, kroki i nawodnienie, historię treningów (razem z aktywnościami z zegarka — bieganiem, rowerem, basenem) oraz krótkie podsumowanie od AI coacha, które w kilku zdaniach ocenia Twój postęp i sugeruje, na czym się skupić dalej.</p>
     <ol class="guide-steps">
       <li>Wejdź w <b>Ustawienia → Prywatność i dane → Raport postępów</b>.</li>
       <li><b>Zaznacz, co ma być w raporcie</b>: waga, pomiary, dieta, kroki i woda, treningi, podsumowanie od AI coacha.</li>
-      <li>Dotknij <b>Stwórz PDF</b> — raport porówna Twój ostatni tydzień/miesiąc z poprzednim okresem, z wykresami.</li>
-      <li>Wybierz <b>Udostępnij</b> (np. wyślij trenerowi) albo <b>Zapisz w telefonie</b> (np. do folderu Pobrane).</li>
+      <li>Dotknij <b>Stwórz PDF</b> — raport porówna Twój ostatni tydzień/miesiąc z poprzednim okresem, z wykresami i realnym typem aktywności (SIŁA/BIEG/ROWER/BASEN), nie zgadywanką z nazwy treningu.</li>
+      <li>Wybierz <b>Udostępnij</b> (np. wyślij trenerowi przez WhatsApp czy mail) albo <b>Zapisz w telefonie</b> (np. do folderu Pobrane).</li>
     </ol>
     <div class="tip-box"><b>Wskazówka:</b> im więcej danych wpisujesz na bieżąco (waga, dieta, treningi), tym pełniejszy i bardziej użyteczny będzie raport — działa najlepiej po min. 2–4 tygodniach regularnego korzystania.</div>
   </div>
@@ -377,9 +396,11 @@
   <div>
     <div class="section-label">08 · AI</div>
     <h2>Trener AI</h2>
+    <p class="section-intro">To nie chatbot udzielający ogólnych porad z internetu — Trener AI <b>widzi Twoje realne dane</b>: co dziś zjadłeś, ile Ci brakuje do celu kalorii, czy trenowałeś, jak spałeś, jaki masz plan na jutro. Dzięki temu odpowiedzi są konkretne ("dziś zjadłeś za mało białka, dorzuć jeszcze ok. 30 g") zamiast ogólnikowych. Możesz wybrać personę coacha dopasowaną do stylu, jaki Ci pasuje — od wymagającego "zero wymówek" po bardziej wspierający ton — a rozmowa zawsze uwzględnia porę dnia (rano nie usłyszysz, że "dzień już przegrany", bo appka wie, że dopiero się zaczął).</p>
     <ol class="guide-steps">
-      <li><b>Codzienne wskazówki</b> — kafelek "Coach na dziś" na dashboardzie, dostępny dla wszystkich (Basic i Premium).</li>
-      <li><b>Czat z trenerem</b><span class="badge-premium">Premium</span> — zakładka Trener AI, pytaj o trening, dietę, regenerację. Coach zna Twój plan, historię i skład ciała.</li>
+      <li><b>Codzienne wskazówki</b> — kafelek "Coach na dziś" na dashboardzie, dostępny dla wszystkich (Basic i Premium), bez dodatkowych kliknięć.</li>
+      <li><b>Czat z trenerem</b><span class="badge-premium">Premium</span> — zakładka Trener AI, pytaj swobodnie o trening, dietę, regenerację albo wybierz gotowy temat (np. "Plan na masę", "Białko i kalorie", "Sen i regeneracja").</li>
+      <li><b>Wygeneruj plan albo raport tygodnia</b> — bezpośrednio z poziomu czatu, jednym dotknięciem.</li>
     </ol>
   </div>
   <div class="guide-thumb" onclick="showPhone('assets/screen_coach.jpg')">
@@ -393,6 +414,7 @@
   <div>
     <div class="section-label">09 · Konto</div>
     <h2>Konto i dane</h2>
+    <p class="section-intro">Masz pełną kontrolę nad swoimi danymi. Chcesz zacząć od zera, ale zachować konto i odpowiedzi z onboardingu (wiek, cel, poziom doświadczenia)? Użyj resetu danych. Chcesz zniknąć całkowicie? Usuń konto — to kasuje wszystko bezpowrotnie, łącznie z kontem logowania.</p>
     <ol class="guide-steps">
       <li><b>Zmiana hasła</b> — wyloguj się, na ekranie logowania dotknij "Nie pamiętam hasła", sprawdź maila (i Spam).</li>
       <li><b>Reset danych bez usuwania konta</b> — Ustawienia → Prywatność i dane → "Zresetuj dane aplikacji". Konto i odpowiedzi z onboardingu zostają, reszta wpisów się czyści.</li>
@@ -410,11 +432,12 @@
   <div>
     <div class="section-label">10 · Plany</div>
     <h2>Subskrypcja Premium</h2>
+    <p class="section-intro">Podstawowa różnica: <b>Basic to Ty wpisujesz wszystko ręcznie</b> — treningi, posiłki, wagę — i jest darmowy na zawsze, bez limitu czasu. <b>Premium to appka robi to za Ciebie</b> — automatyczna synchronizacja z zegarkiem, rozpoznawanie posiłków ze zdjęcia, skaner kodów kreskowych, pełna rozmowa z Trenerem AI zamiast tylko dziennych wskazówek, import planu od trenera i pełna biblioteka ćwiczeń zamiast podstawowej.</p>
     <ol class="guide-steps">
-      <li><b>Basic vs Premium</b> — Basic jest darmowy na zawsze (ręczne logowanie treningów i diety). Premium dodaje: trenera AI na czacie, kalorie ze zdjęcia, skaner kodów, połączenie z zegarkiem/wagą, import planu od trenera, pełną bibliotekę ćwiczeń.</li>
-      <li><b>Cena i wybór planu</b> — Ustawienia → Plan. Płatność przechodzi przez Google Play.</li>
+      <li><b>Cena i wybór planu</b> — Ustawienia → Plan. Płatność przechodzi przez Google Play, dostępny jest okres próbny.</li>
       <li><b>Anulowanie</b> — Sklep Play → Twój awatar → Płatności i subskrypcje → Subskrypcje → Go4Body → Anuluj. Premium działa do końca opłaconego okresu.</li>
-      <li><b>Po anulowaniu</b> dane zostają, blokują się tylko funkcje Premium.</li>
+      <li><b>Po anulowaniu dane zostają</b> — blokują się tylko funkcje Premium, historia treningów i diety jest nietknięta.</li>
+      <li><b>Nowy telefon?</b> Zaloguj się na to samo konto i użyj tego samego konta Google w Sklepie Play — Premium przywróci się samo.</li>
     </ol>
   </div>
   <div class="guide-thumb" onclick="showPhone('assets/screen_coach.jpg')">
