@@ -126,6 +126,7 @@
     }
     .guide-thumb:hover { border-color: rgba(255,140,59,0.4); transform: translateY(-2px); }
     .guide-thumb img { width: 100%; display: block; }
+    .guide-thumb-stack { display: flex; flex-direction: column; gap: 14px; }
     .guide-thumb .thumb-label {
       position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
@@ -261,9 +262,15 @@
     </ol>
     <div class="tip-box"><b>Wskazówka:</b> nie musisz mieć zegarka ani wagi smart, żeby korzystać z appki — wszystko da się wpisać ręcznie.</div>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_health.jpg')">
-    <img src="assets/screen_health.jpg" alt="Ekran Dziś" />
-    <div class="thumb-label">Ekran Dziś</div>
+  <div class="guide-thumb-stack">
+    <div class="guide-thumb" onclick="showPhone('assets/screen_health.jpg')">
+      <img src="assets/screen_health.jpg" alt="Ekran Dziś" />
+      <div class="thumb-label">Ekran Dziś</div>
+    </div>
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-profil-cel.jpg')">
+      <img src="assets/pomoc/pomoc-ustawienia-profil-cel.jpg" alt="Profil i cel w Ustawieniach" />
+      <div class="thumb-label">Profil i cel</div>
+    </div>
   </div>
 </section>
 
@@ -284,9 +291,15 @@
       <li><b>Śledź nawodnienie</b> — jeden dotyk dodaje szklankę wody do dziennego celu, widoczny na dashboardzie.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_diet.jpg')">
-    <img src="assets/screen_diet.jpg" alt="Ekran Dieta" />
-    <div class="thumb-label">Ekran Dieta</div>
+  <div class="guide-thumb-stack">
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dieta-metody-dodawania.jpg')">
+      <img src="assets/pomoc/pomoc-dieta-metody-dodawania.jpg" alt="Dodaj posiłek / Skanuj kod / Zdjęcie" />
+      <div class="thumb-label">Dodaj posiłek / skaner / zdjęcie</div>
+    </div>
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dieta-cele-kalorie-makro.jpg')">
+      <img src="assets/pomoc/pomoc-dieta-cele-kalorie-makro.jpg" alt="Cele kalorii i makro" />
+      <div class="thumb-label">Cele kalorii i makro</div>
+    </div>
   </div>
 </section>
 
@@ -308,9 +321,15 @@
       <li><b>Historia treningów</b> — w zakładce Trening zobaczysz ukończone sesje z czasem trwania i kaloriami, w tym też aktywności zaimportowane z zegarka (bieganie, rower, basen).</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_training.jpg')">
-    <img src="assets/screen_training.jpg" alt="Ekran Trening" />
-    <div class="thumb-label">Ekran Trening</div>
+  <div class="guide-thumb-stack">
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-trening-plan-wybrany.jpg')">
+      <img src="assets/pomoc/pomoc-trening-plan-wybrany.jpg" alt="Wybrany plan i ukończony trening" />
+      <div class="thumb-label">Twój plan + kalendarz</div>
+    </div>
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-trening-generator.jpg')">
+      <img src="assets/pomoc/pomoc-trening-generator.jpg" alt="Generator planu treningowego" />
+      <div class="thumb-label">Generator planu</div>
+    </div>
   </div>
 </section>
 
@@ -329,9 +348,9 @@
     </ol>
     <div class="tip-box"><b>Jeśli dane się nie synchronizują:</b> sprawdź (1) czy Health Connect ma przyznane wszystkie uprawnienia dla Go4Body (Health Connect → Uprawnienia aplikacji), (2) czy aplikacja zegarka faktycznie zapisuje do Health Connect, nie tylko do swojej własnej chmury.</div>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_health.jpg')">
-    <img src="assets/screen_health.jpg" alt="Synchronizacja Health Connect" />
-    <div class="thumb-label">TODO: zrzut ekranu uprawnień HC</div>
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-hc-polacz.jpg')">
+    <img src="assets/pomoc/pomoc-hc-polacz.jpg" alt="Przycisk Połącz Health Connect" />
+    <div class="thumb-label">Ustawienia → Synchronizacja</div>
   </div>
 </section>
 
@@ -347,9 +366,15 @@
       <li><b>Dodaj zdjęcie postępu</b> — appka ułoży je na osi czasu, żeby łatwo porównać zmianę tydzień do tygodnia albo miesiąc do miesiąca.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_body.jpg')">
-    <img src="assets/screen_body.jpg" alt="Ekran Sylwetka" />
-    <div class="thumb-label">Ekran Sylwetka</div>
+  <div class="guide-thumb-stack">
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-sylwetka-przyciski.jpg')">
+      <img src="assets/pomoc/pomoc-sylwetka-przyciski.jpg" alt="Waga, skład ciała i przyciski Sylwetki" />
+      <div class="thumb-label">Waga + skład ciała</div>
+    </div>
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-sylwetka-pomiary-modal.jpg')">
+      <img src="assets/pomoc/pomoc-sylwetka-pomiary-modal.jpg" alt="Formularz pomiarów ciała" />
+      <div class="thumb-label">Pomiary ciała</div>
+    </div>
   </div>
 </section>
 
@@ -365,8 +390,8 @@
       <li><b>Historia i podsumowanie tygodniowe</b> — zobaczysz, czy rzeczywiście bierzesz suplementy regularnie, czy tylko czasem.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_supplements.jpg')">
-    <img src="assets/screen_supplements.jpg" alt="Ekran Suplementy" />
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-suplementy-lista.jpg')">
+    <img src="assets/pomoc/pomoc-suplementy-lista.jpg" alt="Lista suplementów z odhaczaniem" />
     <div class="thumb-label">Ekran Suplementy</div>
   </div>
 </section>
@@ -385,9 +410,9 @@
     </ol>
     <div class="tip-box"><b>Wskazówka:</b> im więcej danych wpisujesz na bieżąco (waga, dieta, treningi), tym pełniejszy i bardziej użyteczny będzie raport — działa najlepiej po min. 2–4 tygodniach regularnego korzystania.</div>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_body.jpg')">
-    <img src="assets/screen_body.jpg" alt="Raport PDF" />
-    <div class="thumb-label">TODO: zrzut ekranu raportu PDF</div>
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg')">
+    <img src="assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg" alt="Wejście do raportu postępów PDF" />
+    <div class="thumb-label">Ustawienia → Raport postępów</div>
   </div>
 </section>
 
@@ -403,9 +428,15 @@
       <li><b>Wygeneruj plan albo raport tygodnia</b> — bezpośrednio z poziomu czatu, jednym dotknięciem.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_coach.jpg')">
-    <img src="assets/screen_coach.jpg" alt="Ekran Trener AI" />
-    <div class="thumb-label">Ekran Trener AI</div>
+  <div class="guide-thumb-stack">
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-coach-rozmowa.jpg')">
+      <img src="assets/pomoc/pomoc-coach-rozmowa.jpg" alt="Prawdziwa rozmowa z Trenerem AI" />
+      <div class="thumb-label">Rozmowa z coachem</div>
+    </div>
+    <div class="guide-thumb" onclick="showPhone('assets/screen_coach.jpg')">
+      <img src="assets/screen_coach.jpg" alt="Ekran Trener AI z tematami" />
+      <div class="thumb-label">Gotowe tematy</div>
+    </div>
   </div>
 </section>
 
@@ -421,9 +452,9 @@
       <li><b>Całkowite usunięcie konta</b> — Ustawienia → dół ekranu → "Usuń konto". Operacja nieodwracalna.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_health.jpg')">
-    <img src="assets/screen_health.jpg" alt="Ustawienia konta" />
-    <div class="thumb-label">TODO: zrzut ekranu Ustawień</div>
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg')">
+    <img src="assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg" alt="Ustawienia konta i danych" />
+    <div class="thumb-label">Ustawienia → Konto</div>
   </div>
 </section>
 
