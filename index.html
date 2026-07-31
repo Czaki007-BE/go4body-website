@@ -286,6 +286,41 @@
     }
     .phone-close:hover { background: var(--accent2); }
 
+    /* ── DOWNLOAD CHOICE MODAL ── */
+    .download-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .download-overlay.active { display: flex; }
+    .download-modal {
+      position: relative;
+      width: 100%; max-width: 420px;
+      background: linear-gradient(135deg, rgba(255,140,59,0.14), var(--surface));
+      border: 1px solid rgba(255,140,59,0.35);
+      border-radius: 24px;
+      padding: 40px 32px 32px;
+      text-align: center;
+      animation: phoneIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .download-modal h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .download-modal p { color: var(--muted); font-size: 15px; margin-bottom: 26px; }
+    .download-modal-btns { display: flex; flex-direction: column; gap: 12px; }
+    .download-modal-btns .btn-primary, .download-modal-btns .btn-secondary { justify-content: center; width: 100%; }
+    .download-close {
+      position: absolute; top: -14px; right: -14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent); color: #000;
+      border: none; cursor: pointer; font-size: 18px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(255,140,59,0.5);
+      z-index: 20;
+    }
+    .download-close:hover { background: var(--accent2); }
+
     /* ── HOW IT WORKS ── */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
     .step {
@@ -420,9 +455,10 @@
     <h1>Twój <em>AI trener</em><br/>personalny</h1>
     <p>Trening, dieta i coaching AI w jednym miejscu. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.</p>
     <div class="hero-btns">
-      <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-primary" id="download">
+      <!-- PRZEDPREMIEROWO: przycisk otwiera modal z wyborem tester/nowy użytkownik zamiast kierować wprost do Google Play. Po premierze: usunąć onclick i href="#", przywrócić href="https://play.google.com/store/apps/details?id=com.go4body.app" (link zostaje wtedy zwykłym linkiem, bez modala). -->
+      <a href="#" class="btn-primary" id="download" onclick="event.preventDefault(); showDownloadModal();">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
-        Pobierz z Google Play
+        Pobierz
       </a>
       <a href="#features" class="btn-secondary">
         Zobacz funkcje →
@@ -432,6 +468,20 @@
   </div>
   <div class="hero-image">
     <img src="assets/hero.png" alt="Go4Body — trening z AI trenerem" />
+  </div>
+</section>
+
+<!-- TESTER SIGNUP (przedpremierowo) -->
+<section class="signup-section" id="tester">
+  <div class="signup-card">
+    <div class="signup-badge">Program testerów</div>
+    <h2>Zostań testerem i zyskaj darmowy dostęp</h2>
+    <p class="signup-desc">Aplikacja jest jeszcze w fazie testów zamkniętych. Zapisz się jako tester, a otworzymy Ci dostęp do Go4Body zanim trafi do wszystkich.</p>
+    <form class="signup-form" id="testerForm">
+      <input type="email" id="testerEmail" placeholder="twoj@email.pl" required aria-label="Adres e-mail" />
+      <button type="submit" class="btn-primary">Zapisz się jako tester</button>
+    </form>
+    <p class="signup-note">Otworzy się Twój program pocztowy z gotową wiadomością — wystarczy kliknąć wyślij.</p>
   </div>
 </section>
 
@@ -565,11 +615,26 @@
 <!-- CTA -->
 <div class="cta-section">
   <h2>Gotowy zacząć?</h2>
-  <p>Pobierz Go4Body za darmo i zacznij dzisiaj.</p>
-  <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-primary">
+  <p>Pobierz Go4Body i wypróbuj za darmo już teraz.</p>
+  <!-- PRZEDPREMIEROWO: patrz komentarz przy przycisku hero. -->
+  <a href="#" class="btn-primary" onclick="event.preventDefault(); showDownloadModal();">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
-    Pobierz z Google Play
+    Pobierz
   </a>
+</div>
+
+<!-- DOWNLOAD CHOICE MODAL (przedpremierowo) -->
+<div class="download-overlay" id="downloadOverlay" onclick="hideDownloadModal(event)">
+  <div class="download-modal">
+    <button class="download-close" onclick="hideDownloadModal()">×</button>
+    <div class="signup-badge">Faza testów</div>
+    <h3>Obecnie trwa faza testów</h3>
+    <p>Go4Body jest jeszcze dostępny tylko dla testerów. Jeśli już nim jesteś, przejdź prosto do Google Play. Jeśli nie — zapisz się poniżej, a otworzymy Ci dostęp.</p>
+    <div class="download-modal-btns">
+      <a href="#tester" class="btn-primary" onclick="hideDownloadModal()">Zostań testerem</a>
+      <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-secondary" target="_blank" rel="noopener">Jestem testerem → Google Play</a>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -605,8 +670,18 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') hidePhone();
+    if (e.key === 'Escape') { hidePhone(); hideDownloadModal(); }
   });
+
+  function showDownloadModal() {
+    document.getElementById('downloadOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function hideDownloadModal(e) {
+    if (e && e.target !== document.getElementById('downloadOverlay')) return;
+    document.getElementById('downloadOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
   // ── SIGNUP FORM ──
   var SUPABASE_URL = 'https://gppaqrfjsmqynzcutldy.supabase.co';
@@ -648,6 +723,15 @@
         btn.disabled = false;
         btn.textContent = 'Zarezerwuj zniżkę';
       });
+  });
+
+  // ── TESTER SIGNUP (mailto, przedpremierowo) ──
+  document.getElementById('testerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('testerEmail').value.trim();
+    var subject = encodeURIComponent('[Tester] Nowe zgłoszenie testera');
+    var body = encodeURIComponent('Chcę dołączyć do programu testerów Go4Body.\n\nMój e-mail: ' + email);
+    window.location.href = 'mailto:kontakt@go4body.com?subject=' + subject + '&body=' + body;
   });
 </script>
 </body>
