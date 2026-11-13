@@ -6,6 +6,12 @@
   <title>Go4Body — Centrum Pomocy</title>
   <meta name="description" content="Przewodnik krok po kroku: jak połączyć zegarek, wygenerować raport PDF, dodać posiłek i korzystać z Go4Body." />
   <link rel="icon" href="assets/icon.png" />
+  <link rel="canonical" href="https://go4body.com/pomoc.html" />
+  <meta property="og:title" content="Go4Body — Centrum Pomocy" />
+  <meta property="og:description" content="Przewodnik krok po kroku po funkcjach Go4Body: trening, dieta, zegarek, raport PDF i subskrypcja." />
+  <meta property="og:image" content="https://go4body.com/assets/og-image.png" />
+  <meta property="og:url" content="https://go4body.com/pomoc.html" />
+  <meta name="theme-color" content="#0E0E0E" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -211,7 +217,15 @@
     footer a:hover { color: var(--text); }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
 
-    @media (max-width: 600px) { .nav-links { display: none; } }
+    a:focus-visible, button:focus-visible, .guide-thumb:focus-visible {
+      outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px;
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 14px; }
+      .nav-links { gap: 8px; }
+      .nav-links > a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 7px 14px; }
+    }
   </style>
 </head>
 <body>
@@ -476,19 +490,15 @@
       <li><b>Nowy telefon?</b> Zaloguj się na to samo konto i użyj tego samego konta Google w Sklepie Play — Premium przywróci się samo.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_coach.jpg')">
-    <img src="assets/screen_coach.jpg" alt="Plan Premium" />
-    <div class="thumb-label">TODO: zrzut ekranu paywalla</div>
-  </div>
 </section>
 
 <!-- Phone popup -->
-<div class="phone-overlay" id="phoneOverlay" onclick="hidePhone(event)">
+<div class="phone-overlay" id="phoneOverlay" onclick="hidePhone(event)" role="dialog" aria-modal="true" aria-label="Podgląd ekranu aplikacji">
   <div class="phone-frame">
     <div class="phone-notch"></div>
-    <button class="phone-close" onclick="hidePhone()">×</button>
+    <button class="phone-close" onclick="hidePhone()" aria-label="Zamknij podgląd">×</button>
     <div class="phone-screen">
-      <img id="phoneImg" src="" alt="Screenshot" />
+      <img id="phoneImg" src="" alt="Zrzut ekranu aplikacji Go4Body" />
     </div>
     <div class="phone-home"></div>
   </div>
@@ -515,21 +525,34 @@
 </footer>
 
 <script>
+  var lastFocus = null;
   function showPhone(src) {
     const overlay = document.getElementById('phoneOverlay');
     const img = document.getElementById('phoneImg');
+    lastFocus = document.activeElement;
     img.src = src;
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    var close = overlay.querySelector('.phone-close');
+    if (close) close.focus();
   }
   function hidePhone(e) {
     if (e && e.target !== document.getElementById('phoneOverlay') && !e.target.classList.contains('phone-close')) return;
     const overlay = document.getElementById('phoneOverlay');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
   }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') hidePhone();
+  });
+  // Miniatury ekranów działają też z klawiatury (Tab, Enter, Spacja)
+  document.querySelectorAll('.guide-thumb').forEach(function (el) {
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+    });
   });
 </script>
 </body>

@@ -8,7 +8,18 @@
   <meta property="og:title" content="Go4Body — AI Trener Personalny" />
   <meta property="og:description" content="Trening, dieta i AI coach w jednym. Twój plan. Twoje tempo. Twój cel." />
   <meta property="og:image" content="https://go4body.com/assets/og-image.png" />
-  <meta property="og:url" content="https://go4body.com" />
+  <meta property="og:url" content="https://go4body.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Go4Body" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Go4Body — Twój osobisty trener po polsku" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://go4body.com/assets/og-image.png" />
+  <meta name="theme-color" content="#0E0E0E" />
+  <link rel="canonical" href="https://go4body.com/" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
   <link rel="icon" href="assets/icon.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -388,9 +399,60 @@
     }
     .footer-apd-text { font-size: 13px; color: var(--muted); line-height: 1.4; text-align: left; }
 
+    /* ── DOSTĘPNOŚĆ: widoczny fokus przy nawigacji klawiaturą ── */
+    a:focus-visible, button:focus-visible, .feature-card:focus-visible, .consent-btn:focus-visible {
+      outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px;
+    }
+    .hero-image picture { display: block; width: 100%; height: 100%; }
+
+    /* ── ZNACZNIKI BASIC / PREMIUM NA KARTACH ── */
+    .card-tier { margin-top: 14px; }
+    .tier {
+      display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent);
+      border: 1px solid rgba(255,140,59,0.35); border-radius: 100px; padding: 3px 11px; line-height: 1.5;
+    }
+
+    /* ── BASIC CZY PREMIUM ── */
+    .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: stretch; }
+    .plan-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column;
+    }
+    .plan-card.plan-premium { border-color: rgba(255,140,59,0.5); background: linear-gradient(180deg, rgba(255,140,59,0.07), var(--surface) 55%); }
+    .plan-card h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 4px; }
+    .plan-tag { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+    .plan-plus { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .plan-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .plan-card li { position: relative; padding-left: 24px; font-size: 15px; color: #cfcfcf; line-height: 1.5; }
+    .plan-card li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+    .plans-note { margin-top: 20px; max-width: 760px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── ZGODA NA COOKIES / PIKSEL ── */
+    .consent {
+      position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 1200;
+      max-width: 620px; margin: 0 auto;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px 18px; box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      display: none; gap: 14px; align-items: center; flex-wrap: wrap;
+    }
+    .consent.show { display: flex; }
+    .consent p { flex: 1 1 280px; font-size: 13px; color: #cfcfcf; line-height: 1.5; }
+    .consent-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .consent-btn {
+      font: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+      padding: 9px 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text);
+    }
+    .consent-btn.primary { background: var(--accent); color: #000; border-color: var(--accent); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      .nav-links { display: none; }
+      nav { padding: 0 14px; }
+      .nav-logo { font-size: 16px; gap: 8px; }
+      .nav-links { gap: 8px; }
+      .nav-links > a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 7px 14px; }
+      .lang-btn { padding: 5px 7px; font-size: 12px; }
       .hero-btns { flex-direction: column; align-items: center; }
       .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
     }
@@ -400,23 +462,24 @@
     .lang-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
     @media (max-width: 860px) { .lang-switch { order: -1; } }
   </style>
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel: ładowany DOPIERO po zgodzie użytkownika (baner na dole strony) -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '27949523448076139');
-  fbq('track', 'PageView');
+  window.g4bLoadPixel = function () {
+    if (window.__g4bPixel) return; window.__g4bPixel = true;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '27949523448076139');
+    fbq('track', 'PageView');
+  };
+  try { if (localStorage.getItem('g4b_consent') === 'granted') window.g4bLoadPixel(); } catch (e) {}
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=27949523448076139&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -429,6 +492,7 @@
   <div class="nav-links">
     <a href="#features" data-i18n="navFeatures">Funkcje</a>
     <a href="#how" data-i18n="navHow">Jak działa</a>
+    <a href="#plans" data-i18n="navPlans">Plany</a>
     <a href="pomoc.html" data-i18n="navHelp">Pomoc</a>
     <a href="privacy.html" data-i18n="navPrivacy">Polityka prywatności</a>
     
@@ -457,10 +521,13 @@
         <span data-i18n="btnFeaturesText">Zobacz funkcje →</span>
       </a>
     </div>
-    <p class="hero-sub" data-i18n="heroCaption">Bezpłatnie · Android 8.0+ · Dostępna na Google Play</p>
+    <p class="hero-sub" data-i18n="heroCaption">Plan Basic za darmo na zawsze · Premium z okresem próbnym · Android 8.0+</p>
   </div>
   <div class="hero-image">
-    <img src="assets/hero.png" alt="Go4Body — trening z AI trenerem" />
+    <picture>
+      <source type="image/webp" srcset="assets/hero-480.webp 480w, assets/hero-941.webp 941w" sizes="(max-width: 900px) 100vw, 50vw" />
+      <img src="assets/hero-941.jpg" width="941" height="1672" fetchpriority="high" decoding="async" alt="Ekran startowy aplikacji Go4Body — Twój osobisty trener po polsku" />
+    </picture>
   </div>
 </section>
 
@@ -498,48 +565,54 @@
     <div class="feature-card" onclick="showPhone('assets/screen_training.jpg')">
       <div class="feature-icon"><img src="assets/ic_training.png" alt="Trening" /></div>
       <h3 data-i18n="card1Title">Plan treningowy</h3>
-      <p data-i18n="card1Desc">Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
+      <p data-i18n="card1Desc">Gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio. Masz rozpiskę od trenera? Zaimportuj ją z PDF lub zdjęcia.</p>
+      <div class="card-tier"><span class="tier" data-i18n="card1Tier">Basic: gotowy plan · Premium: import od trenera</span></div>
       <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_coach.jpg')">
       <div class="feature-icon ewa"><img src="assets/ic_ewa.png" alt="AI Coach" /></div>
       <h3 data-i18n="card2Title">AI Coach</h3>
       <p data-i18n="card2Desc">Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
+      <div class="card-tier"><span class="tier" data-i18n="card2Tier">Basic: wskazówka dnia · Premium: czat z trenerem</span></div>
       <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_diet.jpg')">
       <div class="feature-icon"><img src="assets/ic_diet.png" alt="Dieta" /></div>
       <h3 data-i18n="card3Title">Dieta i żywienie</h3>
       <p data-i18n="card3Desc">Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
+      <div class="card-tier"><span class="tier" data-i18n="card3Tier">Basic: ręczny dziennik · Premium: zdjęcie i skaner kodów</span></div>
       <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_health.jpg')">
       <div class="feature-icon"><img src="assets/ic_health.png" alt="Health Connect" /></div>
       <h3 data-i18n="card4Title">Health Connect</h3>
       <p data-i18n="card4Desc">Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
+      <div class="card-tier"><span class="tier" data-i18n="card4Tier">Premium</span></div>
       <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_body.jpg')">
       <div class="feature-icon"><img src="assets/ic_body.png" alt="Postęp i sylwetka" /></div>
       <h3 data-i18n="card5Title">Postęp i sylwetka</h3>
       <p data-i18n="card5Desc">Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
+      <div class="card-tier"><span class="tier" data-i18n="card5Tier">Basic</span></div>
       <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_supplements.jpg')">
       <div class="feature-icon"><img src="assets/ic_supplements.png" alt="Suplementacja" /></div>
       <h3 data-i18n="card6Title">Suplementacja</h3>
-      <p data-i18n="card6Desc">Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
+      <p data-i18n="card6Desc">Lista suplementów z dziennikiem przyjmowania i historią tygodniową — widzisz, co i kiedy zostało przyjęte.</p>
+      <div class="card-tier"><span class="tier" data-i18n="card6Tier">Basic: dziennik · Premium: przypomnienia</span></div>
       <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
   </div>
 
   <!-- Phone popup -->
-  <div class="phone-overlay" id="phoneOverlay" onclick="hidePhone(event)">
+  <div class="phone-overlay" id="phoneOverlay" onclick="hidePhone(event)" role="dialog" aria-modal="true" aria-label="Podgląd ekranu aplikacji">
     <div class="phone-frame">
       <div class="phone-notch"></div>
-      <button class="phone-close" onclick="hidePhone()">×</button>
+      <button class="phone-close" onclick="hidePhone()" aria-label="Zamknij podgląd">×</button>
       <div class="phone-screen">
-        <img id="phoneImg" src="" alt="Screenshot" />
+        <img id="phoneImg" src="" alt="Zrzut ekranu aplikacji Go4Body" />
       </div>
       <div class="phone-home"></div>
     </div>
@@ -561,7 +634,7 @@
     <div class="step">
       <div class="step-num">2</div>
       <h3 data-i18n="step2Title">Wgraj lub wygeneruj plan</h3>
-      <p data-i18n="step2Desc">Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu.</p>
+      <p data-i18n="step2Desc">Wygeneruj gotowy plan Go4Body dopasowany do Twojego celu albo — w Premium — zaimportuj rozpiskę od swojego trenera.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
@@ -576,14 +649,59 @@
   </div>
 </section>
 
+<!-- BASIC CZY PREMIUM -->
+<section id="plans">
+  <div class="section-label" data-i18n="plansLabel">Plany</div>
+  <h2 class="section-title" data-i18n="plansH2">Basic czy Premium?</h2>
+  <p class="section-desc" data-i18n="plansDesc">W Basic wpisujesz wszystko sam — za darmo, na zawsze. W Premium apka robi to za Ciebie.</p>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <h3 data-i18n="planBasicName">Basic</h3>
+      <div class="plan-tag" data-i18n="planBasicTag">Bezpłatny na zawsze, bez limitu czasu</div>
+      <ul>
+        <li data-i18n="pb1">Gotowy plan treningowy dopasowany do Twoich odpowiedzi</li>
+        <li data-i18n="pb2">Dziennik żywienia — sam wpisujesz posiłki, apka liczy kalorie i makroskładniki</li>
+        <li data-i18n="pb3">Dziennik suplementów (gotowa lista i własne pozycje)</li>
+        <li data-i18n="pb4">Pomiary sylwetki: waga, procent tłuszczu, obwody i zdjęcia postępu</li>
+        <li data-i18n="pb5">32 podstawowe ćwiczenia na wszystkie partie mięśni</li>
+        <li data-i18n="pb6">Codzienna wskazówka „Coach na dziś”</li>
+      </ul>
+    </div>
+    <div class="plan-card plan-premium">
+      <h3 data-i18n="planPremName">Premium</h3>
+      <div class="plan-tag" data-i18n="planPremTag">Okres próbny za darmo, potem subskrypcja</div>
+      <p class="plan-plus" data-i18n="planPlus">Wszystko z Basic, plus:</p>
+      <ul>
+        <li data-i18n="pp1">Trener AI na czacie — doradza, układa plany i pilnuje Twoich postępów</li>
+        <li data-i18n="pp2">Kalorie ze zdjęcia posiłku</li>
+        <li data-i18n="pp3">Skaner kodów kreskowych z opakowań</li>
+        <li data-i18n="pp4">Połączenie z zegarkiem i wagą — kroki, sen, tętno i waga przez Health Connect</li>
+        <li data-i18n="pp5">Plan od trenera do apki — zdjęcie lub plik, apka przepisze rozpiskę</li>
+        <li data-i18n="pp6">Pełna biblioteka ćwiczeń — blisko 100 z opisami</li>
+        <li data-i18n="pp7">Przypomnienia o treningu i suplementach</li>
+      </ul>
+    </div>
+  </div>
+  <p class="plans-note" data-i18n="plansNote">Płatność przez Google Play. Subskrypcja odnawia się automatycznie i możesz ją anulować w dowolnym momencie w Google Play. Cenę i długość okresu próbnego zobaczysz w aplikacji (Ustawienia → Plan), zanim cokolwiek rozpoczniesz. Po anulowaniu Twoje dane zostają — blokują się tylko funkcje Premium.</p>
+</section>
+
 <!-- CTA -->
 <div class="cta-section">
   <h2 data-i18n="ctaH2">Gotowy zacząć?</h2>
-  <p data-i18n="ctaP">Pobierz Go4Body i wypróbuj za darmo już teraz.</p>
+  <p data-i18n="ctaP">Pobierz Go4Body za darmo — plan Basic jest bezpłatny na zawsze, a Premium możesz wypróbować w okresie próbnym.</p>
   <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-primary" target="_blank" rel="noopener">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
     <span data-i18n="btnDownloadCta">Pobierz</span>
   </a>
+</div>
+
+<!-- ZGODA NA PIKSEL (Meta) -->
+<div class="consent" id="consent" role="dialog" aria-label="Zgoda na pliki cookie">
+  <p data-i18n="consentText">Używamy piksela Meta (Facebook), żeby mierzyć skuteczność naszych reklam. Ładuje się dopiero po Twojej zgodzie i zapisuje pliki cookie. Szczegóły w <a href="privacy.html#strona-www">Polityce prywatności</a>.</p>
+  <div class="consent-actions">
+    <button type="button" class="consent-btn primary" id="consentYes" data-i18n="consentYes">Akceptuję</button>
+    <button type="button" class="consent-btn" id="consentNo" data-i18n="consentNo">Tylko niezbędne</button>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -592,6 +710,7 @@
     <a href="pomoc.html" data-i18n="footHelp">Pomoc</a>
     <a href="privacy.html" data-i18n="footPrivacy">Polityka Prywatności</a>
     <a href="mailto:kontakt@go4body.com" data-i18n="footContact">Kontakt</a>
+    <a href="#" id="cookieSettings" data-i18n="footCookies">Ustawienia cookies</a>
   </div>
   <div class="footer-apd">
     <img src="assets/apd_logo.png" alt="APD" />
@@ -604,27 +723,40 @@
 </footer>
 
 <script>
+  var lastFocus = null;
   function showPhone(src) {
     const overlay = document.getElementById('phoneOverlay');
     const img = document.getElementById('phoneImg');
+    lastFocus = document.activeElement;
     img.src = src;
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    var close = overlay.querySelector('.phone-close');
+    if (close) close.focus();
   }
   function hidePhone(e) {
     if (e && e.target !== document.getElementById('phoneOverlay') && !e.target.classList.contains('phone-close')) return;
     const overlay = document.getElementById('phoneOverlay');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
   }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') { hidePhone(); }
+  });
+  // Karty funkcji działają też z klawiatury (Tab, Enter, Spacja)
+  document.querySelectorAll('.feature-card').forEach(function (card) {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
   });
 
 </script>
 
 <script>
-  var G4B_I18N = { pl: {"navFeatures":"Funkcje","navHow":"Jak działa","navHelp":"Pomoc","navPrivacy":"Polityka prywatności","navPromo":"−50% na rok","heroBadge":"<span></span> Dostępne na Android","heroH1":"Jedna aplikacja<br/>zamiast <em>pięciu</em>","heroSub":"Trener AI po polsku, plan treningowy, dieta i dane z zegarka — wszystko w Go4Body. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.","heroCaption":"Bezpłatnie · Android 8.0+ · Dostępna na Google Play","btnDownloadNav":"Pobierz","btnDownloadHero":"Pobierz","btnDownloadCta":"Pobierz","btnFeaturesText":"Zobacz funkcje →","statAi":"Coach oparty na Claude (Anthropic)","statPlans":"Plany treningowe na każdy cel","statHc":"Integracja z Health Connect","statPdf":"Import planu od trenera","featLabel":"Funkcje","featH2":"Wszystko co potrzebujesz","featDesc":"Trening, dieta, sync zegarka i trener AI po polsku — Go4Body łączy to, co dotychczas rozdzielałeś między kilka aplikacji.","card1Title":"Plan treningowy","card1Desc":"Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body","card2Title":"AI Coach","card2Desc":"Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).","card3Title":"Dieta i żywienie","card3Desc":"Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.","card4Title":"Health Connect","card4Desc":"Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.","card5Title":"Postęp i sylwetka","card5Desc":"Śledzenie wagi, skład ciała i zdjęcia sylwetki w osi czasu. Widzisz zmianę tygodniami, nie tylko na wadze.","card6Title":"Suplementacja","card6Desc":"Lista suplementów z dziennym przypominaniem i historią tygodniową. Nigdy więcej zapomnianych suplementów.","howLabel":"Jak to działa","howH2":"Zacznij w 3 minuty","howDesc":"Bez skomplikowanej konfiguracji. Od razu do działania.","step1Title":"Ustaw swój cel","step1Desc":"Powiedz aplikacji czego chcesz — budowa masy, redukcja, siła. Podaj podstawowe dane.","step2Title":"Wgraj lub wygeneruj plan","step2Desc":"Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu.","step3Title":"Trenuj i śledź","step3Desc":"Zaznaczaj posiłki, wykonuj treningi, czytaj wskazówki AI. Aplikacja robi resztę.","step4Title":"Obserwuj wyniki","step4Desc":"Skład ciała, siłownia, dieta — wszystko w jednym miejscu. Postęp który widzisz.","ctaH2":"Gotowy zacząć?","ctaP":"Pobierz Go4Body i wypróbuj za darmo już teraz.","footHelp":"Pomoc","footPrivacy":"Polityka Prywatności","cardHint":"dotknij by zobaczyć ekran","footContact":"Kontakt"}, en: {"navFeatures":"Features","navHow":"How it works","navHelp":"Help","navPrivacy":"Privacy Policy","navPromo":"50% off first year","heroBadge":"<span></span> Available on Android","heroH1":"One app<br/>instead of <em>five</em>","heroSub":"AI trainer in Polish, workout plans, diet and watch data — all in Go4Body. Import a plan from your trainer, scan products, track progress — every day.","heroCaption":"Free · Android 8.0+ · Available on Google Play","btnDownloadNav":"Download","btnDownloadHero":"Download","btnDownloadCta":"Download","btnFeaturesText":"See features →","statAi":"Coach powered by Claude (Anthropic)","statPlans":"Workout plans for every goal","statHc":"Health Connect integration","statPdf":"Import a plan from your trainer","featLabel":"Features","featH2":"Everything you need","featDesc":"Training, diet, watch sync and an AI trainer in Polish — Go4Body brings together what you used to split across several apps.","card1Title":"Training plan","card1Desc":"Import a PDF plan from your trainer, or generate a ready-made Go4Body plan","card2Title":"AI Coach","card2Desc":"Daily tips and chat with an AI coach who knows your plan, workout history, diet and body composition. Powered by Claude (Anthropic).","card3Title":"Diet & nutrition","card3Desc":"Scan barcodes or add meals with a photo — AI recognizes the product and estimates macros. Daily balance of calories, protein and carbs.","card4Title":"Health Connect","card4Desc":"Automatic sync of steps, sleep, heart rate, weight and body composition from health apps on Android.","card5Title":"Progress & physique","card5Desc":"Track weight, body composition and progress photos on a timeline. See the change over weeks, not just on the scale.","card6Title":"Supplements","card6Desc":"Supplement list with daily reminders and a weekly history. Never forget a supplement again.","howLabel":"How it works","howH2":"Start in 3 minutes","howDesc":"No complicated setup. Straight to action.","step1Title":"Set your goal","step1Desc":"Tell the app what you want — build muscle, cut, get stronger. Enter your basic info.","step2Title":"Upload or generate a plan","step2Desc":"Import a PDF from your trainer, or generate a ready-made Go4Body plan matched to your goal.","step3Title":"Train and track","step3Desc":"Log your meals, complete workouts, read AI tips. The app does the rest.","step4Title":"Watch your results","step4Desc":"Body composition, workouts, diet — all in one place. Progress you can actually see.","ctaH2":"Ready to start?","ctaP":"Download Go4Body and try it free right now.","footHelp":"Help","footPrivacy":"Privacy Policy","cardHint":"tap to view screen","footContact":"Contact"} };
+  var G4B_I18N = { pl: {"navFeatures": "Funkcje", "navHow": "Jak działa", "navHelp": "Pomoc", "navPrivacy": "Polityka prywatności", "navPromo": "−50% na rok", "heroBadge": "<span></span> Dostępne na Android", "heroH1": "Jedna aplikacja<br/>zamiast <em>pięciu</em>", "heroSub": "Trener AI po polsku, plan treningowy, dieta i dane z zegarka — wszystko w Go4Body. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.", "heroCaption": "Plan Basic za darmo na zawsze · Premium z okresem próbnym · Android 8.0+", "btnDownloadNav": "Pobierz", "btnDownloadHero": "Pobierz", "btnDownloadCta": "Pobierz", "btnFeaturesText": "Zobacz funkcje →", "statAi": "Coach oparty na Claude (Anthropic)", "statPlans": "Plany treningowe na każdy cel", "statHc": "Integracja z Health Connect", "statPdf": "Import planu od trenera", "featLabel": "Funkcje", "featH2": "Wszystko czego potrzebujesz", "featDesc": "Trening, dieta, sync zegarka i trener AI po polsku — Go4Body łączy to, co dotychczas rozdzielałeś między kilka aplikacji.", "card1Title": "Plan treningowy", "card1Desc": "Gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio. Masz rozpiskę od trenera? Zaimportuj ją z PDF lub zdjęcia.", "card2Title": "AI Coach", "card2Desc": "Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).", "card3Title": "Dieta i żywienie", "card3Desc": "Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.", "card4Title": "Health Connect", "card4Desc": "Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.", "card5Title": "Postęp i sylwetka", "card5Desc": "Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.", "card6Title": "Suplementacja", "card6Desc": "Lista suplementów z dziennikiem przyjmowania i historią tygodniową — widzisz, co i kiedy zostało przyjęte.", "howLabel": "Jak to działa", "howH2": "Zacznij w 3 minuty", "howDesc": "Bez skomplikowanej konfiguracji. Od razu do działania.", "step1Title": "Ustaw swój cel", "step1Desc": "Powiedz aplikacji czego chcesz — budowa masy, redukcja, siła. Podaj podstawowe dane.", "step2Title": "Wgraj lub wygeneruj plan", "step2Desc": "Wygeneruj gotowy plan Go4Body dopasowany do Twojego celu albo — w Premium — zaimportuj rozpiskę od swojego trenera.", "step3Title": "Trenuj i śledź", "step3Desc": "Zaznaczaj posiłki, wykonuj treningi, czytaj wskazówki AI. Aplikacja robi resztę.", "step4Title": "Obserwuj wyniki", "step4Desc": "Skład ciała, siłownia, dieta — wszystko w jednym miejscu. Postęp który widzisz.", "ctaH2": "Gotowy zacząć?", "ctaP": "Pobierz Go4Body za darmo — plan Basic jest bezpłatny na zawsze, a Premium możesz wypróbować w okresie próbnym.", "footHelp": "Pomoc", "footPrivacy": "Polityka Prywatności", "cardHint": "dotknij by zobaczyć ekran", "footContact": "Kontakt", "navPlans": "Plany", "card1Tier": "Basic: gotowy plan · Premium: import od trenera", "card2Tier": "Basic: wskazówka dnia · Premium: czat z trenerem", "card3Tier": "Basic: ręczny dziennik · Premium: zdjęcie i skaner kodów", "card4Tier": "Premium", "card5Tier": "Basic", "card6Tier": "Basic: dziennik · Premium: przypomnienia", "plansLabel": "Plany", "plansH2": "Basic czy Premium?", "plansDesc": "W Basic wpisujesz wszystko sam — za darmo, na zawsze. W Premium apka robi to za Ciebie.", "planBasicName": "Basic", "planBasicTag": "Bezpłatny na zawsze, bez limitu czasu", "pb1": "Gotowy plan treningowy dopasowany do Twoich odpowiedzi", "pb2": "Dziennik żywienia — sam wpisujesz posiłki, apka liczy kalorie i makroskładniki", "pb3": "Dziennik suplementów (gotowa lista i własne pozycje)", "pb4": "Pomiary sylwetki: waga, procent tłuszczu, obwody i zdjęcia postępu", "pb5": "32 podstawowe ćwiczenia na wszystkie partie mięśni", "pb6": "Codzienna wskazówka „Coach na dziś”", "planPremName": "Premium", "planPremTag": "Okres próbny za darmo, potem subskrypcja", "planPlus": "Wszystko z Basic, plus:", "pp1": "Trener AI na czacie — doradza, układa plany i pilnuje Twoich postępów", "pp2": "Kalorie ze zdjęcia posiłku", "pp3": "Skaner kodów kreskowych z opakowań", "pp4": "Połączenie z zegarkiem i wagą — kroki, sen, tętno i waga przez Health Connect", "pp5": "Plan od trenera do apki — zdjęcie lub plik, apka przepisze rozpiskę", "pp6": "Pełna biblioteka ćwiczeń — blisko 100 z opisami", "pp7": "Przypomnienia o treningu i suplementach", "plansNote": "Płatność przez Google Play. Subskrypcja odnawia się automatycznie i możesz ją anulować w dowolnym momencie w Google Play. Cenę i długość okresu próbnego zobaczysz w aplikacji (Ustawienia → Plan), zanim cokolwiek rozpoczniesz. Po anulowaniu Twoje dane zostają — blokują się tylko funkcje Premium.", "consentText": "Używamy piksela Meta (Facebook), żeby mierzyć skuteczność naszych reklam. Ładuje się dopiero po Twojej zgodzie i zapisuje pliki cookie. Szczegóły w <a href=\"privacy.html#strona-www\">Polityce prywatności</a>.", "consentYes": "Akceptuję", "consentNo": "Tylko niezbędne", "footCookies": "Ustawienia cookies"}, en: {"navFeatures": "Features", "navHow": "How it works", "navHelp": "Help", "navPrivacy": "Privacy Policy", "navPromo": "50% off first year", "heroBadge": "<span></span> Available on Android", "heroH1": "One app<br/>instead of <em>five</em>", "heroSub": "AI trainer in Polish, workout plans, diet and watch data — all in Go4Body. Import a plan from your trainer, scan products, track progress — every day.", "heroCaption": "Basic plan free forever · Premium with a free trial · Android 8.0+", "btnDownloadNav": "Download", "btnDownloadHero": "Download", "btnDownloadCta": "Download", "btnFeaturesText": "See features →", "statAi": "Coach powered by Claude (Anthropic)", "statPlans": "Workout plans for every goal", "statHc": "Health Connect integration", "statPdf": "Import a plan from your trainer", "featLabel": "Features", "featH2": "Everything you need", "featDesc": "Training, diet, watch sync and an AI trainer in Polish — Go4Body brings together what you used to split across several apps.", "card1Title": "Training plan", "card1Desc": "A ready-made Go4Body plan matched to your goal — muscle gain, cutting, strength or cardio. Got a plan from your trainer? Import it from a PDF or a photo.", "card2Title": "AI Coach", "card2Desc": "Daily tips and chat with an AI coach who knows your plan, workout history, diet and body composition. Powered by Claude (Anthropic).", "card3Title": "Diet & nutrition", "card3Desc": "Scan barcodes or add meals with a photo — AI recognizes the product and estimates macros. Daily balance of calories, protein and carbs.", "card4Title": "Health Connect", "card4Desc": "Automatic sync of steps, sleep, heart rate, weight and body composition from health apps on Android.", "card5Title": "Progress & physique", "card5Desc": "Track weight, body composition and progress photos on a timeline. See the change over weeks, not just on the scale.", "card6Title": "Supplements", "card6Desc": "Supplement list with an intake log and a weekly history — see what was taken and when.", "howLabel": "How it works", "howH2": "Start in 3 minutes", "howDesc": "No complicated setup. Straight to action.", "step1Title": "Set your goal", "step1Desc": "Tell the app what you want — build muscle, cut, get stronger. Enter your basic info.", "step2Title": "Upload or generate a plan", "step2Desc": "Generate a ready-made Go4Body plan matched to your goal or — in Premium — import a plan from your trainer.", "step3Title": "Train and track", "step3Desc": "Log your meals, complete workouts, read AI tips. The app does the rest.", "step4Title": "Watch your results", "step4Desc": "Body composition, workouts, diet — all in one place. Progress you can actually see.", "ctaH2": "Ready to start?", "ctaP": "Download Go4Body for free — the Basic plan is free forever, and you can try Premium during a free trial.", "footHelp": "Help", "footPrivacy": "Privacy Policy", "cardHint": "tap to view screen", "footContact": "Contact", "navPlans": "Plans", "card1Tier": "Basic: ready-made plan · Premium: trainer import", "card2Tier": "Basic: daily tip · Premium: coach chat", "card3Tier": "Basic: manual log · Premium: photo and barcode scan", "card4Tier": "Premium", "card5Tier": "Basic", "card6Tier": "Basic: log · Premium: reminders", "plansLabel": "Plans", "plansH2": "Basic or Premium?", "plansDesc": "In Basic you log everything yourself — free, forever. In Premium the app does it for you.", "planBasicName": "Basic", "planBasicTag": "Free forever, no time limit", "pb1": "A ready-made training plan matched to your answers", "pb2": "Nutrition log — you enter meals, the app counts calories and macros", "pb3": "Supplement log (a ready list plus your own items)", "pb4": "Body measurements: weight, body fat %, circumferences and progress photos", "pb5": "32 core exercises covering every muscle group", "pb6": "A daily “Coach for today” tip", "planPremName": "Premium", "planPremTag": "Free trial, then a subscription", "planPlus": "Everything in Basic, plus:", "pp1": "AI coach chat — advises, builds plans and keeps track of your progress", "pp2": "Calories from a meal photo", "pp3": "Barcode scanner for packaged products", "pp4": "Watch and scale connection — steps, sleep, heart rate and weight via Health Connect", "pp5": "Trainer plan into the app — a photo or a file, the app copies the plan for you", "pp6": "Full exercise library — nearly 100 with descriptions", "pp7": "Reminders for workouts and supplements", "plansNote": "Payment through Google Play. The subscription renews automatically and you can cancel at any time in Google Play. You will see the price and the length of the free trial in the app (Settings → Plan) before you start anything. After you cancel your data stays — only the Premium features are locked.", "consentText": "We use the Meta (Facebook) pixel to measure how well our ads work. It loads only after you agree and it sets cookies. Details in the <a href=\"privacy.html#strona-www\">Privacy Policy</a>.", "consentYes": "Accept", "consentNo": "Essential only", "footCookies": "Cookie settings"} };
   function setLang(lang) {
     var dict = G4B_I18N[lang];
     if (!dict) return;
@@ -642,6 +774,30 @@
     var saved = null;
     try { saved = localStorage.getItem('g4b_lang'); } catch(e) {}
     if (saved === 'en') setLang('en');
+  })();
+  // Baner zgody: bez wyboru piksel się nie ładuje; wybór zapamiętujemy w przeglądarce
+  (function(){
+    var box = document.getElementById('consent'), choice = null;
+    try { choice = localStorage.getItem('g4b_consent'); } catch(e) {}
+    if (!box || choice === 'granted' || choice === 'denied') return;
+    box.classList.add('show');
+    function decide(v) {
+      try { localStorage.setItem('g4b_consent', v); } catch(e) {}
+      box.classList.remove('show');
+      if (v === 'granted' && window.g4bLoadPixel) window.g4bLoadPixel();
+    }
+    document.getElementById('consentYes').addEventListener('click', function(){ decide('granted'); });
+    document.getElementById('consentNo').addEventListener('click', function(){ decide('denied'); });
+  })();
+  // Wycofanie zgody: kasujemy wybór i przeładowujemy stronę (piksel wtedy się nie ładuje, baner pyta od nowa)
+  (function(){
+    var l = document.getElementById('cookieSettings');
+    if (!l) return;
+    l.addEventListener('click', function(e){
+      e.preventDefault();
+      try { localStorage.removeItem('g4b_consent'); } catch(err) {}
+      location.reload();
+    });
   })();
 </script>
 <script>

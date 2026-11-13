@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Go4Body</title>
+  <link rel="canonical" href="https://go4body.com/privacy.html" />
   <link rel="icon" href="assets/icon.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +55,7 @@
   </div>
   <div class="policy-block active" id="lang-pl">
     <h1>Polityka Prywatności</h1>
-    <div class="meta"><span>Wersja: 1.0</span><span>Data wejścia w życie: 2026-06-14</span><span>Ostatnia aktualizacja: 2026-09-17</span></div>
+    <div class="meta"><span>Wersja: 1.2</span><span>Data wejścia w życie: 2026-11-13</span><span>Ostatnia aktualizacja: 2026-11-13</span></div>
     <h2>1. Administrator danych</h2>
     <p>Go4Body jest aplikacją mobilną do zarządzania treningami, żywieniem i zdrowiem, dostępną na urządzeniach z systemem Android.</p>
     <p>Operatorem Aplikacji i administratorem danych osobowych jest: <strong>APD Charles Nowacki</strong><br/>Kontakt: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
@@ -66,8 +67,20 @@
       <li><strong>AI nie zastępuje specjalisty.</strong> Porady AI nie stanowią konsultacji medycznej, dietetycznej ani fizjoterapeutycznej.</li>
       <li>Przed zmianą diety, suplementacji lub planu treningowego — skonsultuj się z lekarzem lub certyfikowanym trenerem.</li>
       <li>Operator nie ponosi odpowiedzialności za skutki zdrowotne wynikające ze stosowania rekomendacji AI bez weryfikacji przez specjalistę.</li>
-      <li>Aby wygenerować plany i porady, Go4Body przesyła istotne parametry treningowe i dietetyczne (bez imienia i danych kontaktowych) do zewnętrznego dostawcy modelu AI (Anthropic). Dane są wykorzystywane wyłącznie do wygenerowania odpowiedzi i nie są używane do trenowania modeli dostawcy.</li>
     </ul>
+    <h3>Jak działają funkcje AI i jakie dane przekazujemy</h3>
+    <p>Odpowiedzi AI (wskazówki, plany treningowe i żywieniowe, analiza zdjęć posiłków, rozmowy z Trenerem AI) przygotowuje zewnętrzny dostawca modeli AI — <strong>Anthropic (USA)</strong> — jako nasz podmiot przetwarzający, na podstawie umowy powierzenia przetwarzania danych. Trenerzy (Michał, Kuba, Ewa, Anna) to postacie generowane przez sztuczną inteligencję, nie prawdziwe osoby.</p>
+    <p><strong>Co wysyłamy do dostawcy AI:</strong></p>
+    <ul>
+      <li>imię lub pseudonim (żeby trener mógł się do Ciebie zwracać), wiek, płeć, wzrost, wagę i cele,</li>
+      <li>posiłki, kalorie, białko, tłuszcze i węglowodany, suplementy, treningi i ćwiczenia,</li>
+      <li>kroki, sen i tętno z Health Connect, jeśli włączysz integrację,</li>
+      <li>zdjęcia posiłków i treść wiadomości, które sam wysyłasz do Trenera AI.</li>
+    </ul>
+    <p><strong>Czego nie wysyłamy:</strong> adresu e-mail, nazwiska, hasła, zdjęć sylwetki ani współrzędnych GPS.</p>
+    <p>Krótkie wskazówki na ekranach aplikacji (np. Dziś, Dieta, Trening) są przygotowywane automatycznie z tych samych danych. Zdjęcie posiłku trafia do analizy dopiero po tym, jak sam je zrobisz lub wybierzesz z galerii, a wiadomość — dopiero gdy ją wyślesz.</p>
+    <p>Przy pierwszym użyciu Trenera AI prosimy o Twoją wyraźną zgodę na przekazanie danych dostawcy AI. Zgodę możesz wycofać w każdej chwili, pisząc na <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>; bez zgody aplikacja działa dalej, ale bez funkcji AI.</p>
+    <p>Anthropic wykorzystuje dane wyłącznie do przygotowania odpowiedzi, nie trenuje na nich swoich modeli i automatycznie usuwa je ze swoich systemów w ciągu 30 dni. Go4Body nie zapisuje zdjęć posiłków na swoich serwerach — zapisujemy tylko wynik w Twoim dzienniku oraz techniczne informacje o zużyciu (liczba tokenów i koszt), bez treści.</p>
     <h2>3. Zbierane dane</h2>
     <h3>3.1 Dane podane przez użytkownika</h3>
     <ul>
@@ -75,12 +88,12 @@
       <li><strong>Dane osobowe i fizyczne:</strong> imię/pseudonim, płeć, wiek, wzrost, waga, waga docelowa</li>
       <li><strong>Dane stylu życia:</strong> poziom aktywności, preferencje treningowe, dni treningowe w tygodniu</li>
       <li><strong>Dane zdrowotne:</strong> aktualna waga, pomiary ciała, % tkanki tłuszczowej, zdjęcia sylwetki</li>
-      <li><strong>Dane żywieniowe:</strong> spożyte posiłki, kalorie, makroskładniki, nawodnienie</li>
+      <li><strong>Dane żywieniowe:</strong> spożyte posiłki, kalorie, makroskładniki, nawodnienie, zdjęcia posiłków wysyłane do analizy AI (nie zapisujemy ich na serwerach)</li>
       <li><strong>Dane treningowe:</strong> wykonane ćwiczenia, serie, powtórzenia, czas trwania</li>
     </ul>
     <h3>3.2 Dane zbierane automatycznie</h3>
     <ul>
-      <li>Dane z Health Connect (kroki, sen, tętno, waga, % tłuszczu) — wyłącznie po wyrażeniu zgody</li>
+      <li>Dane z Health Connect (kroki, sen, tętno, waga, kalorie, % tłuszczu) — wyłącznie po wyrażeniu zgody</li>
       <li><strong>Dane lokalizacji (GPS)</strong> — WYŁĄCZNIE w trakcie aktywnie trwającego treningu na świeżym powietrzu (spacer, bieganie, rower), do wyznaczenia trasy, dystansu i tempa. Aplikacja prosi o dostęp do lokalizacji „Zawsze" (nie tylko podczas korzystania z aplikacji), żeby trasa nie urywała się po zgaszeniu ekranu — lokalizacja nigdy nie jest jednak zbierana poza aktywnym pomiarem treningu.</li>
       <li>Techniczne dane urządzenia: wersja systemu, model urządzenia (do diagnostyki)</li>
       <li>Logi błędów aplikacji</li>
@@ -90,19 +103,33 @@
     <table>
       <tr><th>Cel</th><th>Podstawa prawna</th></tr>
       <tr><td>Świadczenie usług Aplikacji</td><td>Wykonanie umowy (Art. 6(1)(b) RODO)</td></tr>
-      <tr><td>Personalizacja planów przez AI</td><td>Wykonanie umowy + zgoda</td></tr>
-      <tr><td>Generowanie wskazówek coachingowych</td><td>Wykonanie umowy + zgoda</td></tr>
-      <tr><td>Rejestrowanie trasy treningów na świeżym powietrzu (GPS)</td><td>Zgoda</td></tr>
-      <tr><td>Diagnostyka błędów</td><td>Uzasadniony interes</td></tr>
+      <tr><td>Funkcje AI (wskazówki, plany, analiza zdjęć posiłków, rozmowy z Trenerem AI)</td><td>Wykonanie umowy (Art. 6(1)(b) RODO) oraz wyraźna zgoda na przetwarzanie danych o zdrowiu (Art. 9(2)(a) RODO)</td></tr>
+      <tr><td>Integracja z Health Connect</td><td>Wyraźna zgoda (Art. 9(2)(a) RODO)</td></tr>
+      <tr><td>Rejestrowanie trasy treningów na świeżym powietrzu (GPS)</td><td>Zgoda (Art. 6(1)(a) RODO)</td></tr>
+      <tr><td>Pomiar skuteczności reklam (Meta) — tylko jeśli się zgodzisz</td><td>Zgoda (Art. 6(1)(a) RODO oraz Art. 173 Prawa telekomunikacyjnego)</td></tr>
+      <tr><td>Diagnostyka błędów i bezpieczeństwo</td><td>Prawnie uzasadniony interes (Art. 6(1)(f) RODO)</td></tr>
     </table>
+    <p>Podanie danych jest dobrowolne, ale bez danych o zdrowiu i zgody na AI nie możemy dostarczyć funkcji AI.</p>
     <h2>5. Przechowywanie i bezpieczeństwo danych</h2>
     <ul>
-      <li>Dane przechowywane są na serwerach <strong>Supabase</strong> (infrastruktura EU)</li>
+      <li>Dane przechowywane są na serwerach <strong>Supabase</strong> (infrastruktura EU), dopóki masz konto</li>
       <li>Hasła przechowywane wyłącznie w formie zaszyfrowanej (bcrypt)</li>
       <li>Połączenia szyfrowane protokołem HTTPS/TLS</li>
-      <li>Dane zdrowotne przechowywane oddzielnie z rozszerzoną ochroną</li>
-      <li>Dane przechowywane przez czas korzystania z konta i przez <strong>2 lata</strong> po jego usunięciu</li>
+      <li>Dostęp do danych jest ograniczony do właściciela konta (zabezpieczenia na poziomie bazy danych)</li>
+      <li>Historia rozmów z Trenerem AI jest przechowywana na serwerze <strong>maksymalnie 30 dni</strong> i automatycznie usuwana; możesz też wyczyścić ją sam w aplikacji</li>
+      <li>Po usunięciu konta usuwamy Twoje dane od razu (patrz 6a)</li>
     </ul>
+    <h3>Odbiorcy danych i przekazywanie poza EOG</h3>
+    <p>Korzystamy z usług następujących dostawców:</p>
+    <ul>
+      <li><strong>Supabase</strong> — hosting bazy danych (infrastruktura w UE),</li>
+      <li><strong>Anthropic</strong> — przygotowywanie odpowiedzi AI (USA),</li>
+      <li><strong>RevenueCat</strong> — obsługa subskrypcji (USA),</li>
+      <li><strong>Google</strong> — płatności w Google Play oraz Health Connect na Twoim telefonie,</li>
+      <li><strong>Resend</strong> — wysyłka e-maili (potwierdzenie konta, reset hasła),</li>
+      <li><strong>Meta</strong> — wyłącznie jeśli zgodzisz się na pomiar skuteczności reklam.</li>
+    </ul>
+    <p>Dostawcom, którym powierzamy dane (m.in. Supabase, Anthropic, RevenueCat, Resend), robimy to na podstawie umów powierzenia przetwarzania. Część dostawców (m.in. Anthropic i RevenueCat) ma siedzibę w USA; przekazanie danych odbywa się wtedy na podstawie mechanizmów przewidzianych w RODO, m.in. standardowych klauzul umownych zatwierdzonych przez Komisję Europejską. Kopię zabezpieczeń możesz uzyskać, pisząc na <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>.</p>
     <h2>6. Prawa użytkownika (RODO)</h2>
     <ul>
       <li><strong>Dostęp</strong> — wgląd w dane osobowe</li>
@@ -110,6 +137,9 @@
       <li><strong>Usunięcie</strong> — żądanie usunięcia konta i wszystkich danych</li>
       <li><strong>Przenośność danych</strong> — otrzymanie danych w formacie CSV/JSON</li>
       <li><strong>Sprzeciw</strong> — wobec przetwarzania opartego na uzasadnionym interesie</li>
+      <li><strong>Ograniczenie przetwarzania</strong></li>
+      <li><strong>Cofnięcie zgody</strong> w dowolnym momencie (np. na AI: wiadomość na rodo@go4body.com), bez wpływu na zgodność z prawem przetwarzania sprzed cofnięcia</li>
+      <li><strong>Informacja o odbiorcach danych</strong> i zabezpieczeniach przy przekazaniu poza EOG</li>
     </ul>
     <p>Kontakt w celu realizacji praw: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
     <p>Masz również prawo złożyć skargę do UODO (ul. Stawki 2, 00-193 Warszawa).</p>
@@ -121,6 +151,7 @@
     <ul>
       <li>Profil użytkownika i dane osobowe</li>
       <li>Historia treningów, żywienia i suplementów</li>
+      <li>Historia rozmów z Trenerem AI</li>
       <li>Zdjęcia sylwetki (z serwera)</li>
       <li>Dane zdrowotne zsynchronizowane z Health Connect</li>
       <li>Konto uwierzytelniające (e-mail i hasło)</li>
@@ -130,7 +161,7 @@
     <ul>
       <li>Integracja z Health Connect jest opcjonalna</li>
       <li>Dane Health Connect synchronizowane wyłącznie po wyrażeniu zgody</li>
-      <li>Dane zdrowotne NIE są przekazywane do zewnętrznych serwerów AI</li>
+      <li>Jeśli korzystasz z funkcji AI, podsumowania danych z Health Connect (np. liczba kroków z dnia, długość snu, średnie tętno) są częścią informacji wysyłanych do dostawcy AI, żeby trener mógł się do nich odnieść (patrz punkt 2)</li>
       <li>Zgodę można wycofać w ustawieniach systemu Android</li>
       <li>Dane Health Connect nigdy nie są sprzedawane ani udostępniane brokerom danych czy platformom reklamowym, ani wykorzystywane do trenowania ogólnych modeli AI/ML.</li>
     </ul>
@@ -143,13 +174,22 @@
     <h2>9. Dzieci</h2>
     <p>Go4Body przeznaczone jest dla użytkowników w wieku <strong>16 lat i więcej</strong>.</p>
     <h2>10. Zmiany Polityki</h2>
-    <p>O istotnych zmianach Polityki użytkownicy będą informowani przez powiadomienie push lub komunikat przy uruchomieniu Aplikacji.</p>
+    <p>O istotnych zmianach Polityki użytkownicy będą informowani przez powiadomienie push lub komunikat przy uruchomieniu Aplikacji. Jeśli zmiana rozszerza zakres danych wysyłanych do AI, poprosimy o ponowną zgodę.</p>
+    <p><strong>Zmiany w wersji 1.1 (2026-10-09):</strong> doprecyzowaliśmy, jakie dane trafiają do dostawcy AI i dokąd (w tym zdjęcia posiłków i dane z Health Connect), dodaliśmy odbiorców danych i informację o przekazywaniu do USA, podstawy prawne dla danych o zdrowiu, okres przechowywania historii rozmów z Trenerem AI (30 dni) oraz prawo do cofnięcia zgody.</p>
     <h2>11. Kontakt</h2>
     <p><strong>Email:</strong> <a href="mailto:rodo@go4body.com">rodo@go4body.com</a><br/>Czas odpowiedzi: do 14 dni roboczych</p>
+    <h2 id="strona-www">12. Strona internetowa go4body.com</h2>
+    <ul>
+      <li>Strona zapamiętuje w Twojej przeglądarce wybrany język i Twój wybór dotyczący cookies. Te informacje zostają na Twoim urządzeniu i nie są nigdzie wysyłane.</li>
+      <li>Jeśli klikniesz „Akceptuję” w banerze, załadujemy <strong>piksel Meta (Facebook)</strong>. Zapisuje on pliki cookie i przekazuje Meta informacje o wizycie na stronie (m.in. adres odwiedzonej podstrony, identyfikator przeglądarki i to, że trafiłeś na stronę z reklamy), żebyśmy mogli mierzyć skuteczność reklam. Podstawa: zgoda (Art. 6(1)(a) RODO oraz Art. 173 Prawa telekomunikacyjnego).</li>
+      <li><strong>Bez Twojej zgody piksel się nie ładuje</strong> — wybór „Tylko niezbędne” oznacza, że nic nie jest wysyłane do Meta. Zgodę możesz wycofać w każdej chwili przez link „Ustawienia cookies” w stopce strony głównej albo pisząc na <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>.</li>
+      <li>Przycisk „Pobierz” prowadzi do Google Play. Jeśli wchodzisz z reklamy, do tego linku dodajemy parametry kampanii (bez danych osobowych), żeby wiedzieć, z której reklamy pochodzi instalacja.</li>
+    </ul>
+    <p><strong>Zmiany w wersji 1.2 (2026-11-13):</strong> dodaliśmy punkt 12 o stronie internetowej i pikselu Meta (ładowany wyłącznie po zgodzie).</p>
   </div>
   <div class="policy-block" id="lang-en">
     <h1>Privacy Policy</h1>
-    <div class="meta"><span>Version: 1.0</span><span>Effective date: 2026-06-14</span><span>Last updated: 2026-09-17</span></div>
+    <div class="meta"><span>Version: 1.2</span><span>Effective date: 2026-11-13</span><span>Last updated: 2026-11-13</span></div>
     <h2>1. Data Controller</h2>
     <p>Go4Body is a mobile application for managing workouts, nutrition, and health, available on Android devices.</p>
     <p>The operator and data controller is: <strong>APD Charles Nowacki</strong><br/>Contact: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
@@ -160,20 +200,32 @@
       <li><strong>AI does not replace a specialist.</strong> AI advice does not constitute medical or dietary consultation.</li>
       <li>Consult a doctor or certified trainer before changing your diet, supplementation, or training plan.</li>
       <li>The operator is not liable for health consequences from following AI recommendations without specialist verification.</li>
-      <li>To generate plans and tips, Go4Body sends relevant workout and nutrition parameters (not your name or contact details) to a third-party AI model provider (Anthropic). This data is used only to generate your response and is not used to train the provider's models.</li>
     </ul>
+    <h3>How AI features work and what data we pass on</h3>
+    <p>AI answers (tips, training and nutrition plans, meal photo analysis, conversations with the AI Coach) are prepared by an external AI model provider — <strong>Anthropic (USA)</strong> — acting as our processor under a data processing agreement. The coaches (Michał, Kuba, Ewa, Anna) are AI-generated characters, not real people.</p>
+    <p><strong>What we send to the AI provider:</strong></p>
+    <ul>
+      <li>your first name or nickname (so the coach can address you), age, gender, height, weight and goals,</li>
+      <li>meals, calories, protein, fat and carbs, supplements, workouts and exercises,</li>
+      <li>steps, sleep and heart rate from Health Connect, if you turn the integration on,</li>
+      <li>meal photos and the text of messages you send to the AI Coach yourself.</li>
+    </ul>
+    <p><strong>What we do not send:</strong> your email address, surname, password, body progress photos or GPS coordinates.</p>
+    <p>Short tips on app screens (e.g. Today, Diet, Training) are prepared automatically from the same data. A meal photo goes to analysis only after you take it or pick it from your gallery, and a message only when you send it.</p>
+    <p>The first time you use the AI Coach we ask for your explicit consent to pass data to the AI provider. You can withdraw consent at any time by writing to <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>; without consent the app keeps working, but without AI features.</p>
+    <p>Anthropic uses the data only to prepare the answer, does not train its models on it and automatically deletes it from its systems within 30 days. Go4Body does not store meal photos on its servers — we keep only the result in your diary and technical usage information (token count and cost), without content.</p>
     <h2>3. Data We Collect</h2>
     <h3>3.1 Data Provided by the User</h3>
     <ul>
       <li><strong>Account data:</strong> email address, password (encrypted)</li>
       <li><strong>Personal data:</strong> name/nickname, gender, age, height, weight, target weight</li>
       <li><strong>Health data:</strong> weight, body measurements, body fat %, progress photos</li>
-      <li><strong>Nutrition data:</strong> meals, calories, macronutrients, hydration</li>
+      <li><strong>Nutrition data:</strong> meals, calories, macronutrients, hydration, meal photos sent for AI analysis (not stored on our servers)</li>
       <li><strong>Training data:</strong> exercises, sets, reps, duration</li>
     </ul>
     <h3>3.2 Data Collected Automatically</h3>
     <ul>
-      <li>Health Connect data (steps, sleep, heart rate, weight, body fat) — only after user consent</li>
+      <li>Health Connect data (steps, sleep, heart rate, weight, calories, body fat) — only after user consent</li>
       <li><strong>Location data (GPS)</strong> — ONLY while an outdoor workout (walk, run, bike ride) is actively in progress, used to draw the route, distance, and pace. The app requests "Always" location access so the route doesn't stop recording when the screen turns off — but location is never collected outside of an active workout session.</li>
       <li>Device technical data for diagnostics</li>
       <li>App error logs</li>
@@ -183,17 +235,33 @@
     <table>
       <tr><th>Purpose</th><th>Legal basis</th></tr>
       <tr><td>Providing App services</td><td>Performance of contract (Art. 6(1)(b) GDPR)</td></tr>
-      <tr><td>Personalising plans via AI</td><td>Contract + consent</td></tr>
-      <tr><td>Recording outdoor workout routes (GPS)</td><td>Consent</td></tr>
-      <tr><td>Error diagnostics</td><td>Legitimate interest</td></tr>
+      <tr><td>AI features (tips, plans, meal photo analysis, conversations with the AI Coach)</td><td>Performance of contract (Art. 6(1)(b) GDPR) and explicit consent to process health data (Art. 9(2)(a) GDPR)</td></tr>
+      <tr><td>Health Connect integration</td><td>Explicit consent (Art. 9(2)(a) GDPR)</td></tr>
+      <tr><td>Recording outdoor workout routes (GPS)</td><td>Consent (Art. 6(1)(a) GDPR)</td></tr>
+      <tr><td>Ad measurement (Meta) — only if you agree</td><td>Consent (Art. 6(1)(a) GDPR and Art. 173 Polish Telecommunications Law)</td></tr>
+      <tr><td>Error diagnostics and security</td><td>Legitimate interest (Art. 6(1)(f) GDPR)</td></tr>
     </table>
+    <p>Providing data is voluntary, but without health data and consent to AI we cannot provide AI features.</p>
     <h2>5. Data Storage and Security</h2>
     <ul>
-      <li>Data stored on <strong>Supabase</strong> servers (EU infrastructure)</li>
+      <li>Data stored on <strong>Supabase</strong> servers (EU infrastructure) for as long as you have an account</li>
       <li>Passwords stored encrypted (bcrypt only)</li>
       <li>All connections use HTTPS/TLS encryption</li>
-      <li>Data retained for account duration + <strong>2 years</strong> after deletion</li>
+      <li>Access to data is limited to the account owner (database-level protections)</li>
+      <li>AI Coach conversation history is kept on the server for <strong>at most 30 days</strong> and deleted automatically; you can also clear it yourself in the app</li>
+      <li>After you delete your account we delete your data immediately (see 6a)</li>
     </ul>
+    <h3>Recipients and transfers outside the EEA</h3>
+    <p>We use the following providers:</p>
+    <ul>
+      <li><strong>Supabase</strong> — database hosting (EU infrastructure),</li>
+      <li><strong>Anthropic</strong> — preparing AI answers (USA),</li>
+      <li><strong>RevenueCat</strong> — subscription management (USA),</li>
+      <li><strong>Google</strong> — Google Play payments and Health Connect on your phone,</li>
+      <li><strong>Resend</strong> — sending emails (account confirmation, password reset),</li>
+      <li><strong>Meta</strong> — only if you consent to ad measurement.</li>
+    </ul>
+    <p>We entrust data to providers (including Supabase, Anthropic, RevenueCat and Resend) under data processing agreements. Some providers (including Anthropic and RevenueCat) are based in the USA; transfers then rely on mechanisms provided for in the GDPR, including standard contractual clauses approved by the European Commission. You can obtain a copy of the safeguards by writing to <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>.</p>
     <h2>6. User Rights (GDPR)</h2>
     <ul>
       <li><strong>Access</strong> — view your personal data</li>
@@ -201,6 +269,9 @@
       <li><strong>Erasure</strong> — request account and data deletion</li>
       <li><strong>Portability</strong> — receive data in CSV/JSON format</li>
       <li><strong>Objection</strong> — to processing based on legitimate interest</li>
+      <li><strong>Restriction of processing</strong></li>
+      <li><strong>Withdrawal of consent</strong> at any time (e.g. for AI: email rodo@go4body.com), without affecting the lawfulness of processing before withdrawal</li>
+      <li><strong>Information about recipients</strong> and safeguards for transfers outside the EEA</li>
     </ul>
     <p>Contact: <a href="mailto:rodo@go4body.com">rodo@go4body.com</a></p>
     <p>You may also lodge a complaint with your national Data Protection Authority.</p>
@@ -212,6 +283,7 @@
     <ul>
       <li>User profile and personal data</li>
       <li>Training, nutrition and supplement history</li>
+      <li>AI Coach conversation history</li>
       <li>Progress photos (from server)</li>
       <li>Health data synced via Health Connect</li>
       <li>Authentication account (email and password)</li>
@@ -221,7 +293,7 @@
     <ul>
       <li>Health Connect integration is optional</li>
       <li>Data synced only after explicit user consent</li>
-      <li>Health data is NOT transmitted to external AI servers</li>
+      <li>If you use AI features, summaries of Health Connect data (e.g. the day's steps, sleep duration, average heart rate) are part of the information sent to the AI provider so the coach can refer to them (see section 2)</li>
       <li>Consent can be withdrawn in Android system settings</li>
       <li>Health Connect data is never sold or shared with data brokers or advertising platforms, and is never used to train general-purpose AI/ML models.</li>
     </ul>
@@ -234,9 +306,18 @@
     <h2>9. Children</h2>
     <p>Go4Body is intended for users aged <strong>16 and over</strong>.</p>
     <h2>10. Policy Changes</h2>
-    <p>Users will be notified of significant changes via push notification or in-app message.</p>
+    <p>Users will be notified of significant changes via push notification or in-app message. If a change widens the scope of data sent to AI, we will ask for your consent again.</p>
+    <p><strong>Changes in version 1.1 (2026-10-09):</strong> we clarified which data goes to the AI provider and where (including meal photos and Health Connect data), added recipients and information about transfers to the USA, legal bases for health data, the retention period for AI Coach conversation history (30 days) and the right to withdraw consent.</p>
     <h2>11. Contact</h2>
     <p><strong>Email:</strong> <a href="mailto:rodo@go4body.com">rodo@go4body.com</a><br/>Response time: within 14 business days</p>
+    <h2 id="strona-www-en">12. The go4body.com website</h2>
+    <ul>
+      <li>The site remembers your chosen language and your cookie choice in your browser. This information stays on your device and is not sent anywhere.</li>
+      <li>If you click “Accept” in the banner, we load the <strong>Meta (Facebook) pixel</strong>. It sets cookies and passes information about your visit to Meta (including the address of the page you visited, a browser identifier and the fact that you arrived from an ad) so that we can measure how well our ads work. Legal basis: consent (Art. 6(1)(a) GDPR and Art. 173 of the Polish Telecommunications Law).</li>
+      <li><strong>Without your consent the pixel does not load</strong> — choosing “Essential only” means nothing is sent to Meta. You can withdraw consent at any time with the “Cookie settings” link in the footer of the home page, or by emailing <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>.</li>
+      <li>The “Download” button leads to Google Play. If you arrive from an ad, we add campaign parameters (no personal data) to that link so that we know which ad an install came from.</li>
+    </ul>
+    <p><strong>Changes in version 1.2 (2026-11-13):</strong> we added section 12 about the website and the Meta pixel (loaded only after consent).</p>
   </div>
 </div>
 <footer><p>© 2026 Go4Body · <a href="mailto:rodo@go4body.com">rodo@go4body.com</a> · <a href="index.html">go4body.com</a></p></footer>
