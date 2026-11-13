@@ -53,7 +53,7 @@
         <a href="pomoc.html" aria-current="page">Pomoc</a>
       </nav>
       <div class="nav-actions">
-        
+        <div class="lang-switch" role="group" aria-label="Język strony"><button type="button" class="lang-btn active" data-lang="pl" aria-pressed="true">PL</button><button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button></div>
         <a class="button button-small" href="index.html#pobierz">Pobierz aplikację <svg class="icon"><use href="#i-arrow-up"/></svg></a>
         <button class="menu-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu">
           <svg class="icon menu-open-icon"><use href="#i-menu"/></svg>
@@ -108,8 +108,8 @@
     </ol>
     <div class="tip-box"><b>Wskazówka:</b> nie musisz mieć zegarka ani wagi smart, żeby korzystać z appki — wszystko da się wpisać ręcznie.</div>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/screen_health.jpg')">
-    <img src="assets/screen_health.jpg" alt="Ekran Dziś" />
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dzis.webp')">
+    <img src="assets/pomoc/pomoc-dzis.webp" data-src-en="assets/pomoc/pomoc-dzis-en.webp" alt="Ekran Dziś" width="810" height="1800" loading="lazy" />
     <div class="thumb-label">Ekran Dziś</div>
   </div>
 </section>
@@ -132,12 +132,12 @@
     </ol>
   </div>
   <div class="guide-thumb-stack">
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dieta-metody-dodawania.jpg')">
-      <img src="assets/pomoc/pomoc-dieta-metody-dodawania.jpg" alt="Dodaj posiłek / Skanuj kod / Zdjęcie" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dieta-metody.webp')">
+    <img src="assets/pomoc/pomoc-dieta-metody.webp" data-src-en="assets/pomoc/pomoc-dieta-metody-en.webp" alt="Dodaj posiłek / Skanuj kod / Zdjęcie" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Dodaj posiłek / skaner / zdjęcie</div>
     </div>
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dieta-cele-kalorie-makro.jpg')">
-      <img src="assets/pomoc/pomoc-dieta-cele-kalorie-makro.jpg" alt="Cele kalorii i makro" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-dieta-cele.webp')">
+    <img src="assets/pomoc/pomoc-dieta-cele.webp" data-src-en="assets/pomoc/pomoc-dieta-cele-en.webp" alt="Cele kalorii i makro" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Cele kalorii i makro</div>
     </div>
   </div>
@@ -152,7 +152,7 @@
     <ol class="guide-steps">
       <li><b>Wybierz gotowy plan</b> — zakładka Trening → wybierz plan dopasowany do Twojego celu.</li>
       <li><b>Albo wygeneruj własny</b> — Ustawienia → Trening → ustaw dni w tygodniu i długość sesji → "Wygeneruj plan treningowy". Kalendarz wypełni się automatycznie na 13 tygodni.</li>
-      <li><b>Zaimportuj plan od trenera</b><span class="badge-premium">Premium</span> — Trening → Import planu → dodaj zdjęcie lub PDF rozpiski. Appka przepisze ćwiczenia, serie i powtórzenia — wszystko możesz poprawić przed zapisem.</li>
+      <li><b>Zaimportuj plan od trenera</b><span class="badge-premium">Premium</span> — Trening → Własny → Plan od trenera → dodaj zdjęcie lub PDF rozpiski. Appka przepisze ćwiczenia, serie i powtórzenia — wszystko możesz poprawić przed zapisem.</li>
     </ol>
     <p class="section-intro" style="margin-top:20px;">Podczas samego treningu masz <b>aktywny ekran ćwiczenia</b> — nie musisz nic zapamiętywać ani liczyć w głowie: appka pokazuje instrukcję wykonania, liczy wykonane serie, odmierza minutnik przerwy między seriami i między ćwiczeniami, a każdy ukończony trening trafia do historii razem z szacowanymi spalonymi kaloriami (albo prawdziwymi, jeśli masz podłączony zegarek).</p>
     <ol class="guide-steps" style="counter-reset: step 3;">
@@ -162,12 +162,12 @@
     </ol>
   </div>
   <div class="guide-thumb-stack">
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-trening-plan-wybrany.jpg')">
-      <img src="assets/pomoc/pomoc-trening-plan-wybrany.jpg" alt="Wybrany plan i ukończony trening" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-trening-plan.webp')">
+    <img src="assets/pomoc/pomoc-trening-plan.webp" data-src-en="assets/pomoc/pomoc-trening-plan-en.webp" alt="Wybrany plan i ukończony trening" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Twój plan + kalendarz</div>
     </div>
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-trening-generator.jpg')">
-      <img src="assets/pomoc/pomoc-trening-generator.jpg" alt="Generator planu treningowego" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-trening-generator.webp')">
+    <img src="assets/pomoc/pomoc-trening-generator.webp" data-src-en="assets/pomoc/pomoc-trening-generator-en.webp" alt="Generator planu treningowego" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Generator planu</div>
     </div>
   </div>
@@ -188,8 +188,8 @@
     </ol>
     <div class="tip-box"><b>Jeśli dane się nie synchronizują:</b> sprawdź (1) czy Health Connect ma przyznane wszystkie uprawnienia dla Go4Body (Health Connect → Uprawnienia aplikacji), (2) czy aplikacja zegarka faktycznie zapisuje do Health Connect, nie tylko do swojej własnej chmury.</div>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-hc-polacz.jpg')">
-    <img src="assets/pomoc/pomoc-hc-polacz.jpg" alt="Przycisk Połącz Health Connect" />
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-hc.webp')">
+    <img src="assets/pomoc/pomoc-hc.webp" data-src-en="assets/pomoc/pomoc-hc-en.webp" alt="Synchronizacja z Health Connect w Ustawieniach" width="810" height="1800" loading="lazy" />
     <div class="thumb-label">Ustawienia → Synchronizacja</div>
   </div>
 </section>
@@ -207,12 +207,12 @@
     </ol>
   </div>
   <div class="guide-thumb-stack">
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-sylwetka-przyciski.jpg')">
-      <img src="assets/pomoc/pomoc-sylwetka-przyciski.jpg" alt="Waga, skład ciała i przyciski Sylwetki" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-sylwetka-przyciski.webp')">
+    <img src="assets/pomoc/pomoc-sylwetka-przyciski.webp" data-src-en="assets/pomoc/pomoc-sylwetka-przyciski-en.webp" alt="Waga, skład ciała i przyciski Sylwetki" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Waga + skład ciała</div>
     </div>
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-sylwetka-pomiary-modal.jpg')">
-      <img src="assets/pomoc/pomoc-sylwetka-pomiary-modal.jpg" alt="Formularz pomiarów ciała" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-sylwetka-pomiary.webp')">
+    <img src="assets/pomoc/pomoc-sylwetka-pomiary.webp" data-src-en="assets/pomoc/pomoc-sylwetka-pomiary-en.webp" alt="Formularz pomiarów ciała" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Pomiary ciała</div>
     </div>
   </div>
@@ -230,8 +230,8 @@
       <li><b>Historia i podsumowanie tygodniowe</b> — zobaczysz, czy rzeczywiście bierzesz suplementy regularnie, czy tylko czasem.</li>
     </ol>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-suplementy-lista.jpg')">
-    <img src="assets/pomoc/pomoc-suplementy-lista.jpg" alt="Lista suplementów z odhaczaniem" />
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-suplementy.webp')">
+    <img src="assets/pomoc/pomoc-suplementy.webp" data-src-en="assets/pomoc/pomoc-suplementy-en.webp" alt="Lista suplementów z odhaczaniem" width="810" height="1800" loading="lazy" />
     <div class="thumb-label">Ekran Suplementy</div>
   </div>
 </section>
@@ -243,16 +243,16 @@
     <h2>Raport postępów PDF (np. z ostatniego miesiąca)</h2>
     <p class="section-intro">To dokument, który zbiera wszystko, co appka o Tobie wie, i układa w czytelny raport z wykresami — <b>gotowy do wysłania trenerowi personalnemu, dietetykowi albo po prostu dla siebie</b>, żeby zobaczyć czarno na białym, czy idziesz w dobrą stronę. Sam wybierasz, co ma się w nim znaleźć: wagę, pomiary ciała, bilans diety, kroki i nawodnienie, historię treningów (razem z aktywnościami z zegarka — bieganiem, rowerem, basenem) oraz krótkie podsumowanie od AI coacha, które w kilku zdaniach ocenia Twój postęp i sugeruje, na czym się skupić dalej.</p>
     <ol class="guide-steps">
-      <li>Wejdź w <b>Ustawienia → Prywatność i dane → Raport postępów</b>.</li>
+      <li>Wejdź w <b>Ustawienia → Raporty → Raport postępów</b>.</li>
       <li><b>Zaznacz, co ma być w raporcie</b>: waga, pomiary, dieta, kroki i woda, treningi, podsumowanie od AI coacha.</li>
       <li>Dotknij <b>Stwórz PDF</b> — raport porówna Twój ostatni tydzień/miesiąc z poprzednim okresem, z wykresami i realnym typem aktywności (SIŁA/BIEG/ROWER/BASEN), nie zgadywanką z nazwy treningu.</li>
       <li>Wybierz <b>Udostępnij</b> (np. wyślij trenerowi przez WhatsApp czy mail) albo <b>Zapisz w telefonie</b> (np. do folderu Pobrane).</li>
     </ol>
     <div class="tip-box"><b>Wskazówka:</b> im więcej danych wpisujesz na bieżąco (waga, dieta, treningi), tym pełniejszy i bardziej użyteczny będzie raport — działa najlepiej po min. 2–4 tygodniach regularnego korzystania.</div>
   </div>
-  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg')">
-    <img src="assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg" alt="Wejście do raportu postępów PDF" />
-    <div class="thumb-label">Ustawienia → Raport postępów</div>
+  <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-raport.webp')">
+    <img src="assets/pomoc/pomoc-ustawienia-raport.webp" data-src-en="assets/pomoc/pomoc-ustawienia-raport-en.webp" alt="Wejście do raportu postępów PDF" width="810" height="1800" loading="lazy" />
+    <div class="thumb-label">Ustawienia → Raporty</div>
   </div>
 </section>
 
@@ -269,13 +269,13 @@
     </ol>
   </div>
   <div class="guide-thumb-stack">
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-coach-rozmowa.jpg')">
-      <img src="assets/pomoc/pomoc-coach-rozmowa.jpg" alt="Prawdziwa rozmowa z Trenerem AI" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-coach-rozmowa.webp')">
+    <img src="assets/pomoc/pomoc-coach-rozmowa.webp" data-src-en="assets/pomoc/pomoc-coach-rozmowa-en.webp" alt="Prawdziwa rozmowa z Trenerem AI" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Rozmowa z coachem</div>
     </div>
-    <div class="guide-thumb" onclick="showPhone('assets/screen_coach.jpg')">
-      <img src="assets/screen_coach.jpg" alt="Ekran Trener AI z tematami" />
-      <div class="thumb-label">Gotowe tematy</div>
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-coach-wybor.webp')">
+    <img src="assets/pomoc/pomoc-coach-wybor.webp" data-src-en="assets/pomoc/pomoc-coach-wybor-en.webp" alt="Wybór trenera w Ustawieniach" width="810" height="1800" loading="lazy" />
+      <div class="thumb-label">Wybór trenera</div>
     </div>
   </div>
 </section>
@@ -288,20 +288,20 @@
     <p class="section-intro">Masz pełną kontrolę nad swoimi danymi. Chcesz zacząć od zera, ale zachować konto i odpowiedzi z onboardingu (wiek, cel, poziom doświadczenia)? Użyj resetu danych. Chcesz zniknąć całkowicie? Usuń konto — to kasuje wszystko bezpowrotnie, łącznie z kontem logowania.</p>
     <ol class="guide-steps">
       <li><b>Edytuj dane profilu</b> — Ustawienia → wiek, wzrost, waga, płeć, poziom aktywności, doświadczenie i cel możesz zmienić w każdej chwili, appka przeliczy cele kalorii i makro na nowo.</li>
-      <li><b>Zmień motyw appki</b> — Ustawienia → Wygląd → Auto / Light / Dark.</li>
+      <li><b>Zmień motyw appki</b> — Ustawienia → Wygląd → System / Jasny / Ciemny.</li>
       <li><b>Zmiana hasła</b> — wyloguj się, na ekranie logowania dotknij "Nie pamiętam hasła", sprawdź maila (i Spam).</li>
       <li><b>Reset danych bez usuwania konta</b> — Ustawienia → Prywatność i dane → "Zresetuj dane aplikacji". Konto i odpowiedzi z onboardingu zostają, reszta wpisów się czyści.</li>
       <li><b>Całkowite usunięcie konta</b> — Ustawienia → dół ekranu → "Usuń konto". Operacja nieodwracalna.</li>
     </ol>
   </div>
   <div class="guide-thumb-stack">
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-profil-cel.jpg')">
-      <img src="assets/pomoc/pomoc-ustawienia-profil-cel.jpg" alt="Profil, cel i motyw w Ustawieniach" />
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-profil.webp')">
+    <img src="assets/pomoc/pomoc-ustawienia-profil.webp" data-src-en="assets/pomoc/pomoc-ustawienia-profil-en.webp" alt="Profil, cel i motyw w Ustawieniach" width="810" height="1800" loading="lazy" />
       <div class="thumb-label">Profil, cel, motyw</div>
     </div>
-    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg')">
-      <img src="assets/pomoc/pomoc-ustawienia-konto-i-dane.jpg" alt="Ustawienia konta i danych" />
-      <div class="thumb-label">Konto, reset, usuń konto</div>
+    <div class="guide-thumb" onclick="showPhone('assets/pomoc/pomoc-ustawienia-konto-dane.webp')">
+    <img src="assets/pomoc/pomoc-ustawienia-konto-dane.webp" data-src-en="assets/pomoc/pomoc-ustawienia-konto-dane-en.webp" alt="Ustawienia konta i danych" width="810" height="1800" loading="lazy" />
+      <div class="thumb-label">Prywatność i reset danych</div>
     </div>
   </div>
 </section>
@@ -339,7 +339,10 @@
   <p>Napisz do nas przez Ustawienia → Pomoc → Zgłoś błąd/pomysł/pytanie w appce, albo bezpośrednio mailem.</p>
   <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
     <a href="mailto:rodo@go4body.com" class="btn-secondary">Napisz maila</a>
-    <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-primary">Pobierz Go4Body</a>
+  </div>
+  <div class="cta-stores" style="display:flex; gap:17px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:26px;">
+    <a class="play-badge" style="margin-left:0" href="https://play.google.com/store/apps/details?id=com.go4body.app" target="_blank" rel="noopener noreferrer" aria-label="Pobierz Go4Body z Google Play — otwiera nową kartę"><img src="assets/google-play.png" alt="Pobierz z Google Play" width="196" height="76" loading="lazy"></a>
+    <span class="store-soon" tabindex="0" role="img" aria-label="Pobierz z App Store — w planach" data-tip="App Store — w planach"><img src="assets/app-store-pl.svg" alt="" width="162" height="54" loading="lazy"></span>
   </div>
 </div>
 
@@ -355,7 +358,7 @@
     const overlay = document.getElementById('phoneOverlay');
     const img = document.getElementById('phoneImg');
     lastFocus = document.activeElement;
-    img.src = src;
+    img.src = (window.g4bLang && window.g4bLang() === 'en') ? src.replace(/\.webp$/, '-en.webp') : src;
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     var close = overlay.querySelector('.phone-close');
@@ -384,13 +387,302 @@
   (function () {
     var t = document.querySelector('.menu-toggle'), m = document.querySelector('#mobile-menu');
     if (!t || !m) return;
-    function close() { t.setAttribute('aria-expanded', 'false'); t.setAttribute('aria-label', 'Otwórz menu'); m.hidden = true; }
+    function close() { t.setAttribute('aria-expanded', 'false'); t.setAttribute('aria-label', window.g4bT('Otwórz menu')); m.hidden = true; }
     t.addEventListener('click', function () {
       var o = t.getAttribute('aria-expanded') !== 'true';
-      t.setAttribute('aria-expanded', String(o)); t.setAttribute('aria-label', o ? 'Zamknij menu' : 'Otwórz menu'); m.hidden = !o;
+      t.setAttribute('aria-expanded', String(o)); t.setAttribute('aria-label', window.g4bT(o ? 'Zamknij menu' : 'Otwórz menu')); m.hidden = !o;
     });
     m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !m.hidden) { close(); t.focus(); } });
+  })();
+</script>
+<script>
+  // PL/EN: ten sam przełącznik i ten sam zapamiętany wybór (g4b_lang) co na stronie głównej.
+  (function () {
+    var EN = {
+ "Go4Body — Centrum Pomocy": "Go4Body — Help Center",
+ "Aplikacja": "App",
+ "Jak to działa": "How it works",
+ "Twój progres": "Your progress",
+ "Plany": "Plans",
+ "Pomoc": "Help",
+ "Pobierz aplikację": "Get the app",
+ "Pobierz Go4Body": "Get Go4Body",
+ "Centrum Pomocy": "Help Center",
+ "Jak korzystać z Go4Body": "How to use Go4Body",
+ "Przewodnik krok po kroku po wszystkich funkcjach — od pierwszego uruchomienia po raport postępów. Krótsza wersja jest też w appce: Ustawienia → Pomoc → Częste pytania.": "A step-by-step guide to every feature — from first launch to the progress report. A shorter version is also in the app: Settings → Help → FAQ.",
+ "Pierwsze kroki": "Getting started",
+ "Dieta i posiłki": "Diet and meals",
+ "Trening": "Training",
+ "Zegarek (Health Connect)": "Watch (Health Connect)",
+ "Sylwetka": "Body",
+ "Suplementy": "Supplements",
+ "Raport PDF": "PDF report",
+ "Prywatność i dane": "Privacy and data",
+ "Trener AI": "AI Coach",
+ "Konto i dane": "Account and data",
+ "Subskrypcja": "Subscription",
+ "01 · Zaczynamy": "01 · Let's start",
+ "Go4Body nie jest kolejną apką do liczenia kalorii — to": "Go4Body is not just another calorie-counting app — it is a",
+ "osobisty trener, który widzi cały obraz": "personal coach that sees the whole picture",
+ ": co jesz, jak trenujesz, jak śpisz i jak zmienia się Twoja sylwetka, a potem na tej podstawie doradza, co robić dalej. Im więcej danych wpiszesz (albo im więcej appka zaciągnie sama z zegarka), tym trafniejsze będą podpowiedzi.": ": what you eat, how you train, how you sleep and how your body is changing — and then it advises you on what to do next. The more data you enter (or the more the app pulls in by itself from your watch), the more accurate its suggestions will be.",
+ "Załóż konto": "Create an account",
+ "— mailem lub przez logowanie społecznościowe, zajmuje chwilę.": "— with your email or a social login, it takes a moment.",
+ "Konto jest aktywne od razu, nie musisz potwierdzać maila, żeby zacząć.": "The account is active right away, you do not need to confirm your email to get started.",
+ "Odpowiedz na pytania onboardingu": "Answer the onboarding questions",
+ "— wiek, waga, wzrost, cel (budowa masy / redukcja / siła), poziom doświadczenia, dni treningowe.": "— age, weight, height, goal (build muscle / lose fat / strength), experience level, training days.",
+ "Wybierz plan: Basic czy Premium": "Choose a plan: Basic or Premium",
+ "— Basic jest darmowy na zawsze: ręczne logowanie treningów i diety oraz połączenie z zegarkiem i wagą przez Health Connect. Premium dokłada AI (coach na czacie, kalorie ze zdjęcia, skaner kodów) i import planu od trenera.": "— Basic is free forever: manual logging of workouts and diet, plus a connection to your watch and scale through Health Connect. Premium adds AI (chat coach, calories from a photo, barcode scanner) and importing a plan from your trainer.",
+ "Możesz zacząć od 7-dniowego triala Premium i zdecydować później w Ustawieniach.": "You can start with a 7-day Premium trial and decide later in Settings.",
+ "Wejdź na ekran Dziś": "Open the Today screen",
+ "— to Twój dashboard: cel kalorii, kroki, woda, dzisiejszy trening i skrót od coacha.": "— this is your dashboard: calorie goal, steps, water, today's workout and a shortcut from your coach.",
+ "Wskazówka:": "Tip:",
+ "nie musisz mieć zegarka ani wagi smart, żeby korzystać z appki — wszystko da się wpisać ręcznie.": "you do not need a watch or a smart scale to use the app — everything can be entered by hand.",
+ "Ekran Dziś": "Today screen",
+ "02 · Żywienie": "02 · Nutrition",
+ "Dziennik żywieniowy działa trzema sposobami — ręcznie, zdjęciem albo skanerem — i możesz je swobodnie łączyć w ciągu dnia. Zjadłeś kanapkę z szynką i serem? Zrób jej zdjęcie, a appka sama rozpozna składniki i wyliczy w przybliżeniu kalorie, białko, węglowodany i tłuszcz — Ty tylko poprawiasz gramaturę, jeśli trzeba. Kupiłeś jogurt w sklepie? Zeskanuj kod kreskowy z opakowania, a wartości uzupełnią się same z bazy produktów.": "The food diary works in three ways — manually, by photo or by scanner — and you can mix them freely during the day. Had a ham and cheese sandwich? Take a photo and the app will recognise the ingredients and roughly work out the calories, protein, carbs and fat — you only correct the weight if needed. Bought a yoghurt at the shop? Scan the barcode on the pack and the values fill in on their own from the product database.",
+ "Dodaj posiłek ręcznie": "Add a meal manually",
+ "— zakładka Dieta → dotknij": "— Diet tab → tap",
+ "przy śniadaniu/obiedzie/kolacji/przekąsce → wyszukaj produkt w bazie, dodaj własny albo wpisz wartości.": "next to breakfast/lunch/dinner/snack → search for a product in the database, add your own or enter the values.",
+ "Zrób zdjęcie posiłku": "Take a photo of your meal",
+ "Premium": "Premium",
+ "— ikona aparatu w Diecie → appka sama rozpozna co jest na talerzu i policzy kalorie oraz makro. Możesz poprawić gramaturę przed zapisem.": "— camera icon in Diet → the app recognises what is on your plate and counts the calories and macros. You can correct the weight before saving.",
+ "Zeskanuj kod kreskowy": "Scan a barcode",
+ "— ikona skanera → nakieruj na kod z opakowania. Jeśli produktu nie ma w bazie, dodaj go ręcznie.": "— scanner icon → point it at the code on the packaging. If the product is not in the database, add it manually.",
+ "Cele kalorii i makroskładników": "Calorie and macro goals",
+ "nie są sztywnym narzuconym numerem": "are not a rigid number imposed on you",
+ "— appka wylicza je na podstawie Twojej wagi, wzrostu, wieku, poziomu aktywności i celu (redukcja / utrzymanie / budowa masy) z onboardingu, a w każdej chwili możesz je ręcznie nadpisać w Ustawieniach. Kalorie z dnia rozbijają się na białko, węglowodany i tłuszcz, więc widzisz nie tylko \"ile zjadłem\", ale też czy dowozisz białko potrzebne do budowy mięśni.": "— the app calculates them from your weight, height, age, activity level and goal (lose fat / maintain / build muscle) from onboarding, and you can override them manually in Settings at any time. The day's calories are split into protein, carbs and fat, so you see not only \"how much I ate\" but also whether you are getting the protein you need to build muscle.",
+ "Ustaw cele kalorii i makro": "Set your calorie and macro goals",
+ "— Ustawienia → Żywienie. Białko i węgle liczą się jako 4 kcal/g, tłuszcz jako 9 kcal/g — suma musi mieścić się w Twoim celu kalorii (appka pilnuje, żeby się nie rozjechało, jak w popularnych apkach dietetycznych).": "— Settings → Nutrition. Protein and carbs count as 4 kcal/g, fat as 9 kcal/g — the total must fit within your calorie goal (the app makes sure it does not drift apart, like in popular diet apps).",
+ "Śledź nawodnienie": "Track your hydration",
+ "— jeden dotyk dodaje szklankę wody do dziennego celu, widoczny na dashboardzie.": "— one tap adds a glass of water to your daily goal, visible on the dashboard.",
+ "Dodaj posiłek / skaner / zdjęcie": "Add meal / scanner / photo",
+ "Cele kalorii i makro": "Calorie and macro goals",
+ "03 · Trening": "03 · Training",
+ "Plan treningowy": "Training plan",
+ "Masz trzy drogi do planu treningowego, w zależności od tego, co już masz.": "You have three ways to get a training plan, depending on what you already have.",
+ "Nie masz nic": "You have nothing",
+ "— appka sama ułoży Ci plan na 13 tygodni dopasowany do celu (masa, redukcja, siła, cardio), poziomu doświadczenia i dostępnego sprzętu.": "— the app builds you a 13-week plan matched to your goal (muscle, fat loss, strength, cardio), experience level and available equipment.",
+ "Masz gotowy plan od trenera": "You already have a plan from your trainer",
+ "na kartce, w PDF-ie albo na zdjęciu z siłowni — appka go \"przeczyta\" i przepisze na cyfrowy kalendarz z seriami i powtórzeniami.": "on paper, as a PDF or as a photo from the gym — the app will \"read\" it and turn it into a digital calendar with sets and reps.",
+ "Wolisz wybrać sam": "You prefer to choose yourself",
+ "— przeglądaj gotowe plany Go4Body pod różne cele i wybierz ten, który pasuje.": "— browse ready-made Go4Body plans for different goals and pick the one that suits you.",
+ "Wybierz gotowy plan": "Pick a ready-made plan",
+ "— zakładka Trening → wybierz plan dopasowany do Twojego celu.": "— Training tab → choose a plan that matches your goal.",
+ "Albo wygeneruj własny": "Or generate your own",
+ "— Ustawienia → Trening → ustaw dni w tygodniu i długość sesji → \"Wygeneruj plan treningowy\". Kalendarz wypełni się automatycznie na 13 tygodni.": "— Settings → Training → set the days of the week and session length → \"Generate training plan\". The calendar fills in automatically for 13 weeks.",
+ "Zaimportuj plan od trenera": "Import a plan from your trainer",
+ "— Trening → Własny → Plan od trenera → dodaj zdjęcie lub PDF rozpiski. Appka przepisze ćwiczenia, serie i powtórzenia — wszystko możesz poprawić przed zapisem.": "— Training → Custom → Plan from a trainer → add a photo or PDF of the plan. The app copies the exercises, sets and reps — you can fix anything before saving.",
+ "Podczas samego treningu masz": "During the workout itself you get an",
+ "aktywny ekran ćwiczenia": "active exercise screen",
+ "— nie musisz nic zapamiętywać ani liczyć w głowie: appka pokazuje instrukcję wykonania, liczy wykonane serie, odmierza minutnik przerwy między seriami i między ćwiczeniami, a każdy ukończony trening trafia do historii razem z szacowanymi spalonymi kaloriami (albo prawdziwymi, jeśli masz podłączony zegarek).": "— you do not have to remember or count anything in your head: the app shows how to perform the move, counts completed sets, runs a rest timer between sets and between exercises, and every finished workout goes to your history together with estimated calories burned (or real ones if you have a watch connected).",
+ "Trenuj": "Train",
+ "— aktywny ekran ćwiczenia z licznikiem serii, minutnikiem odpoczynku i instrukcją wykonania każdego ruchu.": "— the active exercise screen with a set counter, rest timer and instructions for every move.",
+ "Przesuwaj sesje w kalendarzu": "Move sessions in the calendar",
+ "— jeśli coś Ci wypadnie, przełóż trening na inny dzień bez gubienia reszty planu.": "— if something comes up, move a workout to another day without losing the rest of the plan.",
+ "Historia treningów": "Workout history",
+ "— w zakładce Trening zobaczysz ukończone sesje z czasem trwania i kaloriami, w tym też aktywności zaimportowane z zegarka (bieganie, rower, basen).": "— in the Training tab you will see completed sessions with their duration and calories, including activities imported from your watch (running, cycling, swimming).",
+ "Twój plan + kalendarz": "Your plan + calendar",
+ "Generator planu": "Plan generator",
+ "04 · Priorytet": "04 · Priority",
+ "Połączenie zegarka (Health Connect)": "Connecting your watch (Health Connect)",
+ "Po połączeniu zegarka przestajesz cokolwiek wpisywać ręcznie — Go4Body samo zaciąga": "Once your watch is connected you stop typing anything by hand — Go4Body pulls in on its own",
+ "kroki, sen, tętno (w tym spoczynkowe), wagę i skład ciała": "steps, sleep, heart rate (including resting), weight and body composition",
+ ", a jeśli poszedłeś pobiegać, pojeździć na rowerze albo popływać, taka aktywność ląduje jako osobny wpis w historii treningów — z prawdziwym dystansem i spalonymi kaloriami, nie z szacunkiem. Działa to przez Health Connect — wspólny \"hub\" danych zdrowotnych na Androidzie, do którego mogą pisać różne aplikacje zegarków (Garmin Connect, Zdrowie Huawei i inne) i skąd Go4Body je odczytuje.": ", and if you went for a run, a bike ride or a swim, that activity lands as a separate entry in your workout history — with real distance and calories burned, not an estimate. It works through Health Connect — a shared health-data \"hub\" on Android that different watch apps (Garmin Connect, Huawei Health and others) can write to, and from which Go4Body reads it.",
+ "Zainstaluj Health Connect": "Install Health Connect",
+ "z Google Play, jeśli jeszcze go nie masz (na nowszych Androidach jest wbudowany).": "from Google Play if you do not have it yet (on newer Android versions it is built in).",
+ "Upewnij się, że aplikacja Twojego zegarka/wagi": "Make sure your watch/scale app",
+ "(Garmin Connect, Zdrowie Huawei, Health Sync itp.) zapisuje dane do Health Connect — to ustawia się w tamtej appce.": "(Garmin Connect, Huawei Health, Health Sync etc.) saves data to Health Connect — that is set up in that app.",
+ "W Go4Body:": "In Go4Body:",
+ "Ustawienia → Synchronizacja → dotknij": "Settings → Sync → tap",
+ "Połącz": "Connect",
+ "Przyznaj uprawnienia": "Grant permissions",
+ ", o które poprosi telefon (kroki, sen, tętno, waga, kalorie, dystans, ćwiczenia).": "that the phone asks for (steps, sleep, heart rate, weight, calories, distance, exercise).",
+ "Gotowe": "Done",
+ "— dotknij przycisku synchronizacji na ekranie Dziś, a kroki, sen, tętno, waga i aktywności (bieganie/rower/basen) same wciągną się do appki.": "— tap the sync button on the Today screen, and steps, sleep, heart rate, weight and activities (running/cycling/swimming) will pull into the app on their own.",
+ "Jeśli dane się nie synchronizują:": "If data does not sync:",
+ "sprawdź (1) czy Health Connect ma przyznane wszystkie uprawnienia dla Go4Body (Health Connect → Uprawnienia aplikacji), (2) czy aplikacja zegarka faktycznie zapisuje do Health Connect, nie tylko do swojej własnej chmury.": "check (1) that Health Connect has all permissions granted for Go4Body (Health Connect → App permissions), (2) that your watch app really writes to Health Connect, not only to its own cloud.",
+ "Ustawienia → Synchronizacja": "Settings → Sync",
+ "05 · Postęp": "05 · Progress",
+ "Waga, pomiary i zdjęcia": "Weight, measurements and photos",
+ "Waga na wadze to tylko jedna liczba — i często myląca (wahania wody, godzina ważenia, cykl). Dlatego Sylwetka pokazuje pełniejszy obraz:": "The number on the scale is just one figure — and often a misleading one (water fluctuations, time of weighing, cycle). That is why the Body tab gives you a fuller picture:",
+ "wagę na wykresie w czasie": "weight on a chart over time",
+ "(nie pojedynczy odczyt),": "(not a single reading),",
+ "pomiary obwodów": "circumference measurements",
+ "(np. talia, biceps — świetne przy budowie masy, kiedy waga rośnie, ale to może być mięsień, nie tłuszcz) i": "(e.g. waist, biceps — great when building muscle, when weight goes up but it may be muscle, not fat) and",
+ "zdjęcia postępu na osi czasu": "progress photos on a timeline",
+ ", żeby zestawić \"przed\" i \"po\" obok siebie — to zwykle przekonuje bardziej niż sama liczba na wadze. Jeśli masz wagę ze zgodnym Health Connect (np. z analizą składu ciała), appka doda też % tkanki tłuszczowej i masę mięśniową automatycznie.": ", so you can put \"before\" and \"after\" side by side — this is usually more convincing than a number on the scale. If you have a scale compatible with Health Connect (e.g. with body composition analysis), the app will also add body fat % and muscle mass automatically.",
+ "Zapisz wagę": "Log your weight",
+ "— zakładka Sylwetka → \"Dodaj wagę\". Jeśli masz połączony zegarek/wagę, może wciągać się sama.": "— Body tab → \"Add weight\". If you have a watch/scale connected, it can pull in on its own.",
+ "Dodaj pomiary ciała": "Add body measurements",
+ "— obwody, % tkanki tłuszczowej itd. w tym samym miejscu.": "— circumferences, body fat % etc. in the same place.",
+ "Dodaj zdjęcie postępu": "Add a progress photo",
+ "— appka ułoży je na osi czasu, żeby łatwo porównać zmianę tydzień do tygodnia albo miesiąc do miesiąca.": "— the app lines them up on a timeline so you can easily compare the change week to week or month to month.",
+ "Waga + skład ciała": "Weight + body composition",
+ "Pomiary ciała": "Body measurements",
+ "06 · Suplementacja": "06 · Supplements",
+ "Zakładka Supl. to prosty dziennik przyjmowania — dodajesz suplement raz (np. kreatynę, odżywkę białkową, witaminę D), ustawiasz dawkę i porę, a potem codziennie tylko odhaczasz, co wziąłeś. Jeśli suplement ma kalorie i makro (typowo odżywki białkowe czy gainery), po odhaczeniu": "The Suppl. tab is a simple intake log — you add a supplement once (e.g. creatine, protein powder, vitamin D), set the dose and time, and then every day you just tick what you took. If a supplement has calories and macros (typically protein powders or gainers), after ticking it",
+ "automatycznie doliczy się do dziennego bilansu diety": "is automatically added to your daily diet balance",
+ "— nie musisz go osobno dodawać w Diecie, appka pilnuje, żeby się nie zdublował.": "— you do not have to add it separately in Diet, and the app makes sure it is not counted twice.",
+ "Dodaj suplement": "Add a supplement",
+ "— zakładka Supl. →": "— Suppl. tab →",
+ "→ wybierz z listy albo dodaj własny z dawką i porą brania.": "→ pick one from the list or add your own with a dose and time of day.",
+ "Odhaczaj branie": "Tick off intake",
+ "każdego dnia w dzienniku.": "every day in the log.",
+ "Historia i podsumowanie tygodniowe": "History and weekly summary",
+ "— zobaczysz, czy rzeczywiście bierzesz suplementy regularnie, czy tylko czasem.": "— you will see whether you really take your supplements regularly or only sometimes.",
+ "Ekran Suplementy": "Supplements screen",
+ "07 · Priorytet": "07 · Priority",
+ "Raport postępów PDF (np. z ostatniego miesiąca)": "PDF progress report (e.g. for the last month)",
+ "To dokument, który zbiera wszystko, co appka o Tobie wie, i układa w czytelny raport z wykresami —": "A document that gathers everything the app knows about you and lays it out as a clear report with charts —",
+ "gotowy do wysłania trenerowi personalnemu, dietetykowi albo po prostu dla siebie": "ready to send to a personal trainer, a dietitian or simply for yourself",
+ ", żeby zobaczyć czarno na białym, czy idziesz w dobrą stronę. Sam wybierasz, co ma się w nim znaleźć: wagę, pomiary ciała, bilans diety, kroki i nawodnienie, historię treningów (razem z aktywnościami z zegarka — bieganiem, rowerem, basenem) oraz krótkie podsumowanie od AI coacha, które w kilku zdaniach ocenia Twój postęp i sugeruje, na czym się skupić dalej.": ", to see in black and white whether you are heading in the right direction. You choose what goes in: weight, body measurements, diet balance, steps and hydration, workout history (including activities from your watch — running, cycling, swimming) and a short summary from the AI coach that assesses your progress in a few sentences and suggests what to focus on next.",
+ "Wejdź w": "Go to",
+ "Ustawienia → Raporty → Raport postępów": "Settings → Reports → Progress report",
+ "Zaznacz, co ma być w raporcie": "Select what goes into the report",
+ ": waga, pomiary, dieta, kroki i woda, treningi, podsumowanie od AI coacha.": ": weight, measurements, diet, steps and water, workouts, summary from the AI coach.",
+ "Dotknij": "Tap",
+ "Stwórz PDF": "Create PDF",
+ "— raport porówna Twój ostatni tydzień/miesiąc z poprzednim okresem, z wykresami i realnym typem aktywności (SIŁA/BIEG/ROWER/BASEN), nie zgadywanką z nazwy treningu.": "— the report compares your last week/month with the previous period, with charts and the real type of activity (STRENGTH/RUN/BIKE/SWIM), not a guess from the workout name.",
+ "Wybierz": "Choose",
+ "Udostępnij": "Share",
+ "(np. wyślij trenerowi przez WhatsApp czy mail) albo": "(e.g. send it to your trainer via WhatsApp or email) or",
+ "Zapisz w telefonie": "Save on your phone",
+ "(np. do folderu Pobrane).": "(e.g. to the Downloads folder).",
+ "im więcej danych wpisujesz na bieżąco (waga, dieta, treningi), tym pełniejszy i bardziej użyteczny będzie raport — działa najlepiej po min. 2–4 tygodniach regularnego korzystania.": "the more data you enter as you go (weight, diet, workouts), the fuller and more useful the report will be — it works best after at least 2–4 weeks of regular use.",
+ "Ustawienia → Raporty": "Settings → Reports",
+ "08 · AI": "08 · AI",
+ "To nie chatbot udzielający ogólnych porad z internetu — Trener AI": "It is not a chatbot giving generic advice from the internet — the AI Coach",
+ "widzi Twoje realne dane": "sees your real data",
+ ": co dziś zjadłeś, ile Ci brakuje do celu kalorii, czy trenowałeś, jak spałeś, jaki masz plan na jutro. Dzięki temu odpowiedzi są konkretne (\"dziś zjadłeś za mało białka, dorzuć jeszcze ok. 30 g\") zamiast ogólnikowych. Możesz wybrać personę coacha dopasowaną do stylu, jaki Ci pasuje — od wymagającego \"zero wymówek\" po bardziej wspierający ton — a rozmowa zawsze uwzględnia porę dnia (rano nie usłyszysz, że \"dzień już przegrany\", bo appka wie, że dopiero się zaczął).": ": what you ate today, how much you still need to reach your calorie goal, whether you trained, how you slept, what your plan is for tomorrow. Thanks to that, answers are specific (\"you ate too little protein today, add about 30 g more\") instead of generic. You can choose a coach persona that fits the style you like — from a demanding \"no excuses\" one to a more supportive tone — and the conversation always takes the time of day into account (in the morning you will not hear that \"the day is already lost\", because the app knows it has only just begun).",
+ "Codzienne wskazówki": "Daily tips",
+ "— kafelek \"Coach na dziś\" na dashboardzie, dostępny dla wszystkich (Basic i Premium), bez dodatkowych kliknięć.": "— the \"Coach for today\" tile on the dashboard, available to everyone (Basic and Premium), with no extra taps.",
+ "Czat z trenerem": "Chat with your coach",
+ "— zakładka Trener AI, pytaj swobodnie o trening, dietę, regenerację albo wybierz gotowy temat (np. \"Plan na masę\", \"Białko i kalorie\", \"Sen i regeneracja\").": "— AI Coach tab, ask freely about training, diet, recovery or pick a ready-made topic (e.g. \"Plan for building muscle\", \"Protein and calories\", \"Sleep and recovery\").",
+ "Wygeneruj plan albo raport tygodnia": "Generate a plan or a weekly report",
+ "— bezpośrednio z poziomu czatu, jednym dotknięciem.": "— straight from the chat, with a single tap.",
+ "Rozmowa z coachem": "Conversation with your coach",
+ "Wybór trenera": "Choosing your coach",
+ "09 · Konto": "09 · Account",
+ "Masz pełną kontrolę nad swoimi danymi. Chcesz zacząć od zera, ale zachować konto i odpowiedzi z onboardingu (wiek, cel, poziom doświadczenia)? Użyj resetu danych. Chcesz zniknąć całkowicie? Usuń konto — to kasuje wszystko bezpowrotnie, łącznie z kontem logowania.": "You have full control over your data. Want to start from scratch but keep the account and your onboarding answers (age, goal, experience level)? Use the data reset. Want to disappear completely? Delete the account — it erases everything permanently, including the login account.",
+ "Edytuj dane profilu": "Edit your profile data",
+ "— Ustawienia → wiek, wzrost, waga, płeć, poziom aktywności, doświadczenie i cel możesz zmienić w każdej chwili, appka przeliczy cele kalorii i makro na nowo.": "— Settings → age, height, weight, gender, activity level, experience and goal can be changed at any time, and the app will recalculate your calorie and macro goals.",
+ "Zmień motyw appki": "Change the app theme",
+ "— Ustawienia → Wygląd → System / Jasny / Ciemny.": "— Settings → Appearance → System / Light / Dark.",
+ "Zmiana hasła": "Changing your password",
+ "— wyloguj się, na ekranie logowania dotknij \"Nie pamiętam hasła\", sprawdź maila (i Spam).": "— log out, on the sign-in screen tap \"I forgot my password\", check your email (and Spam).",
+ "Reset danych bez usuwania konta": "Reset data without deleting the account",
+ "— Ustawienia → Prywatność i dane → \"Zresetuj dane aplikacji\". Konto i odpowiedzi z onboardingu zostają, reszta wpisów się czyści.": "— Settings → Privacy & data → \"Reset app data\". The account and onboarding answers stay, the rest of the entries are cleared.",
+ "Całkowite usunięcie konta": "Deleting the account completely",
+ "— Ustawienia → dół ekranu → \"Usuń konto\". Operacja nieodwracalna.": "— Settings → bottom of the screen → \"Delete account\". This cannot be undone.",
+ "Profil, cel, motyw": "Profile, goal, theme",
+ "Prywatność i reset danych": "Privacy and data reset",
+ "10 · Plany": "10 · Plans",
+ "Subskrypcja Premium": "Premium subscription",
+ "Podstawowa różnica:": "The basic difference:",
+ "Basic to Ty wpisujesz treningi i posiłki ręcznie": "Basic means you enter workouts and meals by hand",
+ "— jest darmowy na zawsze, bez limitu czasu — a kroki, sen, tętno i wagę z zegarka możesz zaciągać automatycznie przez Health Connect.": "— it is free forever, with no time limit — and you can pull steps, sleep, heart rate and weight from your watch automatically through Health Connect.",
+ "Premium to appka robi więcej za Ciebie": "Premium means the app does more for you",
+ "— rozpoznawanie posiłków ze zdjęcia, skaner kodów kreskowych, pełna rozmowa z Trenerem AI zamiast tylko dziennych wskazówek, import planu od trenera i pełna biblioteka ćwiczeń zamiast podstawowej.": "— meal recognition from a photo, barcode scanner, a full conversation with the AI Coach instead of only daily tips, importing a plan from your trainer and the full exercise library instead of the basic one.",
+ "Cena i wybór planu": "Price and choosing a plan",
+ "— Ustawienia → Plan. Płatność przechodzi przez Google Play, dostępny jest okres próbny.": "— Settings → Plan. Payment goes through Google Play, a trial period is available.",
+ "Anulowanie": "Cancelling",
+ "— Sklep Play → Twój awatar → Płatności i subskrypcje → Subskrypcje → Go4Body → Anuluj. Premium działa do końca opłaconego okresu.": "— Play Store → your avatar → Payments & subscriptions → Subscriptions → Go4Body → Cancel. Premium works until the end of the paid period.",
+ "Po anulowaniu dane zostają": "After cancelling, your data stays",
+ "— blokują się tylko funkcje Premium, historia treningów i diety jest nietknięta.": "— only the Premium features get locked, your workout and diet history is untouched.",
+ "Nowy telefon?": "New phone?",
+ "Zaloguj się na to samo konto i użyj tego samego konta Google w Sklepie Play — Premium przywróci się samo.": "Sign in to the same account and use the same Google account in the Play Store — Premium will be restored by itself.",
+ "Nie znalazłeś odpowiedzi?": "Did not find an answer?",
+ "Napisz do nas przez Ustawienia → Pomoc → Zgłoś błąd/pomysł/pytanie w appce, albo bezpośrednio mailem.": "Write to us through Settings → Help → Report a problem/idea/question in the app, or directly by email.",
+ "Napisz maila": "Send an email",
+ "Twoja forma. Na Twoich zasadach.": "Your form. On your terms.",
+ "Do góry": "Back to top",
+ "Polityka prywatności": "Privacy Policy",
+ "Go4Body — początek strony": "Go4Body — back to the top",
+ "Nawigacja główna": "Main navigation",
+ "Otwórz menu": "Open menu",
+ "Zamknij menu": "Close menu",
+ "Nawigacja mobilna": "Mobile navigation",
+ "Dodaj posiłek / Skanuj kod / Zdjęcie": "Add meal / Scan code / Photo",
+ "Wybrany plan i ukończony trening": "Selected plan and a completed workout",
+ "Generator planu treningowego": "Training plan generator",
+ "Synchronizacja z Health Connect w Ustawieniach": "Health Connect sync in Settings",
+ "Waga, skład ciała i przyciski Sylwetki": "Weight, body composition and Body quick actions",
+ "Formularz pomiarów ciała": "Body measurements form",
+ "Lista suplementów z odhaczaniem": "Supplement list with tick-off",
+ "Wejście do raportu postępów PDF": "Entry to the PDF progress report",
+ "Prawdziwa rozmowa z Trenerem AI": "A real conversation with the AI Coach",
+ "Wybór trenera w Ustawieniach": "Choosing a coach in Settings",
+ "Profil, cel i motyw w Ustawieniach": "Profile, goal and theme in Settings",
+ "Ustawienia konta i danych": "Account and data settings",
+ "Podgląd ekranu aplikacji": "App screen preview",
+ "Zamknij podgląd": "Close preview",
+ "Zrzut ekranu aplikacji Go4Body": "Go4Body app screenshot",
+ "Pobierz Go4Body z Google Play — otwiera nową kartę": "Get Go4Body on Google Play — opens in a new tab",
+ "Pobierz z Google Play": "Get it on Google Play",
+ "Pobierz z App Store — w planach": "Get it on the App Store — planned",
+ "App Store — w planach": "App Store — planned",
+ "Przewodnik krok po kroku: jak połączyć zegarek, wygenerować raport PDF, dodać posiłek i korzystać z Go4Body.": "Step-by-step guide: how to connect your watch, generate a PDF report, add a meal and get the most out of Go4Body.",
+ "Język strony": "Site language"
+};
+    var cur = 'pl', textOrig = new Map(), attrOrig = new Map();
+    var ATTRS = ['alt', 'aria-label', 'data-tip'];
+    var TITLE_PL = document.title, DESC = document.querySelector('meta[name="description"]'), DESC_PL = DESC ? DESC.content : '';
+    function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
+    window.g4bT = function (s) { var k = norm(s); return cur === 'en' && EN[k] !== undefined ? EN[k] : s; };
+    window.g4bLang = function () { return cur; };
+    function restore() {
+      textOrig.forEach(function (v, n) { n.nodeValue = v; });
+      attrOrig.forEach(function (o, el) { Object.keys(o).forEach(function (a) { el.setAttribute(a, o[a]); }); });
+      textOrig.clear(); attrOrig.clear();
+      document.title = TITLE_PL; if (DESC) DESC.content = DESC_PL;
+    }
+    function apply() {
+      var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+        var p = n.parentNode;
+        if (!p || /^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.nodeName)) return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; } });
+      var n;
+      while ((n = w.nextNode())) {
+        var k = norm(n.nodeValue);
+        if (EN[k] !== undefined) {
+          textOrig.set(n, n.nodeValue);
+          var m = /^(\s*)[\s\S]*?(\s*)$/.exec(n.nodeValue);
+          n.nodeValue = m[1] + EN[k] + m[2];
+        }
+      }
+      document.querySelectorAll('[alt],[aria-label],[data-tip]').forEach(function (el) {
+        ATTRS.forEach(function (a) {
+          if (!el.hasAttribute(a)) return;
+          var k = norm(el.getAttribute(a));
+          if (EN[k] !== undefined) {
+            var o = attrOrig.get(el) || {}; o[a] = el.getAttribute(a); attrOrig.set(el, o);
+            el.setAttribute(a, EN[k]);
+          }
+        });
+      });
+      var t = EN[norm(TITLE_PL)]; if (t !== undefined) document.title = t;
+      if (DESC) { var d = EN[norm(DESC_PL)]; if (d !== undefined) DESC.content = d; }
+    }
+    function setLang(l) {
+      restore(); cur = l;
+      if (l === 'en') apply();
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang-btn').forEach(function (b) {
+        var on = b.getAttribute('data-lang') === l;
+        b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on));
+      });
+      document.querySelectorAll('img[data-src-en]').forEach(function (im) {
+        if (!im.hasAttribute('data-src-pl')) im.setAttribute('data-src-pl', im.getAttribute('src'));
+        im.setAttribute('src', l === 'en' ? im.getAttribute('data-src-en') : im.getAttribute('data-src-pl'));
+      });
+      try { localStorage.setItem('g4b_lang', l); } catch (e) {}
+    }
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+    });
+    var saved = null; try { saved = localStorage.getItem('g4b_lang'); } catch (e) {}
+    if (saved === 'en') setLang('en');
   })();
 </script>
 </body>
