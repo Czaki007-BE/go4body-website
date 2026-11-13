@@ -52,7 +52,10 @@
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
       font-weight: 800; font-size: 18px; color: var(--text);
+      text-decoration: none;
+      transition: opacity .15s ease;
     }
+    .nav-logo:hover { text-decoration: none; opacity: .75; }
     .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
@@ -286,41 +289,6 @@
     }
     .phone-close:hover { background: var(--accent2); }
 
-    /* ── DOWNLOAD CHOICE MODAL ── */
-    .download-overlay {
-      display: none;
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(6px);
-      align-items: center; justify-content: center;
-      padding: 20px;
-    }
-    .download-overlay.active { display: flex; }
-    .download-modal {
-      position: relative;
-      width: 100%; max-width: 420px;
-      background: linear-gradient(135deg, rgba(255,140,59,0.14), var(--surface));
-      border: 1px solid rgba(255,140,59,0.35);
-      border-radius: 24px;
-      padding: 40px 32px 32px;
-      text-align: center;
-      animation: phoneIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .download-modal h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 10px; }
-    .download-modal p { color: var(--muted); font-size: 15px; margin-bottom: 26px; }
-    .download-modal-btns { display: flex; flex-direction: column; gap: 12px; }
-    .download-modal-btns .btn-primary, .download-modal-btns .btn-secondary { justify-content: center; width: 100%; }
-    .download-close {
-      position: absolute; top: -14px; right: -14px;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--accent); color: #000;
-      border: none; cursor: pointer; font-size: 18px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 12px rgba(255,140,59,0.5);
-      z-index: 20;
-    }
-    .download-close:hover { background: var(--accent2); }
-
     /* ── HOW IT WORKS ── */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
     .step {
@@ -426,77 +394,73 @@
       .hero-btns { flex-direction: column; align-items: center; }
       .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
     }
+  
+    .lang-switch { display: flex; gap: 6px; align-items: center; }
+    .lang-btn { padding: 6px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--muted); transition: all 0.2s; }
+    .lang-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    @media (max-width: 860px) { .lang-switch { order: -1; } }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '27949523448076139');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=27949523448076139&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
+  <a href="index.html" class="nav-logo" aria-label="Go4Body — strona główna">
     <img src="assets/icon.png" alt="Go4Body" onerror="this.style.display='none'" />
     Go4Body
-  </div>
+  </a>
   <div class="nav-links">
-    <a href="#features">Funkcje</a>
-    <a href="#how">Jak działa</a>
-    <a href="pomoc.html">Pomoc</a>
-    <a href="privacy.html">Polityka prywatności</a>
-    <a href="#signup" style="color: var(--accent); font-weight: 700;">−50% na rok</a>
-    <a href="#download" class="nav-cta">Pobierz</a>
+    <a href="#features" data-i18n="navFeatures">Funkcje</a>
+    <a href="#how" data-i18n="navHow">Jak działa</a>
+    <a href="pomoc.html" data-i18n="navHelp">Pomoc</a>
+    <a href="privacy.html" data-i18n="navPrivacy">Polityka prywatności</a>
+    
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="pl" onclick="setLang('pl')" aria-label="Polski">🇵🇱 PL</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')" aria-label="English">🇬🇧 EN</button>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="nav-cta" target="_blank" rel="noopener"><span data-i18n="btnDownloadNav">Pobierz</span></a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">
+    <div class="hero-badge" data-i18n="heroBadge">
       <span></span> Dostępne na Android
     </div>
-    <h1>Twój <em>AI trener</em><br/>personalny</h1>
-    <p>Trening, dieta i coaching AI w jednym miejscu. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.</p>
+    <h1 data-i18n="heroH1">Jedna aplikacja<br/>zamiast <em>pięciu</em></h1>
+    <p data-i18n="heroSub">Trener AI po polsku, plan treningowy, dieta i dane z zegarka — wszystko w Go4Body. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.</p>
     <div class="hero-btns">
-      <!-- PRZEDPREMIEROWO: przycisk otwiera modal z wyborem tester/nowy użytkownik zamiast kierować wprost do Google Play. Po premierze: usunąć onclick i href="#", przywrócić href="https://play.google.com/store/apps/details?id=com.go4body.app" (link zostaje wtedy zwykłym linkiem, bez modala). -->
-      <a href="#" class="btn-primary" id="download" onclick="event.preventDefault(); showDownloadModal();">
+      <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-primary" id="download" target="_blank" rel="noopener">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
-        Pobierz
+        <span data-i18n="btnDownloadHero">Pobierz</span>
       </a>
-      <a href="#features" class="btn-secondary">
-        Zobacz funkcje →
+      <a href="#features" class="btn-secondary" data-i18n="btnFeatures">
+        <span data-i18n="btnFeaturesText">Zobacz funkcje →</span>
       </a>
     </div>
-    <p class="hero-sub">Bezpłatnie · Android 8.0+</p>
+    <p class="hero-sub" data-i18n="heroCaption">Bezpłatnie · Android 8.0+ · Dostępna na Google Play</p>
   </div>
   <div class="hero-image">
     <img src="assets/hero.png" alt="Go4Body — trening z AI trenerem" />
-  </div>
-</section>
-
-<!-- TESTER SIGNUP (przedpremierowo) -->
-<section class="signup-section" id="tester">
-  <div class="signup-card">
-    <div class="signup-badge">Program testerów</div>
-    <h2>Zostań testerem i zyskaj darmowy dostęp</h2>
-    <p class="signup-desc">Aplikacja jest jeszcze w fazie testów zamkniętych. Zapisz się jako tester, a otworzymy Ci dostęp do Go4Body zanim trafi do wszystkich.</p>
-    <form class="signup-form" id="testerForm">
-      <input type="email" id="testerEmail" placeholder="twoj@email.pl" required aria-label="Adres e-mail" />
-      <button type="submit" class="btn-primary">Zapisz się jako tester</button>
-    </form>
-    <p class="signup-note">Otworzy się Twój program pocztowy z gotową wiadomością — wystarczy kliknąć wyślij.</p>
-  </div>
-</section>
-
-<!-- SIGNUP -->
-<section class="signup-section" id="signup">
-  <div class="signup-card">
-    <div class="signup-badge">Zapisy przed premierą</div>
-    <h2>Zgarnij −50% na cały pierwszy rok Premium</h2>
-    <p class="signup-desc">Zapisz się teraz, a gdy tylko otworzymy Premium, wyślemy Ci mailem kod zniżkowy na roczny plan. Zero zobowiązań, zero spamu.</p>
-    <form class="signup-form" id="signupForm">
-      <input type="email" id="signupEmail" placeholder="twoj@email.pl" required aria-label="Adres e-mail" />
-      <button type="submit" class="btn-primary">Zarezerwuj zniżkę</button>
-    </form>
-    <p class="signup-msg" id="signupMsg" role="status"></p>
-    <p class="signup-note">Wyślemy Ci tylko info o starcie Premium i Twój kod zniżkowy.</p>
   </div>
 </section>
 
@@ -506,19 +470,19 @@
     <div class="stats-grid">
       <div>
         <div class="stat-val">AI</div>
-        <div class="stat-label">Coach oparty na Claude (Anthropic)</div>
+        <div class="stat-label" data-i18n="statAi">Coach oparty na Claude (Anthropic)</div>
       </div>
       <div>
         <div class="stat-val">∞</div>
-        <div class="stat-label">Plany treningowe na każdy cel</div>
+        <div class="stat-label" data-i18n="statPlans">Plany treningowe na każdy cel</div>
       </div>
       <div>
         <div class="stat-val">HC</div>
-        <div class="stat-label">Integracja z Health Connect</div>
+        <div class="stat-label" data-i18n="statHc">Integracja z Health Connect</div>
       </div>
       <div>
         <div class="stat-val">PDF</div>
-        <div class="stat-label">Import planu od trenera</div>
+        <div class="stat-label" data-i18n="statPdf">Import planu od trenera</div>
       </div>
     </div>
   </div>
@@ -526,46 +490,46 @@
 
 <!-- FEATURES -->
 <section id="features">
-  <div class="section-label">Funkcje</div>
-  <h2 class="section-title">Wszystko czego potrzebujesz</h2>
-  <p class="section-desc">Jedna aplikacja zamiast pięciu. Go4Body łączy to co dotychczas rozdzielałeś.</p>
+  <div class="section-label" data-i18n="featLabel">Funkcje</div>
+  <h2 class="section-title" data-i18n="featH2">Wszystko czego potrzebujesz</h2>
+  <p class="section-desc" data-i18n="featDesc">Trening, dieta, sync zegarka i trener AI po polsku — Go4Body łączy to, co dotychczas rozdzielałeś między kilka aplikacji.</p>
 
   <div class="features-grid">
     <div class="feature-card" onclick="showPhone('assets/screen_training.jpg')">
       <div class="feature-icon"><img src="assets/ic_training.png" alt="Trening" /></div>
-      <h3>Plan treningowy</h3>
-      <p>Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
-      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
+      <h3 data-i18n="card1Title">Plan treningowy</h3>
+      <p data-i18n="card1Desc">Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu — budowa masy, redukcja, siła lub cardio.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_coach.jpg')">
       <div class="feature-icon ewa"><img src="assets/ic_ewa.png" alt="AI Coach" /></div>
-      <h3>AI Coach</h3>
-      <p>Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
-      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
+      <h3 data-i18n="card2Title">AI Coach</h3>
+      <p data-i18n="card2Desc">Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_diet.jpg')">
       <div class="feature-icon"><img src="assets/ic_diet.png" alt="Dieta" /></div>
-      <h3>Dieta i żywienie</h3>
-      <p>Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
-      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
+      <h3 data-i18n="card3Title">Dieta i żywienie</h3>
+      <p data-i18n="card3Desc">Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_health.jpg')">
       <div class="feature-icon"><img src="assets/ic_health.png" alt="Health Connect" /></div>
-      <h3>Health Connect</h3>
-      <p>Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
-      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
+      <h3 data-i18n="card4Title">Health Connect</h3>
+      <p data-i18n="card4Desc">Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_body.jpg')">
       <div class="feature-icon"><img src="assets/ic_body.png" alt="Postęp i sylwetka" /></div>
-      <h3>Postęp i sylwetka</h3>
-      <p>Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
-      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
+      <h3 data-i18n="card5Title">Postęp i sylwetka</h3>
+      <p data-i18n="card5Desc">Śledzenie wagi, składu ciała i zdjęć sylwetki z osią czasu. Widzisz zmianę tygodniami, nie tylko na wadze.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
     <div class="feature-card" onclick="showPhone('assets/screen_supplements.jpg')">
       <div class="feature-icon"><img src="assets/ic_supplements.png" alt="Suplementacja" /></div>
-      <h3>Suplementacja</h3>
-      <p>Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
-      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> dotknij by zobaczyć ekran</div>
+      <h3 data-i18n="card6Title">Suplementacja</h3>
+      <p data-i18n="card6Desc">Lista suplementów z dziennikiem przyjmowania i historią tygodniową. Nigdy więcej zapomnianych suplementów.</p>
+      <div class="card-hint"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg> <span data-i18n="cardHint">dotknij by zobaczyć ekran</span></div>
     </div>
   </div>
 
@@ -584,72 +548,56 @@
 
 <!-- HOW IT WORKS -->
 <section id="how">
-  <div class="section-label">Jak to działa</div>
-  <h2 class="section-title">Zacznij w 3 minuty</h2>
-  <p class="section-desc">Bez skomplikowanej konfiguracji. Od razu do działania.</p>
+  <div class="section-label" data-i18n="howLabel">Jak to działa</div>
+  <h2 class="section-title" data-i18n="howH2">Zacznij w 3 minuty</h2>
+  <p class="section-desc" data-i18n="howDesc">Bez skomplikowanej konfiguracji. Od razu do działania.</p>
 
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <h3>Ustaw swój cel</h3>
-      <p>Powiedz aplikacji czego chcesz — budowa masy, redukcja, siła. Podaj podstawowe dane.</p>
+      <h3 data-i18n="step1Title">Ustaw swój cel</h3>
+      <p data-i18n="step1Desc">Powiedz aplikacji czego chcesz — budowa masy, redukcja, siła. Podaj podstawowe dane.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Wgraj lub wygeneruj plan</h3>
-      <p>Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu.</p>
+      <h3 data-i18n="step2Title">Wgraj lub wygeneruj plan</h3>
+      <p data-i18n="step2Desc">Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Trenuj i śledź</h3>
-      <p>Zaznaczaj posiłki, wykonuj treningi, czytaj wskazówki AI. Aplikacja robi resztę.</p>
+      <h3 data-i18n="step3Title">Trenuj i śledź</h3>
+      <p data-i18n="step3Desc">Zaznaczaj posiłki, wykonuj treningi, czytaj wskazówki AI. Aplikacja robi resztę.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
-      <h3>Obserwuj wyniki</h3>
-      <p>Skład ciała, siłownia, dieta — wszystko w jednym miejscu. Postęp który widzisz.</p>
+      <h3 data-i18n="step4Title">Obserwuj wyniki</h3>
+      <p data-i18n="step4Desc">Skład ciała, siłownia, dieta — wszystko w jednym miejscu. Postęp który widzisz.</p>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-section">
-  <h2>Gotowy zacząć?</h2>
-  <p>Pobierz Go4Body i wypróbuj za darmo już teraz.</p>
-  <!-- PRZEDPREMIEROWO: patrz komentarz przy przycisku hero. -->
-  <a href="#" class="btn-primary" onclick="event.preventDefault(); showDownloadModal();">
+  <h2 data-i18n="ctaH2">Gotowy zacząć?</h2>
+  <p data-i18n="ctaP">Pobierz Go4Body i wypróbuj za darmo już teraz.</p>
+  <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-primary" target="_blank" rel="noopener">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.75.24 1.12.12L14.6 12 4.3.12C3.93.0 3.53.04 3.18.24 2.5.64 2.5 1.6 2.5 1.6v20.8s0 .96.68 1.36zM16.5 14.12l2.62-1.52-2.62-1.52L13.7 12l2.8 2.12zM5.22 22.5l8.06-8.06L9.4 10.56 5.22 22.5zM9.4 13.44l3.88-3.88L5.22 1.5 9.4 13.44z"/></svg>
-    Pobierz
+    <span data-i18n="btnDownloadCta">Pobierz</span>
   </a>
-</div>
-
-<!-- DOWNLOAD CHOICE MODAL (przedpremierowo) -->
-<div class="download-overlay" id="downloadOverlay" onclick="hideDownloadModal(event)">
-  <div class="download-modal">
-    <button class="download-close" onclick="hideDownloadModal()">×</button>
-    <div class="signup-badge">Faza testów</div>
-    <h3>Obecnie trwa faza testów</h3>
-    <p>Go4Body jest jeszcze dostępny tylko dla testerów. Jeśli już nim jesteś, przejdź prosto do Google Play. Jeśli nie — zapisz się poniżej, a otworzymy Ci dostęp.</p>
-    <div class="download-modal-btns">
-      <a href="#tester" class="btn-primary" onclick="hideDownloadModal()">Zostań testerem</a>
-      <a href="https://play.google.com/store/apps/details?id=com.go4body.app" class="btn-secondary" target="_blank" rel="noopener">Jestem testerem → Google Play</a>
-    </div>
-  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-links">
-    <a href="pomoc.html">Pomoc</a>
-    <a href="privacy.html">Polityka Prywatności</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:kontakt@go4body.com">Kontakt</a>
+    <a href="pomoc.html" data-i18n="footHelp">Pomoc</a>
+    <a href="privacy.html" data-i18n="footPrivacy">Polityka Prywatności</a>
+    <a href="mailto:kontakt@go4body.com" data-i18n="footContact">Kontakt</a>
   </div>
   <div class="footer-apd">
     <img src="assets/apd_logo.png" alt="APD" />
     <div class="footer-apd-text">
       APD Charles Nowacki<br/>
-      <a href="mailto:rodo@go4body.com">rodo@go4body.com</a>
+      <a href="mailto:kontakt@go4body.com">kontakt@go4body.com</a>
     </div>
   </div>
   <p>© 2026 Go4Body</p>
@@ -670,69 +618,44 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { hidePhone(); hideDownloadModal(); }
+    if (e.key === 'Escape') { hidePhone(); }
   });
 
-  function showDownloadModal() {
-    document.getElementById('downloadOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
+</script>
+
+<script>
+  var G4B_I18N = { pl: {"navFeatures":"Funkcje","navHow":"Jak działa","navHelp":"Pomoc","navPrivacy":"Polityka prywatności","navPromo":"−50% na rok","heroBadge":"<span></span> Dostępne na Android","heroH1":"Jedna aplikacja<br/>zamiast <em>pięciu</em>","heroSub":"Trener AI po polsku, plan treningowy, dieta i dane z zegarka — wszystko w Go4Body. Importuj plan od trenera, skanuj produkty, śledź postępy — każdego dnia.","heroCaption":"Bezpłatnie · Android 8.0+ · Dostępna na Google Play","btnDownloadNav":"Pobierz","btnDownloadHero":"Pobierz","btnDownloadCta":"Pobierz","btnFeaturesText":"Zobacz funkcje →","statAi":"Coach oparty na Claude (Anthropic)","statPlans":"Plany treningowe na każdy cel","statHc":"Integracja z Health Connect","statPdf":"Import planu od trenera","featLabel":"Funkcje","featH2":"Wszystko co potrzebujesz","featDesc":"Trening, dieta, sync zegarka i trener AI po polsku — Go4Body łączy to, co dotychczas rozdzielałeś między kilka aplikacji.","card1Title":"Plan treningowy","card1Desc":"Importuj plan PDF od swojego trenera lub wygeneruj gotowy plan Go4Body","card2Title":"AI Coach","card2Desc":"Codzienne wskazówki i chat z trenerem AI, który zna Twój plan, historię treningów, dietę i skład ciała. Oparty na Claude (Anthropic).","card3Title":"Dieta i żywienie","card3Desc":"Skanuj kody kreskowe lub dodawaj posiłki zdjęciem — AI rozpoznaje produkt i szacuje makroskładniki. Dzienny bilans kalorii, białka i węglowodanów.","card4Title":"Health Connect","card4Desc":"Automatyczna synchronizacja kroków, snu, tętna, wagi i składu ciała z aplikacji zdrowotnych na Androidzie.","card5Title":"Postęp i sylwetka","card5Desc":"Śledzenie wagi, skład ciała i zdjęcia sylwetki w osi czasu. Widzisz zmianę tygodniami, nie tylko na wadze.","card6Title":"Suplementacja","card6Desc":"Lista suplementów z dziennym przypominaniem i historią tygodniową. Nigdy więcej zapomnianych suplementów.","howLabel":"Jak to działa","howH2":"Zacznij w 3 minuty","howDesc":"Bez skomplikowanej konfiguracji. Od razu do działania.","step1Title":"Ustaw swój cel","step1Desc":"Powiedz aplikacji czego chcesz — budowa masy, redukcja, siła. Podaj podstawowe dane.","step2Title":"Wgraj lub wygeneruj plan","step2Desc":"Zaimportuj PDF od swojego trenera lub wygeneruj gotowy plan Go4Body dopasowany do Twojego celu.","step3Title":"Trenuj i śledź","step3Desc":"Zaznaczaj posiłki, wykonuj treningi, czytaj wskazówki AI. Aplikacja robi resztę.","step4Title":"Obserwuj wyniki","step4Desc":"Skład ciała, siłownia, dieta — wszystko w jednym miejscu. Postęp który widzisz.","ctaH2":"Gotowy zacząć?","ctaP":"Pobierz Go4Body i wypróbuj za darmo już teraz.","footHelp":"Pomoc","footPrivacy":"Polityka Prywatności","cardHint":"dotknij by zobaczyć ekran","footContact":"Kontakt"}, en: {"navFeatures":"Features","navHow":"How it works","navHelp":"Help","navPrivacy":"Privacy Policy","navPromo":"50% off first year","heroBadge":"<span></span> Available on Android","heroH1":"One app<br/>instead of <em>five</em>","heroSub":"AI trainer in Polish, workout plans, diet and watch data — all in Go4Body. Import a plan from your trainer, scan products, track progress — every day.","heroCaption":"Free · Android 8.0+ · Available on Google Play","btnDownloadNav":"Download","btnDownloadHero":"Download","btnDownloadCta":"Download","btnFeaturesText":"See features →","statAi":"Coach powered by Claude (Anthropic)","statPlans":"Workout plans for every goal","statHc":"Health Connect integration","statPdf":"Import a plan from your trainer","featLabel":"Features","featH2":"Everything you need","featDesc":"Training, diet, watch sync and an AI trainer in Polish — Go4Body brings together what you used to split across several apps.","card1Title":"Training plan","card1Desc":"Import a PDF plan from your trainer, or generate a ready-made Go4Body plan","card2Title":"AI Coach","card2Desc":"Daily tips and chat with an AI coach who knows your plan, workout history, diet and body composition. Powered by Claude (Anthropic).","card3Title":"Diet & nutrition","card3Desc":"Scan barcodes or add meals with a photo — AI recognizes the product and estimates macros. Daily balance of calories, protein and carbs.","card4Title":"Health Connect","card4Desc":"Automatic sync of steps, sleep, heart rate, weight and body composition from health apps on Android.","card5Title":"Progress & physique","card5Desc":"Track weight, body composition and progress photos on a timeline. See the change over weeks, not just on the scale.","card6Title":"Supplements","card6Desc":"Supplement list with daily reminders and a weekly history. Never forget a supplement again.","howLabel":"How it works","howH2":"Start in 3 minutes","howDesc":"No complicated setup. Straight to action.","step1Title":"Set your goal","step1Desc":"Tell the app what you want — build muscle, cut, get stronger. Enter your basic info.","step2Title":"Upload or generate a plan","step2Desc":"Import a PDF from your trainer, or generate a ready-made Go4Body plan matched to your goal.","step3Title":"Train and track","step3Desc":"Log your meals, complete workouts, read AI tips. The app does the rest.","step4Title":"Watch your results","step4Desc":"Body composition, workouts, diet — all in one place. Progress you can actually see.","ctaH2":"Ready to start?","ctaP":"Download Go4Body and try it free right now.","footHelp":"Help","footPrivacy":"Privacy Policy","cardHint":"tap to view screen","footContact":"Contact"} };
+  function setLang(lang) {
+    var dict = G4B_I18N[lang];
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('g4b_lang', lang); } catch(e) {}
   }
-  function hideDownloadModal(e) {
-    if (e && e.target !== document.getElementById('downloadOverlay')) return;
-    document.getElementById('downloadOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  // ── SIGNUP FORM ──
-  var SUPABASE_URL = 'https://gppaqrfjsmqynzcutldy.supabase.co';
-  var SUPABASE_ANON_KEY = 'sb_publishable_ej2pY29z0h5hpDeGud67Uw_4QxkLqdU';
-
-  document.getElementById('signupForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var emailInput = document.getElementById('signupEmail');
-    var msg = document.getElementById('signupMsg');
-    var btn = e.target.querySelector('button');
-    var email = emailInput.value.trim();
-
-    msg.textContent = '';
-    msg.className = 'signup-msg';
-    btn.disabled = true;
-    btn.textContent = 'Wysyłam…';
-
-    fetch(SUPABASE_URL + '/rest/v1/landing_signups', {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({ email: email })
-    })
-      .then(function (res) {
-        if (!res.ok) throw new Error('request failed');
-        msg.textContent = '✓ Zapisano! Odezwiemy się mailowo z kodem zniżkowym.';
-        msg.classList.add('success');
-        e.target.reset();
-      })
-      .catch(function () {
-        msg.textContent = 'Coś poszło nie tak. Spróbuj ponownie za chwilę.';
-        msg.classList.add('error');
-      })
-      .finally(function () {
-        btn.disabled = false;
-        btn.textContent = 'Zarezerwuj zniżkę';
-      });
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('g4b_lang'); } catch(e) {}
+    if (saved === 'en') setLang('en');
+  })();
+</script>
+<script>
+(function() {
+  var params = new URLSearchParams(location.search);
+  var hasUtm = false;
+  params.forEach(function(_, k) { if (k.indexOf('utm_') === 0 || k === 'campaign_id' || k === 'ad_id') hasUtm = true; });
+  if (!hasUtm) return;
+  document.querySelectorAll('a[href*="play.google.com/store/apps/details"]').forEach(function(a) {
+    var url = new URL(a.href);
+    url.searchParams.set('referrer', params.toString());
+    a.href = url.toString();
   });
-
-  // ── TESTER SIGNUP (mailto, przedpremierowo) ──
-  document.getElementById('testerForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = document.getElementById('testerEmail').value.trim();
-    var subject = encodeURIComponent('[Tester] Nowe zgłoszenie testera');
-    var body = encodeURIComponent('Chcę dołączyć do programu testerów Go4Body.\n\nMój e-mail: ' + email);
-    window.location.href = 'mailto:kontakt@go4body.com?subject=' + subject + '&body=' + body;
-  });
+})();
 </script>
 </body>
 </html>
