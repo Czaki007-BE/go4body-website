@@ -48,7 +48,10 @@
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
       font-weight: 800; font-size: 18px; color: var(--text);
+      text-decoration: none;
+      transition: opacity .15s ease;
     }
+    .nav-logo:hover { text-decoration: none; opacity: .75; }
     .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
@@ -137,10 +140,10 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
+  <a href="index.html" class="nav-logo" aria-label="Go4Body — strona główna">
     <img src="assets/icon.png" alt="Go4Body" onerror="this.style.display='none'" />
     Go4Body
-  </div>
+  </a>
   <div class="nav-links">
     <a href="index.html">Strona główna</a>
     <a href="index.html#features">Funkcje</a>
