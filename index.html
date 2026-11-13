@@ -128,10 +128,10 @@
         <div class="orbit-dot" aria-hidden="true"></div>
         <svg class="hero-star icon" aria-hidden="true"><use href="#i-spark"/></svg>
         <div class="hero-phone-back device">
-          <div class="device-glass"><img src="assets/screen-diet.webp" alt="Go4Body: bilans kalorii, makroskładniki i dziennik posiłków" width="720" height="1680"></div>
+          <div class="device-glass"><img src="assets/screen-diet.webp" data-src-en="assets/screen-diet-en.webp" alt="Go4Body: bilans kalorii, makroskładniki i dziennik posiłków" width="720" height="1680"></div>
         </div>
         <div class="hero-phone-front device">
-          <div class="device-glass"><img src="assets/screen-health.webp" alt="Go4Body: podsumowanie dnia, cel, trening, kroki, sen i kalorie" width="720" height="1680" fetchpriority="high"></div>
+          <div class="device-glass"><img src="assets/screen-health.webp" data-src-en="assets/screen-health-en.webp" alt="Go4Body: podsumowanie dnia, cel, trening, kroki, sen i kalorie" width="720" height="1680" fetchpriority="high"></div>
         </div>
         <div class="floating-note note-top">
           <span class="note-icon"><svg class="icon"><use href="#i-dumbbell"/></svg></span>
@@ -167,9 +167,9 @@
             <div class="tour-stage-number" aria-hidden="true">01</div>
             <div class="tour-phone device">
               <div class="device-glass tour-screens">
-                <img class="tour-screen active" data-screen="0" src="assets/screen-training.webp" alt="Ekran planu treningowego Go4Body" width="720" height="1680" loading="lazy">
-                <img class="tour-screen" data-screen="1" src="assets/screen-diet.webp" alt="Ekran diety Go4Body" width="720" height="1680" loading="lazy" aria-hidden="true">
-                <img class="tour-screen" data-screen="2" src="assets/screen-coach.webp" alt="Ekran trenera AI Go4Body" width="720" height="1680" loading="lazy" aria-hidden="true">
+                <img class="tour-screen active" data-screen="0" src="assets/screen-training.webp" data-src-en="assets/screen-training-en.webp" alt="Ekran planu treningowego Go4Body" width="720" height="1680" loading="lazy">
+                <img class="tour-screen" data-screen="1" src="assets/screen-diet.webp" data-src-en="assets/screen-diet-en.webp" alt="Ekran diety Go4Body" width="720" height="1680" loading="lazy" aria-hidden="true">
+                <img class="tour-screen" data-screen="2" src="assets/screen-coach.webp" data-src-en="assets/screen-coach-en.webp" alt="Ekran trenera AI Go4Body" width="720" height="1680" loading="lazy" aria-hidden="true">
               </div>
             </div>
             <div class="tour-callout">
@@ -201,7 +201,7 @@
               </ul>
               <a class="text-link step-next" href="#krok-dieta">A po treningu? <svg class="icon"><use href="#i-down"/></svg></a>
             </div>
-            <div class="mobile-step-visual peach"><div class="device"><div class="device-glass"><img src="assets/screen-training.webp" alt="Plan treningowy w Go4Body" width="720" height="1680" loading="lazy"></div></div></div>
+            <div class="mobile-step-visual peach"><div class="device"><div class="device-glass"><img src="assets/screen-training.webp" data-src-en="assets/screen-training-en.webp" alt="Plan treningowy w Go4Body" width="720" height="1680" loading="lazy"></div></div></div>
           </article>
           <article class="tour-step" id="krok-dieta" data-step="1">
             <div class="step-content reveal">
@@ -215,7 +215,7 @@
               </ul>
               <a class="text-link step-next" href="#krok-coach">Masz pytanie? <svg class="icon"><use href="#i-down"/></svg></a>
             </div>
-            <div class="mobile-step-visual mint"><div class="device"><div class="device-glass"><img src="assets/screen-diet.webp" alt="Bilans kalorii i makroskładników w Go4Body" width="720" height="1680" loading="lazy"></div></div></div>
+            <div class="mobile-step-visual mint"><div class="device"><div class="device-glass"><img src="assets/screen-diet.webp" data-src-en="assets/screen-diet-en.webp" alt="Bilans kalorii i makroskładników w Go4Body" width="720" height="1680" loading="lazy"></div></div></div>
           </article>
           <article class="tour-step" id="krok-coach" data-step="2">
             <div class="step-content reveal">
@@ -229,7 +229,7 @@
               <div class="topic-chips"><span>Plan na masę</span><span>Sen i regeneracja</span><span>Białko i kalorie</span></div>
               <a class="text-link step-next" href="#progres">Zobacz większy obraz <svg class="icon"><use href="#i-down"/></svg></a>
             </div>
-            <div class="mobile-step-visual lilac"><div class="device"><div class="device-glass"><img src="assets/screen-coach.webp" alt="Trener AI i tematy rozmów w Go4Body" width="720" height="1680" loading="lazy"></div></div></div>
+            <div class="mobile-step-visual lilac"><div class="device"><div class="device-glass"><img src="assets/screen-coach.webp" data-src-en="assets/screen-coach-en.webp" alt="Trener AI i tematy rozmów w Go4Body" width="720" height="1680" loading="lazy"></div></div></div>
           </article>
         </div>
       </div>
@@ -572,6 +572,10 @@
       restore(); cur = l;
       if (l === 'en') apply();
       document.documentElement.lang = l;
+      document.querySelectorAll('img[data-src-en]').forEach(function (im) {
+        if (!im.hasAttribute('data-src-pl')) im.setAttribute('data-src-pl', im.getAttribute('src'));
+        im.setAttribute('src', l === 'en' ? im.getAttribute('data-src-en') : im.getAttribute('data-src-pl'));
+      });
       document.querySelectorAll('.lang-btn').forEach(function (b) {
         var on = b.getAttribute('data-lang') === l;
         b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on));
