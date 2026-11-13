@@ -43,6 +43,8 @@
   };
   try { if (localStorage.getItem('g4b_consent') === 'granted') window.g4bLoadPixel(); } catch (e) {}
   </script>
+  <script>try{if(localStorage.getItem("g4b_lang")==="en"){document.documentElement.classList.add("lang-pending");setTimeout(function(){document.documentElement.classList.remove("lang-pending")},2500);}}catch(e){}</script>
+  <style>html.lang-pending body{visibility:hidden}</style>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -588,6 +590,7 @@
     });
     var saved = null; try { saved = localStorage.getItem('g4b_lang'); } catch (e) {}
     if (saved === 'en') setLang('en');
+    document.documentElement.classList.remove('lang-pending');
 
     // ── Zgoda na piksel: bez wyboru piksel się nie ładuje; wybór pamiętamy w przeglądarce ──
     var box = document.getElementById('consent'), choice = null;
