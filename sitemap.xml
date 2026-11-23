@@ -12,7 +12,12 @@
   </url>
   <url>
     <loc>https://go4body.com/privacy.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-22</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://go4body.com/regulamin.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <priority>0.4</priority>
   </url>
 </urlset>
